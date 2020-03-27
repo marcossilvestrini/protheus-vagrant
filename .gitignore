@@ -1,0 +1,12 @@
+#ignore files general
+**/.vscode
+**/.log
+**/.vagrant
+
+#ssh
+**/authorized_keys
+**/id_rsa.pub
+
+#erp
+**/*.rpo
+**/*.tar.gz
