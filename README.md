@@ -42,6 +42,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
     - Generate your ssh pub key and copy to security folder
     - Download artefacts of ERP(license,rpo,appserver,etc)
     - Copy artefacts for relative folders(license,rpo,appserver,etc)
+    - cd protheus-vagrant\totvs
     - vagrant up
 
 ## Vagrantfile
