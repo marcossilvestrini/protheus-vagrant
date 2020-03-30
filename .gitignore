@@ -6,6 +6,7 @@
 #ssh
 **/authorized_keys
 **/id_rsa.pub
+**/id_rsa
 
 #erp
 **/*.rpo
