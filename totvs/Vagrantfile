@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
     # within the machine from a port on the host machine. In the example below,
     # accessing "localhost:8080" will access port 80 on the guest machine.
     # NOTE: This will enable public access to the opened port
-    # protheus.vm.network "forwarded_port", guest: 80, host: 8080
+    protheus.vm.network "forwarded_port", guest: 80, host: 8080
 
 
     # Create a forwarded port mapping which allows access to a specific port
@@ -112,10 +112,9 @@ Vagrant.configure("2") do |config|
 
     # INSTALL UPDATES
     protheus.vm.provision "shell",
-      inline: "sudo yum update -y"
-      #inline: "apt-get install update -y"
+      inline: "sudo yum update -y"s
 
-    # INSTALL PACKAGES
+    # INSTALL PACKAGES WITH ANSIBLE
 
   end
 
