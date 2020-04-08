@@ -22,11 +22,11 @@ Vagrant.configure("2") do |config|
   # config.ssh.password = "vagrant"
   # config.ssh.forward_agent = true
 
-  #VM Protheus
-  config.vm.define "protheus" do |protheus|
+  #VM wordpress
+  config.vm.define "wordpress" do |wordpress|
 
     # HOSTNAME
-    protheus.vm.hostname = "rhel8-protheus"
+    wordpress.vm.hostname = "rhel8-wordpress"
 
     # NETWORK
 
@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
     # within the machine from a port on the host machine. In the example below,
     # accessing "localhost:8080" will access port 80 on the guest machine.
     # NOTE: This will enable public access to the opened port
-    protheus.vm.network "forwarded_port", guest: 80, host: 8080
+    wordpress.vm.network "forwarded_port", guest: 80, host: 8080
 
 
     # Create a forwarded port mapping which allows access to a specific port
@@ -55,9 +55,9 @@ Vagrant.configure("2") do |config|
     # Create a public network, which generally matched to bridged network.
     # Bridged networks make the machine appear as another physical device on
     # your network.
-    # protheus.vm.network "public_network"
-    protheus.vm.network "public_network" ,ip: "192.168.0.133"
-    # protheus.vm.network "public_network" ,use_dhcp_assigned_default_route: true
+    # wordpress.vm.network "public_network"
+    wordpress.vm.network "public_network" ,ip: "192.168.0.134"
+    # wordpress.vm.network "public_network" ,use_dhcp_assigned_default_route: true
 
     # MOUNTS
 
@@ -66,13 +66,8 @@ Vagrant.configure("2") do |config|
     # the path on the guest to mount the folder. And the optional third
     # argument is a set of non-required options.
     # config.vm.synced_folder "../data", "/vagrant_data"
-    protheus.vm.synced_folder ".", "/vagrant", disabled: true
-    protheus.vm.synced_folder "./security", "/totvs/security"
-    protheus.vm.synced_folder "./license", "/totvs/license"
-    protheus.vm.synced_folder "./dbaccess", "/totvs/dbaccess"
-    protheus.vm.synced_folder "./appserver", "/totvs/appserver"
-    protheus.vm.synced_folder "./smartclient", "/totvs/smartclient"
-    protheus.vm.synced_folder "./monitor", "/totvs/monitor"
+    wordpress.vm.synced_folder ".", "/vagrant", disabled: true
+    wordpress.vm.synced_folder "./security", "/home/vagrant/security"
 
     # PROVIDER
 
@@ -90,8 +85,8 @@ Vagrant.configure("2") do |config|
     #
     # View the documentation for the provider you are using for more
     # information on available options.
-    protheus.vm.provider "virtualbox" do |vb|
-      vb.name = "rhel8-protheus"
+    wordpress.vm.provider "virtualbox" do |vb|
+      vb.name = "rhel8-wordpress"
       vb.memory = 2048
       vb.cpus = 1
     end
@@ -107,11 +102,11 @@ Vagrant.configure("2") do |config|
     # SHELL
 
     # SSH
-    protheus.vm.provision "shell",
-      inline: "cat /totvs/security/id_rsa.pub >> .ssh/authorized_keys"
+    wordpress.vm.provision "shell",
+      inline: "cat /home/vagrant/security/id_rsa.pub >> .ssh/authorized_keys"
 
     # INSTALL UPDATES
-    protheus.vm.provision "shell",
+    wordpress.vm.provision "shell",
       inline: "sudo yum update -y"
 
     # INSTALL PACKAGES WITH ANSIBLE
