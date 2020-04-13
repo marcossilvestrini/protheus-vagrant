@@ -52,4 +52,6 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
     Configure ssh
     Configure Firewall (firewalld or iptables)
     Configure Selinux
+    Configure rhel-susbscription
+
     foo

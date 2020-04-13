@@ -105,6 +105,10 @@ Vagrant.configure("2") do |config|
     wordpress.vm.provision "shell",
       inline: "cat /home/vagrant/security/id_rsa.pub >> .ssh/authorized_keys"
 
+    # REDHAT SUBSCRIPTION
+    wordpress.vm.provision "shell",
+      inline: "subscription-manager register --username marcos.silvestrini --password B@linha01@2020 --auto-attach"
+
     # INSTALL UPDATES
     wordpress.vm.provision "shell",
       inline: "sudo yum update -y"
