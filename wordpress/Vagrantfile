@@ -106,14 +106,20 @@ Vagrant.configure("2") do |config|
       inline: "cat /home/vagrant/security/id_rsa.pub >> .ssh/authorized_keys"
 
     # REDHAT SUBSCRIPTION
-    wordpress.vm.provision "shell",
-      inline: "subscription-manager register --username marcos.silvestrini --password B@linha01@2020 --auto-attach"
+    # REDHAT SUBSCRIPTION
+    wordpress.vm.provision "shell", inline: <<-SHELL
+      # subscription-manager register --username <username> --password <password> --auto-attach
+      user=$( awk 'NR==1' security/rhel-subscription)
+      pass=$( awk 'NR==2' security/rhel-subscription)
+      sudo subscription-manager register --username $user --password $pass --auto-attach
+    SHELL
 
     # INSTALL UPDATES
-    wordpress.vm.provision "shell",
-      inline: "sudo yum update -y"
+    # wordpress.vm.provision "shell",
+      # inline: "sudo yum update -y"
 
-    # INSTALL PACKAGES WITH ANSIBLE
+    # INSTALL PACKAGES /php7 - https://computingforgeeks.com/how-to-install-php-7-2-7-1-on-rhel-8/
+
 
   end
 
