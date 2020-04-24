@@ -36,7 +36,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
     sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
     vagrant ––version
 
-## Create Box Red Hat 8 with ERP Protheus
+## Create Box with ERP Protheus
 
     - clone this reposotory
     - Generate your ssh pub key and copy to security folder
