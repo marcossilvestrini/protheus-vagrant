@@ -14,3 +14,4 @@
 **/*.tar.gz
 
 security/rhel-subscription
+**/.vagrant

@@ -15,10 +15,8 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  #config.vm.box = "generic/rhel8"
+  config.vm.box = "generic/rhel8"
   # config.vm.box = "ubuntu/bionic64"
-  config.vm.box = "centos/8"
-  config.vm.box_version = "1905.1"
 
   # config.ssh.username = "vagrant"
   # config.ssh.password = "vagrant"
@@ -28,35 +26,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "protheus" do |protheus|
 
     # HOSTNAME
-    protheus.vm.hostname = "centos8-protheus"
-
-    # FIX TO ERROR VBGUEST
-    # Monkey patch for https://github.com/dotless-de/vagrant-vbguest/issues/367
-    class Foo < VagrantVbguest::Installers::CentOS
-      def has_rel_repo?
-        unless instance_variable_defined?(:@has_rel_repo)
-          rel = release_version
-          @has_rel_repo = communicate.test("yum repolist")
-        end
-        @has_rel_repo
-      end
-
-      def install_kernel_devel(opts=nil, &block)
-        cmd = "yum update kernel -y"
-        communicate.sudo(cmd, opts, &block)
-
-        cmd = "yum install -y kernel-devel"
-        communicate.sudo(cmd, opts, &block)
-
-        cmd = "shutdown -r now"
-        communicate.sudo(cmd, opts, &block)
-
-        begin
-          sleep 5
-        end until @vm.communicate.ready?
-      end
-    end
-    protheus.vbguest.installer = Foo
+    protheus.vm.hostname = "rhel8-protheus"
 
     # NETWORK
 
@@ -121,7 +91,7 @@ Vagrant.configure("2") do |config|
     # View the documentation for the provider you are using for more
     # information on available options.
     protheus.vm.provider "virtualbox" do |vb|
-      vb.name = "centos8-protheus"
+      vb.name = "rhel8-protheus"
       vb.memory = 2048
       vb.cpus = 1
     end
