@@ -30,7 +30,6 @@ Vagrant.configure("2") do |config|
     # HOSTNAME
     protheus.vm.hostname = "centos8-protheus"
 
-    # FIX TO ERROR VBGUEST
     # Monkey patch for https://github.com/dotless-de/vagrant-vbguest/issues/367
     class Foo < VagrantVbguest::Installers::CentOS
       def has_rel_repo?
