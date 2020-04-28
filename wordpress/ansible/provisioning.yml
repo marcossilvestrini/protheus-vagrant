@@ -1,0 +1,88 @@
+---
+- hosts: all
+  tasks:
+    - name: Install Epel and Rmi
+      yum:
+        name: "{{ item }}"
+        state: present
+      become: yes
+      with_items:
+        - https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
+        - http://rpms.famillecollet.com/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm
+
+    - name: Import EPEL GPG key.
+      rpm_key:
+        key: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+        state: present
+      become: yes
+
+    - name: Import remi GPG key.
+      rpm_key:
+        key: http://rpms.remirepo.net/RPM-GPG-KEY-remi
+        state: present
+      become: yes
+
+    - name: Set Epel for Dependencies
+      shell: dnf
+      become: yes
+
+    - name: Set Rmi Version
+      shell: dnf module enable php:remi-7.4 -y
+      become: yes
+
+    - name: Install Packages
+      yum:
+        name: "{{ item }}"
+        state: latest
+      become: yes
+      with_items:
+        - php
+        - php-cli
+        - php-common
+        - php-fpm
+        - php-dom
+        - php-simplexml
+        - php-xml
+        - php-xmlreader
+        - php-curl
+        - php-date
+        - php-exif
+        - php-filter
+        - php-ftp
+        - php-gd
+        - php-hash
+        - php-iconv
+        - php-json
+        - php-libxml
+        - php-pecl-imagick
+        - php-mbstring
+        - php-mysqlnd
+        - php-openssl
+        - php-pcre
+        - php-posix
+        - php-sockets
+        - php-spl
+        - php-tokenizer
+        - php-zlib
+        - httpd
+
+    - name: Restart Services
+      systemd:
+        name: "{{ item }}"
+        state: restarted
+        daemon_reload: yes
+      become: yes
+      with_items:
+        - "httpd"
+
+    - name: Change file ownership, group and permissions for php
+      file:
+        path: /var/www/html/
+        owner: vagrant
+        group: vagrant
+        mode: "0775"
+      become: yes
+
+    - name: Set php test file
+      shell: echo '<?php phpinfo();' >/var/www/html/info.php
+      become: yes
