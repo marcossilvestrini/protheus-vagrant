@@ -39,7 +39,7 @@ vagrant ––version
    Generate your ssh pub key and copy to security folder
    Download artefacts of ERP(license,rpo,appserver,etc)
    Copy artefacts for relative folders(license,rpo,appserver,etc)
-   cd protheus-vagrant\totvs
+   cd vagrant-protheus\totvs
    vagrant up
 
 ## Vagrantfile
@@ -48,7 +48,7 @@ Configure Mounts
 Configure ssh
 Configure Firewall (firewalld or iptables)
 Configure Selinux
-Configure rhel-susbscription
+Install Updates
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExNzU1NTQ2Ml19
+eyJoaXN0b3J5IjpbLTEzMTg5NjIxMTddfQ==
 -->
