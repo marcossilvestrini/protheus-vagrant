@@ -1,6 +1,4 @@
-
-
-## Provision VM for developer with erp protheus
+## Provision VM for Developer with ERP Protheus
 
 ## Getting Started
 
@@ -22,35 +20,35 @@
 
 ## Oficial Doc
 
-https://www.vagrantup.com/docs/index.html
+	https://www.vagrantup.com/docs/index.html
 
 ## Install Vagrant in Rhel Centos 7\8
 
 ### Download
 
-https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
-sudo wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
+	https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
+	sudo wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
 
 ### Install 
-sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
-vagrant ––version
+	sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
+	vagrant ––version
 
 ## Create Box with ERP Protheus
-clone this reposotory
-Generate your ssh pub key and copy to security folder
-Download artefacts of ERP(license,rpo,appserver,etc)
-Copy artefacts for relative folders(license,rpo,appserver,etc)
-cd vagrant-protheus\totvs
-vagrant up
+	clone this reposotory
+	Generate your ssh pub key and copy to security folder
+	Download artefacts of ERP(license,rpo,appserver,etc)
+	Copy artefacts for relative folders(license,rpo,appserver,etc)
+	cd vagrant-protheus\totvs
+	vagrant up
 
 ## Vagrantfile
-Configure Network
-Configure Mounts
-Configure ssh
-Configure Firewall (firewalld or iptables)
-Configure Selinux
-Install Updates
+	Configure Network
+	Configure Mounts
+	Configure ssh
+	Configure Firewall (firewalld or iptables)
+	Configure Selinux
+	Install Updates
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA3NDEyMDQ5LC02NzkzNTYxMjEsLTEzMT
+eyJoaXN0b3J5IjpbODc4MTk0NjUzLC02NzkzNTYxMjEsLTEzMT
 g5NjIxMTddfQ==
 -->
