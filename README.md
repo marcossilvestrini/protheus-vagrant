@@ -48,7 +48,3 @@
 	Configure Firewall (firewalld or iptables)
 	Configure Selinux
 	Install Updates
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbODc4MTk0NjUzLC02NzkzNTYxMjEsLTEzMT
-g5NjIxMTddfQ==
--->
