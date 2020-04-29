@@ -1,0 +1,113 @@
+---
+- hosts: all
+  tasks:
+    - name: Install Epel and Rmi
+      yum:
+        name: "{{ item }}"
+        state: present
+      become: yes
+      with_items:
+        - https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
+        - http://rpms.famillecollet.com/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm
+
+    - name: Import EPEL GPG key.
+      rpm_key:
+        key: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+        state: present
+      become: yes
+
+    - name: Import remi GPG key.
+      rpm_key:
+        key: http://rpms.remirepo.net/RPM-GPG-KEY-remi
+        state: present
+      become: yes
+
+    - name: Set Rmi Version
+      shell: dnf module enable php:remi-7.4 -y
+      become: yes
+
+    - name: Install Packages
+      yum:
+        name: "{{ item }}"
+        state: latest
+      become: yes
+      with_items:
+        - php
+        - php-cli
+        - php-common
+        - php-fpm
+        - php-dom
+        - php-simplexml
+        - php-xml
+        - php-xmlreader
+        - php-curl
+        - php-date
+        - php-exif
+        - php-filter
+        - php-ftp
+        - php-gd
+        - php-hash
+        - php-iconv
+        - php-json
+        - php-libxml
+        - php-pecl-imagick
+        - php-mbstring
+        - php-mysqlnd
+        - php-openssl
+        - php-pcre
+        - php-posix
+        - php-sockets
+        - php-spl
+        - php-tokenizer
+        - php-zlib
+        - httpd
+        - mysql-server
+        - python3-PyMySQL
+
+    - name: Change file ownership, group and permissions for php
+      file:
+        path: /var/www/html/
+        owner: vagrant
+        group: vagrant
+        mode: "0775"
+      become: yes
+
+    - name: Set php test file
+      shell: echo '<?php phpinfo();' >/var/www/html/info.php
+      become: yes
+
+    - name: Start Services
+      service:
+        name: "{{ item }}"
+        state: restarted
+        enabled: yes
+      become: yes
+      with_items:
+        - httpd
+        - mysqld
+
+    - name: "Create Database MySQL"
+      mysql_db:
+        name: wordpress_db
+        login_user: root
+        state: present
+
+    - name: "Create User MySQL"
+      mysql_user:
+        login_user: root
+        name: wordpress_user
+        password: 12345
+        priv: "wordpress_db.*:ALL"
+        state: present
+
+    - name: Download wordpress
+      get_url:
+        url: https://wordpress.org/latest.tar.gz
+        dest: /tmp/wordpress.tar.gz
+
+    - name: Extract wordpress files
+      unarchive:
+        src: /tmp/wordpress.tar.gz
+        dest: /var/www/
+        remote_src: yes
+      become: yes
