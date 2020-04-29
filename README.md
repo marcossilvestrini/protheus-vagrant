@@ -22,12 +22,13 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## Oficial Doc
 
-<https://www.vagrantup.com/docs/index.html>
+https://www.vagrantup.com/docs/index.html
 
 ## Install Vagrant in Rhel Centos 7\8
 
 ### Download
-    <https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm>
+
+https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
 sudo wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
 
 ### Install 
@@ -35,12 +36,12 @@ sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
 vagrant ––version
 
 ## Create Box with ERP Protheus
-   clone this reposotory
-   Generate your ssh pub key and copy to security folder
-   Download artefacts of ERP(license,rpo,appserver,etc)
-   Copy artefacts for relative folders(license,rpo,appserver,etc)
-   cd vagrant-protheus\totvs
-   vagrant up
+clone this reposotory
+Generate your ssh pub key and copy to security folder
+Download artefacts of ERP(license,rpo,appserver,etc)
+Copy artefacts for relative folders(license,rpo,appserver,etc)
+cd vagrant-protheus\totvs
+vagrant up
 
 ## Vagrantfile
 Configure Network
@@ -50,5 +51,5 @@ Configure Firewall (firewalld or iptables)
 Configure Selinux
 Install Updates
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTg5NjIxMTddfQ==
+eyJoaXN0b3J5IjpbMTE4OTE0MTc5OSwtMTMxODk2MjExN119
 -->
