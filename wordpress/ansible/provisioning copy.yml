@@ -22,6 +22,10 @@
         state: present
       become: yes
 
+    - name: Set Epel for Dependencies
+      shell: dnf
+      become: yes
+
     - name: Set Rmi Version
       shell: dnf module enable php:remi-7.4 -y
       become: yes
@@ -64,6 +68,19 @@
         - mysql-server
         - python3-PyMySQL
 
+    - name: "Turn on Apache and MyDQL"
+      service: name = {{item}} state=started enabled=yes
+      with_items:
+        - mysql
+    - name: Restart Services
+      systemd:
+        name: "{{ item }}"
+        state: restarted
+        daemon_reload: yes
+      become: yes
+      with_items:
+        - "httpd"
+
     - name: Change file ownership, group and permissions for php
       file:
         path: /var/www/html/
@@ -76,26 +93,8 @@
       shell: echo '<?php phpinfo();' >/var/www/html/info.php
       become: yes
 
-    - name: Start Services
-      service:
-        name: "{{ item }}"
-        state: restarted
-        enabled: yes
-      become: yes
-      with_items:
-        - httpd
-        - mysqld
-
     - name: "Create Database MySQL"
       mysql_db:
         name: wordpress_db
         login_user: root
-        state: present
-
-    - name: "Create User MySQL"
-      mysql_user:
-        login_user: root
-        name: wordpress_user
-        password: 12345
-        priv: "wordpress_db.*:ALL"
         state: present
