@@ -26,15 +26,13 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## Install Vagrant in Rhel Centos 7\8
 
-## Download vagrant
-
+### Download
     <https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm>
-    sudo wget <https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm>
+sudo wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
 
-## Install
-
-    sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
-    vagrant ––version
+### Install 
+sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
+vagrant ––version
 
 ## Create Box with ERP Protheus
    clone this reposotory
@@ -52,5 +50,5 @@ Configure Firewall (firewalld or iptables)
 Configure Selinux
 Configure rhel-susbscription
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzI3NDczMzldfQ==
+eyJoaXN0b3J5IjpbMjExNzU1NTQ2Ml19
 -->
