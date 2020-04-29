@@ -37,19 +37,20 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
     vagrant ––version
 
 ## Create Box with ERP Protheus
-
-    - clone this reposotory
-    - Generate your ssh pub key and copy to security folder
-    - Download artefacts of ERP(license,rpo,appserver,etc)
-    - Copy artefacts for relative folders(license,rpo,appserver,etc)
-    - cd protheus-vagrant\totvs
-    - vagrant up
+   clone this reposotory
+   Generate your ssh pub key and copy to security folder
+   Download artefacts of ERP(license,rpo,appserver,etc)
+   Copy artefacts for relative folders(license,rpo,appserver,etc)
+   cd protheus-vagrant\totvs
+   vagrant up
 
 ## Vagrantfile
-
-    Configure Network
-    Configure Mounts
-    Configure ssh
-    Configure Firewall (firewalld or iptables)
-    Configure Selinux
-    Configure rhel-susbscription
+Configure Network
+Configure Mounts
+Configure ssh
+Configure Firewall (firewalld or iptables)
+Configure Selinux
+Configure rhel-susbscription
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE5NzI3NDczMzldfQ==
+-->
