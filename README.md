@@ -1,4 +1,4 @@
-# PROVISION VM FOR DEVELOPER
+
 
 ## Provision VM for developer with erp protheus
 
@@ -9,16 +9,16 @@
 
 ## Prerequisites
 
-Virtual Box
-Vagrant
+	Virtual Box
+	Vagrant
 
 ## Authors
 
-Marcos Silvestrini
+	Marcos Silvestrini
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
+	This project is licensed under the MIT License - see the LICENSE.md 	file for details
 
 ## Oficial Doc
 
@@ -51,5 +51,6 @@ Configure Firewall (firewalld or iptables)
 Configure Selinux
 Install Updates
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3OTM1NjEyMSwtMTMxODk2MjExN119
+eyJoaXN0b3J5IjpbNjA3NDEyMDQ5LC02NzkzNTYxMjEsLTEzMT
+g5NjIxMTddfQ==
 -->
