@@ -4,8 +4,8 @@
 
 ## Getting Started
 
-Fork the project and enjoy.
-Atention for pre requisites and License!!!
+	Fork the project and enjoy.
+	Atention for pre requisites and License!!!
 
 ## Prerequisites
 
@@ -51,5 +51,5 @@ Configure Firewall (firewalld or iptables)
 Configure Selinux
 Install Updates
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4OTE0MTc5OSwtMTMxODk2MjExN119
+eyJoaXN0b3J5IjpbLTY3OTM1NjEyMSwtMTMxODk2MjExN119
 -->
