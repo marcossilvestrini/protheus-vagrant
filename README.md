@@ -29,7 +29,7 @@
 	https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
 	sudo wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
 
-### Install 
+### Install
 	sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
 	vagrant ––version
 
