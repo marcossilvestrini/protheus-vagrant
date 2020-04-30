@@ -97,7 +97,7 @@ Vagrant.configure("2") do |config|
     # config.vm.synced_folder "../data", "/vagrant_data"
     protheus.vm.synced_folder ".", "/vagrant", disabled: true
     protheus.vm.synced_folder "./security", "/totvs/security"
-    protheus.vm.synced_folder "./license", "/totvs/license"
+    protheus.vm.synced_folder "./license", "/totvs/licenseserver"
     protheus.vm.synced_folder "./dbaccess", "/totvs/dbaccess"
     protheus.vm.synced_folder "./appserver", "/totvs/appserver"
     protheus.vm.synced_folder "./smartclient", "/totvs/smartclient"
