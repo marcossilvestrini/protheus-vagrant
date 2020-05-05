@@ -1,0 +1,6 @@
+---
+- hosts: protheus-core
+  tasks:
+    - name: Configure DBserver
+      debug:
+        msg: "Configure DBserver..."

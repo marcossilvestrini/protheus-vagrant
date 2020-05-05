@@ -1,0 +1,6 @@
+---
+- hosts: protheus-core
+  tasks:
+    - name: Descompress Files
+      debug:
+        msg: "Descompress Files License Server..."

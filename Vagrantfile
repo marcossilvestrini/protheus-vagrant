@@ -136,6 +136,16 @@ Vagrant.configure("2") do |config|
     # SHELL
 
     # SSH
+
+    # SSH,FIREWALLD AND SELINUX
+    wordpress.vm.provision "shell", inline: <<-SHELL
+      cat /totvs/security/id_rsa.pub >> .ssh/authorized_keys
+      sudo systemctl stop firewalld
+      sudo systemctl disable firewalld
+      sudo setenforce Permissive
+    SHELL
+
+
     protheus.vm.provision "shell",
       inline: "cat /totvs/security/id_rsa.pub >> .ssh/authorized_keys"
 
@@ -144,6 +154,9 @@ Vagrant.configure("2") do |config|
       inline: "sudo yum update -y"
 
     # INSTALL PACKAGES WITH ANSIBLE
+    protheus.vm.provision "ansible" do |ansible|
+      ansible.playbook = "ansible/protheus.yml"
+    end
 
   end
 

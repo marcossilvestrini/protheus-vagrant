@@ -1,0 +1,11 @@
+- name: Install Configure DBserver
+  import_playbook: dbserver.yml
+
+- name: Install and Configure License Server
+  import_playbook: license.yml
+
+- name: Install and Configure Dbaccess
+  import_playbook: dbaccess.yml
+
+- name: Install and Configure Appserver
+  import_playbook: appserver.yml
