@@ -1,4 +1,4 @@
-## Provision VM for Developer with ERP Protheus
+# Provision VM for Developer with ERP Protheus
 
 ## Getting Started
 
@@ -51,3 +51,8 @@
     Configure Firewall (firewalld or iptables)
     Configure Selinux
     Install Updates
+
+## Fix Error SSH in Vagrant Windows
+
+- run this command in powershell:
+- $Env:VAGRANT_PREFER_SYSTEM_BIN += 0

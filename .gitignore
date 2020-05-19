@@ -12,6 +12,7 @@
 #erp
 **/*.rpo
 **/*.tar.gz
+app/protheus_data/systemload/*.zip*
 
 security/rhel-subscription
 **/.vagrant
