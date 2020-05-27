@@ -26,29 +26,30 @@ unless Vagrant.has_plugin?("vagrant-reload")
   system('vagrant plugin install vagrant-reload')
 end
 
-# VARIABLE HOSTNAME
-NAME= "ol8-protheus"
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = BOX_NAME
   config.vm.box_url = "#{BOX_URL}/#{BOX_NAME}.json"
 
-  # VM Protheus
-  config.vm.define "protheus"  do |protheus|
+  # VM PostgreSQL
+  config.vm.define "postgresql" do |postgresql|
+
+    # VARIABLE HOSTNAME
+    DB_NAME= "ol8-postgresql"
+
     # HOSTNAME
-    protheus.vm.hostname = NAME
+    postgresql.vm.hostname = DB_NAME
 
     # NETWORK
-    protheus.vm.network "public_network" ,ip: "192.168.0.133"
-    protheus.vm.network "forwarded_port", guest: 80, host: 8080, adapter: 1 , guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    postgresql.vm.network "public_network" ,ip: "192.168.0.132"
+    postgresql.vm.network "forwarded_port", guest: 5432, host: 5432, adapter: 1 , guest_ip: "192.168.0.132" ,host_ip: "192.168.0.33"
 
     # MOUNTS
-    protheus.vm.synced_folder ".", "/vagrant", disabled: true
-    protheus.vm.synced_folder "./app", "/totvs"
+    postgresql.vm.synced_folder ".", "/vagrant", disabled: true
+    postgresql.vm.synced_folder "./security", "/security"
 
     # PROVIDER
-    protheus.vm.provider "virtualbox" do |vb|
-      vb.name = NAME
+    postgresql.vm.provider "virtualbox" do |vb|
+      vb.name = DB_NAME
       vb.memory = 2048
       vb.cpus = 3
     end
@@ -56,34 +57,70 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # PROVISION
 
     # SSH,FIREWALLD AND SELINUX
-    protheus.vm.provision "shell", inline: <<-SHELL
-      cat /totvs/security/id_rsa.pub >> .ssh/authorized_keys &&
-      # chmod 600 .ssh/authorized_keys
+    postgresql.vm.provision "shell", inline: <<-SHELL
+      cat /security/id_rsa.pub >> .ssh/authorized_keys
       sudo systemctl stop firewalld
       sudo systemctl disable firewalld
       sudo setenforce Permissive
     SHELL
 
     # INSTALL UPDATES
-    # Provision everything on the first run
-    #config.vm.provision "shell", path: "scripts/install.sh"
-    #config.vm.provision :reload
-    #config.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
+    # postgresql.vm.provision "shell", path: "scripts/install.sh"
+    # postgresql.vm.provision :reload
+    # postgresql.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
 
-    # protheus.vm.provision "shell",
-      # inline: "sudo yum update -y"
-
-
-    # INSTALL PACKAGES WITH ANSIBLE
-    #protheus.vm.provision "ansible" do |ansible|
-      #ansible.playbook = "ansible/protheus.yml"
-    #end
-
-    protheus.vm.provision "shell", inline: <<-SHELL
-      sudo yum install httpd -y
-      sudo systemctl start httpd
-    SHELL
+    # PROVISIONING ANSIBLE
+    postgresql.vm.provision "ansible" do |ansible|
+      ansible.playbook = "provisioning/playbook.yml"
+    end
 
   end
+
+  # # VM Protheus
+  # config.vm.define "protheus"  do |protheus|
+
+  #   # VARIABLE HOSTNAME
+  #   APP_NAME= "ol8-protheus"
+
+  #   # HOSTNAME
+  #   protheus.vm.hostname = APP_NAME
+
+  #   # NETWORK
+  #   protheus.vm.network "public_network" ,ip: "192.168.0.133"
+  #   protheus.vm.network "forwarded_port", guest: 80, host: 8080, adapter: 1 , guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+
+  #   # MOUNTS
+  #   protheus.vm.synced_folder ".", "/vagrant", disabled: true
+  #   protheus.vm.synced_folder "./app", "/totvs"
+  #   protheus.vm.synced_folder "./security", "/security"
+
+  #   # PROVIDER
+  #   protheus.vm.provider "virtualbox" do |vb|
+  #     vb.name = APP_NAME
+  #     vb.memory = 2048
+  #     vb.cpus = 3
+  #   end
+
+  #   # PROVISION
+
+  #   # SSH,FIREWALLD AND SELINUX
+  #   protheus.vm.provision "shell", inline: <<-SHELL
+  #     cat /security/id_rsa.pub >> .ssh/authorized_keys
+  #     sudo systemctl stop firewalld
+  #     sudo systemctl disable firewalld
+  #     sudo setenforce Permissive
+  #   SHELL
+
+  #   # INSTALL UPDATES
+  #   # protheus.vm.provision "shell", path: "scripts/install.sh"
+  #   # protheus.vm.provision :reload
+  #   # protheus.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
+
+  #   # PROVISIONING ANSIBLE
+  #   #protheus.vm.provision "ansible" do |ansible|
+  #     #ansible.playbook = "ansible/protheus.yml"
+  #   #end
+
+  # end
 
 end

@@ -5,8 +5,8 @@
 
 #security
 **/authorized_keys
-**/id_rsa.pub
-**/id_rsa
+**/*.pub
+**/*.ppk
 **/rhel-subscription
 
 #erp
@@ -14,5 +14,7 @@
 **/*.tar.gz
 app/protheus_data/systemload/*.zip*
 
-security/rhel-subscription
-**/.vagrant
+# rules postgresql
+**/*.retry
+**/*/__pycache__
+**/*.pyc
