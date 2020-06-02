@@ -1,6 +1,12 @@
-- hosts: postgresql
+# - hosts: postgresql
+#   become: yes
+#   vars_files:
+#     - roles/postgresql/vars/main.yml
+#   roles:
+#     - postgresql
+
+- hosts: protheus
   become: yes
-  vars_files:
-    - roles/postgresql/vars/main.yml
   roles:
-    - postgresql
+    - rpo
+    - dictionary

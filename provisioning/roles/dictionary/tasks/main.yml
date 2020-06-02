@@ -1,0 +1,14 @@
+---
+- name: Create Dictionary Paths
+  file:
+    path: "{{item}}"
+    state: directory
+  with_items:
+    - '{{ systemload_path }}'
+    - '{{ web_path }}'
+    - '{{ portaL_rh }}'
+
+#- name: Copy Files
+
+#-name: Extract Files
+

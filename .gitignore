@@ -12,7 +12,8 @@
 #erp
 **/*.rpo
 **/*.tar.gz
-app/protheus_data/systemload/*.zip*
+**/smartclient/**/*.zip
+**/protheus_data/**/*.zip*
 
 # rules postgresql
 **/*.retry

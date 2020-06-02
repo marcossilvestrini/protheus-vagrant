@@ -1,1 +1,34 @@
-db_ip: '192.168.0.132'
+---
+# DB
+db_ip: '192.168.0.33'
+db_user: 'protheus'
+db_pass: 'protheus'
+
+# License
+license_server_port: '5555'
+license_client_port: '5556'
+license_path: '/totvs/license'
+
+# Dbaccess
+dbaccess_path: '/totvs/dbaccess'
+dbaccess_master_port: '7900'
+dbaccess_slave01_port: '7901'
+dbaccess_slave02_port: '7902'
+
+# RPO
+rpo_path: '/totvs/rpo'
+
+# Dictionary
+dictionary_base: '/totvs/protheus-data'
+
+# Appserver
+start_path: '/totvs/bin'
+appserver_path: '{{ start_path}}/appserver'
+appserver_slave01_port: '7031'
+
+
+# Smartclient
+smartclient_path: '{{ start_path}}/smartclient'
+
+# Monitor
+monitor_path: '{{ start_path}}/monitor'
