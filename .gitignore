@@ -13,7 +13,7 @@
 **/*.rpo
 **/*.tar.gz
 **/smartclient/**/*.zip
-**/protheus_data/**/*.zip*
+**/provisioning/**/*.zip*
 
 # rules postgresql
 **/*.retry

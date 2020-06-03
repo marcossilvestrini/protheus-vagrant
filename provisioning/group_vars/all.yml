@@ -5,6 +5,7 @@ db_user: 'protheus'
 db_pass: 'protheus'
 
 # License
+license_ip: '192.168.0.133'
 license_server_port: '5555'
 license_client_port: '5556'
 license_path: '/totvs/license'
