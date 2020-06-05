@@ -10,10 +10,9 @@
 **/rhel-subscription
 
 #erp
-**/*.rpo
-**/*.tar.gz
-**/smartclient/**/*.zip
+**/provisioning/**/*.rpo
 **/provisioning/**/*.zip*
+**/provisioning/**/*.tar.gz*
 
 # rules postgresql
 **/*.retry

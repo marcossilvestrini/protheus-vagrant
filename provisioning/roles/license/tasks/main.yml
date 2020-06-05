@@ -1,1 +1,36 @@
 ---
+- name: Create License Paths
+  file:
+    path: "{{item}}"
+    state: directory
+  with_items:
+    - '{{ system_path }}'
+    - '{{ systemload_path }}'
+    - '{{ web_path }}'
+    - '{{ portaL_rh_path }}'
+  become: yes
+
+# - name: Copy License Files
+#   copy:
+#     src: '{{ item.src }}'
+#     dest: '{{ item.dest }}'
+#   with_items:
+#     - { src: 'BRA-MENUS.ZIP' ,dest: '{{ system_path }}'}
+#     - { src: 'BRA-DICIONARIOS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
+#     - { src: 'BRA-HELPS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
+#     - { src: 'web-files.zip' ,dest: '{{ systemload_path }}'}
+#     - { src: 'PortalMeuRH.zip' ,dest: '{{ portaL_rh_path }}'}
+#   become: yes
+
+# - name: Extract License Files
+#   unarchive:
+#     src: '{{ item.src }}'
+#     dest: '{{ item.dest }}'
+#     remote_src: yes
+#   with_items:
+#     - { src: '{{ system_path }}/BRA-MENUS.ZIP' ,dest: '{{ system_path }}'}
+#     - { src: '{{ systemload_path }}/BRA-DICIONARIOS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
+#     - { src: '{{ systemload_path }}/BRA-HELPS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
+#     - { src: '{{ systemload_path }}/web-files.zip' ,dest: '{{ systemload_path }}'}
+#     - { src: '{{ portaL_rh_path }}/PortalMeuRH.zip' ,dest: '{{ portaL_rh_path }}'}
+#   become: yes

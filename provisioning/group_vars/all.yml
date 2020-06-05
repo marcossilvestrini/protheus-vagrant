@@ -1,4 +1,8 @@
 ---
+# Ansible
+ansible_python_interpreter: '/usr/bin/python3'
+ansible_ssh_commom_args: '-o StrictHostKeyChecking=no'
+
 # DB
 db_ip: '192.168.0.33'
 db_user: 'protheus'
@@ -7,12 +11,9 @@ db_pass: 'protheus'
 # License
 license_ip: '192.168.0.133'
 license_server_port: '5555'
-license_client_port: '5556'
-license_path: '/totvs/license'
 
 # Dbaccess
 dbaccess_path: '/totvs/dbaccess'
-dbaccess_master_port: '7900'
 dbaccess_slave01_port: '7901'
 dbaccess_slave02_port: '7902'
 

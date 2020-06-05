@@ -1,0 +1,8 @@
+---
+- name: Install Commons Packages
+  dnf:
+    name: '{{ item }}'
+    state: latest
+  loop:
+    - '{{ common_packages }}'
+  become: yes

@@ -1,1 +1,8 @@
 ---
+license_path: '/totvs/license'
+license_root_path: '{{ license_path }}/data'
+license_source_path: '{{ license_root_path }}/apo'
+license_tcp_port: '2234'
+license_server_port: '5555'
+license_web_port: '8020'
+license_certs: '{{ license_root_path }}/certs/licenseservercloud.cer'

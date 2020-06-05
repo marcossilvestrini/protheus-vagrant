@@ -115,6 +115,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # protheus.vm.provision :reload
     # protheus.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
 
+    # PACKAGES FOR PROVISION
+    protheus.vm.provision "shell", inline: <<-SHELL
+      sudo dnf install python3 -y
+    SHELL
+
     # PROVISIONING ANSIBLE
     protheus.vm.provision "ansible" do |ansible|
       ansible.playbook = "provisioning/playbook.yml"

@@ -11,8 +11,11 @@ galaxy_info:
         - 7
         - 8
   galaxy_tags:
+    - totvs
     - protheus
     - dbaccess
     - smartclient
+    - appserver
+    - licenseserver
     - development
 dependencies: []

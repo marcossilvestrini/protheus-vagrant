@@ -8,5 +8,6 @@
 - hosts: protheus
   become: yes
   roles:
-    - rpo
-    - dictionary
+    - common
+    # - rpo
+    # - dictionary
