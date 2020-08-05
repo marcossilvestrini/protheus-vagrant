@@ -1,0 +1,5 @@
+---
+# vars file for jenkins-slave
+master_host: 192.168.0.120
+master_port: 9080
+slave_linux_host: 192.168.0.133

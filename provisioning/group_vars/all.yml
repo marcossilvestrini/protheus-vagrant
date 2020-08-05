@@ -1,30 +1,29 @@
 ---
-# Ansible
-ansible_python_interpreter: '/usr/bin/python3'
-ansible_ssh_commom_args: '-o StrictHostKeyChecking=no'
-
 # DB
 db_ip: '192.168.0.33'
 db_user: 'protheus'
 db_pass: 'protheus'
+
+# App Path
+app_path: /totvs
 
 # License
 license_ip: '192.168.0.133'
 license_server_port: '5555'
 
 # Dbaccess
-dbaccess_path: '/totvs/dbaccess'
+dbaccess_path: '{{ app_path }}/dbaccess'
 dbaccess_slave01_port: '7901'
 dbaccess_slave02_port: '7902'
 
 # RPO
-rpo_path: '/totvs/rpo'
+rpo_path: '{{ app_path }}/rpo'
 
 # Dictionary
-dictionary_base: '/totvs/protheus-data'
+dictionary_path: '{{ app_path }}/protheus-data'
 
 # Appserver
-start_path: '/totvs/bin'
+start_path: '{{ app_path }}/bin'
 appserver_path: '{{ start_path}}/appserver'
 appserver_slave01_port: '7031'
 

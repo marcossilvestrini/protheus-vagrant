@@ -1,0 +1,10 @@
+- hosts: protheus
+  become: yes
+  vars_files:
+    - roles/jenkins/vars/main.yml
+  roles:
+    - common
+    - jenkins
+    - rpo
+    - dictionary
+    - license

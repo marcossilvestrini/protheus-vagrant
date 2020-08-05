@@ -3,8 +3,10 @@
   file:
     path: "{{rpo_path}}"
     state: directory
+    mode: '0755'
 
 - name: Copy RPO File
   copy:
     src: tttp120.rpo
     dest: "{{ rpo_path }}"
+    mode: '0775'

@@ -7,7 +7,6 @@
 **/authorized_keys
 **/*.pub
 **/*.ppk
-**/rhel-subscription
 
 #erp
 **/provisioning/**/*.rpo

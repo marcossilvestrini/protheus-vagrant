@@ -11,6 +11,7 @@
 - Virtual Box
 - Vagrant
 - Ansible
+- Python
 
 ## Authors
 

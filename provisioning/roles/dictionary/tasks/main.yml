@@ -3,6 +3,7 @@
   file:
     path: "{{item}}"
     state: directory
+    mode: '0755'
   with_items:
     - '{{ system_path }}'
     - '{{ systemload_path }}'
@@ -14,18 +15,13 @@
   copy:
     src: '{{ item.src }}'
     dest: '{{ item.dest }}'
+    mode: '0775'
   with_items:
     - { src: 'BRA-MENUS.ZIP' ,dest: '{{ system_path }}'}
     - { src: 'BRA-DICIONARIOS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
     - { src: 'BRA-HELPS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
     - { src: 'web-files.zip' ,dest: '{{ systemload_path }}'}
     - { src: 'PortalMeuRH.zip' ,dest: '{{ portaL_rh_path }}'}
-  become: yes
-
-- name: Install Zip and Unzip
-  dnf:
-    name: zip ,unzip
-    state: latest
   become: yes
 
 - name: Extract Dictionary Files
@@ -39,4 +35,16 @@
     - { src: '{{ systemload_path }}/BRA-HELPS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
     - { src: '{{ systemload_path }}/web-files.zip' ,dest: '{{ systemload_path }}'}
     - { src: '{{ portaL_rh_path }}/PortalMeuRH.zip' ,dest: '{{ portaL_rh_path }}'}
+  become: yes
+
+- name: Clear Dictionary Files
+  file:
+    path: '{{ item }}'
+    state: absent
+  with_items:
+    - '{{system_path }}/BRA-MENUS.ZIP'
+    - '{{ systemload_path }}/BRA-DICIONARIOS_COMPL.ZIP'
+    - '{{ systemload_path }}/BRA-HELPS_COMPL.ZIP'
+    - '{{ systemload_path }}/web-files.zip'
+    - '{{ portaL_rh_path }}/PortalMeuRH.zip'
   become: yes

@@ -1,0 +1,3 @@
+rsync -avzh --exclude .vagrant --progress /mnt/projects/vagrant-protheus/ /home/marcos.silvestrini/vagrant-protheus
+
+ansible-playbook -i provisioning/hosts/  provisioning/playbook.yml --private-key .vagrant/machines/protheus/virtualbox/private_key -u vagrant
