@@ -1,1 +1,3 @@
 ---
+dbaccess_path: '{{ app_path }}/dbaccess'
+dbaccess_bin_path: '{{ dbaccess_path }}/mult'

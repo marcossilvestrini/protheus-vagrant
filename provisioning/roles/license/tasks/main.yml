@@ -25,6 +25,17 @@
     remote_src: yes
   become: yes
 
+- name: Copy Script for Maintenance(Stop,Start,Restart, Status)
+  template:
+    src: totvslicense.j2
+    dest: '{{ script_path}}/totvslicense'
+    owner: vagrant
+    group: vagrant
+    mode: 0775
+  with_items:
+    - '{{ templates }}'
+  become: yes
+
 - name: Clear License Files
   file:
     path: '{{ app_path }}/license.zip'

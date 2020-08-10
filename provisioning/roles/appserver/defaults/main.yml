@@ -1,1 +1,23 @@
 ---
+lockserver_path: '{{ appserver_path }}/lockserver'
+broker_path: '{{ appserver_path }}/broker'
+slave01_path: '{{ appserver_path }}/slave01'
+slave02_path: '{{ appserver_path }}/slave02'
+soap_path: '{{ appserver_path }}/soap'
+rest_path: '{{ appserver_path }}/rest'
+
+paths:
+    - '{{ appserver_path }}/lockserver'
+    - '{{ appserver_path }}/broker'
+    - '{{ appserver_path }}/slave01'
+    - '{{ appserver_path }}/slave02'
+    - '{{ appserver_path }}/soap'
+    - '{{ appserver_path }}/rest'
+
+templates:
+    - totvslockserver.j2
+    - totvslave01.j2
+    - totvslave02.j2
+    - tovsbroker.j2
+    - totvssoap.j2
+    - totvsrest.j2

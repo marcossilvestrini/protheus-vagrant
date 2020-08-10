@@ -64,9 +64,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     SHELL
 
     # INSTALL UPDATES
-    postgresql.vm.provision "shell", path: "scripts/install.sh"
-    postgresql.vm.provision :reload
-    postgresql.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
+    # postgresql.vm.provision "shell", path: "scripts/install.sh"
+    # postgresql.vm.provision :reload
+    # postgresql.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
 
     postgresql.vm.provision "shell",inline: <<-SHELL
       dnf install python3 -y
@@ -85,7 +85,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # NETWORK
     protheus.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge"
-    protheus.vm.network "forwarded_port", guest: 80, host: 8080, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    ## Web App License
+    protheus.vm.network "forwarded_port", guest: 80, host: 8020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    ## Web App Port
+    protheus.vm.network "forwarded_port", guest: 80, host: 8030, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
 
     # MOUNTS
     protheus.vm.synced_folder ".", "/vagrant", disabled: true
@@ -110,9 +113,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     SHELL
 
     # INSTALL UPDATES
-    protheus.vm.provision "shell", path: "scripts/install.sh"
-    protheus.vm.provision :reload
-    protheus.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
+    # protheus.vm.provision "shell", path: "scripts/install.sh"
+    # protheus.vm.provision :reload
+    # protheus.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
 
     # PACKAGES FOR PROVISION
     protheus.vm.provision "shell", inline: <<-SHELL

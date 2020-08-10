@@ -1,1 +1,48 @@
 ---
+- name: Create Appserver Base Path
+  file:
+    path: "{{ appserver_path }}"
+    state: directory
+    mode: '0755'
+  become: yes
+
+- name: Create Appservers Paths (lockserver, broker, slaves, ws)
+  file:
+    path: '{{ item }}'
+    state: directory
+    mode: '0755'
+  loop: '{{ paths }}'
+  become: yes
+
+- name: Copy Appserver Base File
+  copy:
+    src: appserver.tar.gz
+    dest: '{{ appserver_path }}'
+    mode: '0775'
+  become: yes
+
+- name: Extract Appserver Files
+  unarchive:
+    src: '{{ appserver_path }}/appserver.tar.gz'
+    dest: '{{ item }}'
+    remote_src: yes
+  loop:
+    '{{ paths }}'
+  become: yes
+
+- name: Copy Script for Maintenance(Stop,Start,Restart, Status)
+  template:
+    src: '{{ item }}'
+    dest: "{{ script_path}}/{{ item.replace('.j2','') }}"
+    owner: vagrant
+    group: vagrant
+    mode: 0775
+  with_items:
+    - '{{ templates }}'
+  become: yes
+
+- name: Clear Appserver Files
+  file:
+    path: '{{ appserver_path }}/appserver.tar.gz'
+    state: absent
+  become: yes

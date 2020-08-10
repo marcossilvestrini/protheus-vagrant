@@ -1,1 +1,11 @@
 ---
+- name: Copy Script for Maintenance(Stop,Start,Restart, Status)
+  template:
+    src: totvsdbaccess.j2
+    dest: '{{ script_path}}/totvsdbaccess'
+    owner: vagrant
+    group: vagrant
+    mode: 0775
+  with_items:
+    - '{{ templates }}'
+  become: yes

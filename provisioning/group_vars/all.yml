@@ -1,35 +1,41 @@
 ---
 # DB
 db_ip: '192.168.0.33'
-db_user: 'protheus'
-db_pass: 'protheus'
+db_user: protheus
+db_pass: protheus
+
+# Scripts
+script_path: /etc/init.d
+
+# License
+license_ip: '192.168.0.133'
+license_server_port: 5555
+
+# Dbaccess
+dbaccess_slave01_port: 7901
+dbaccess_slave02_port: 7902
 
 # App Path
 app_path: /totvs
 
-# License
-license_ip: '192.168.0.133'
-license_server_port: '5555'
-
-# Dbaccess
-dbaccess_path: '{{ app_path }}/dbaccess'
-dbaccess_slave01_port: '7901'
-dbaccess_slave02_port: '7902'
-
-# RPO
-rpo_path: '{{ app_path }}/rpo'
-
-# Dictionary
-dictionary_path: '{{ app_path }}/protheus-data'
-
-# Appserver
+# Bin
 start_path: '{{ app_path }}/bin'
-appserver_path: '{{ start_path}}/appserver'
-appserver_slave01_port: '7031'
 
+# appserver
+appserver_path: '{{ start_path }}/appserver'
 
 # Smartclient
 smartclient_path: '{{ start_path}}/smartclient'
 
 # Monitor
 monitor_path: '{{ start_path}}/monitor'
+
+# Dictionary
+dictionary_path: '{{ app_path }}/protheus-data'
+
+# RPO
+rpo_path: '{{ app_path }}/rpo'
+
+# Lockserver
+lockserver_tcp_port: 7020
+lockserver_ip: localhost
