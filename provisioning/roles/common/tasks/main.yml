@@ -6,3 +6,11 @@
   loop:
     - '{{ common_packages }}'
   become: yes
+
+- name: Create Logs directory
+  file:
+    path: '{{ logs }}'
+    state: directory
+    owner: vagrant
+    group: vagrant
+    mode: 0775

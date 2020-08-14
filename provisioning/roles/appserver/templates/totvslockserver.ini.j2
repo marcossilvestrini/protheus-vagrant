@@ -1,0 +1,25 @@
+# Configuracao do Servico do Lock Server
+
+[General]
+CONSOLELOG=1
+CONSOLEFILE={{logs}}/totvslockserver.log
+InstallPath={{app_path}}
+CanAcceptFSRemote=1
+ASyncConsoleLog=0
+
+[LockServer]
+Enable=1
+Server={{localhost}}
+Port={{lockserver_port}}
+messagelog=1
+
+[Drivers]
+ACTIVE=TCP
+
+[TCP]
+TYPE=TCPIP
+PORT={{lockserver_port}}
+
+[LICENSECLIENT]
+SERVER={{license_ip}}
+PORT={{license_server_port}}

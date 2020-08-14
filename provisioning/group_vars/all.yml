@@ -4,17 +4,7 @@ db_ip: '192.168.0.33'
 db_user: protheus
 db_pass: protheus
 
-# Scripts
-script_path: /etc/init.d
-
-# License
-license_ip: '192.168.0.133'
-license_server_port: 5555
-
-# Dbaccess
-dbaccess_slave01_port: 7901
-dbaccess_slave02_port: 7902
-
+# Paths of App Stack
 # App Path
 app_path: /totvs
 
@@ -36,6 +26,24 @@ dictionary_path: '{{ app_path }}/protheus-data'
 # RPO
 rpo_path: '{{ app_path }}/rpo'
 
+# Logs path
+logs: '{{ app_path }}/logs'
+
+# Scripts path
+script_path: /etc/init.d
+
+# License
+license_ip: '192.168.0.133'
+license_server_port: 5555
+
+# Dbaccess
+dbaccess_master_port: 7900
+dbaccess_slave_port: 7901
+dbaccess_ws_port: 7902
+
 # Lockserver
-lockserver_tcp_port: 7020
+lockserver_port: 7020
 lockserver_ip: localhost
+
+# Protheus Environments
+environment: SKYNET

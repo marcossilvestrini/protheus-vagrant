@@ -1,4 +1,4 @@
-# Provision VM ERP Protheus
+# Provision ERP Protheus With Vagrant and Ansible
 
 ## Getting Started
 
@@ -32,7 +32,7 @@
 - <https://help.interfaceware.com/v6/connect-to-postgresql-from-linux-or-mac-with-odbc>
 - Protheus: <https://tdn.totvs.com/pages/releaseview.action?pageId=515672176>
 
-## Install Vagrant in Rhel Centos 7\8
+## Install Vagrant
 
 ### Download
 
@@ -57,7 +57,6 @@
 
 ## Base Vagrantfile
 
-- Install plugins vagrant
 - Set Hostname
 - Set ressources memory and cpu
 - Configure Network and forwarded port
@@ -80,6 +79,10 @@
 
 ## Provisioning VM App
 
+- Instal and configure lockserver
 - Instal and configure licenserver
 - Install and configure dbaccess
-- Install and configure appserver
+- Install and configure appserver_boker
+- Install and configure appserver_slaves
+- Install and configure appserver_rest
+- Install and configure appserver_soap

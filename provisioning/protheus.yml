@@ -3,7 +3,7 @@
   vars_files:
     - roles/jenkins/vars/main.yml
   roles:
-    #- common
+    - common
     #- jenkins
     #- rpo
     #- dictionary
