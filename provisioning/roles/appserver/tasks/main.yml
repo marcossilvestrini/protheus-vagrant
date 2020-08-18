@@ -38,7 +38,7 @@
     group: vagrant
     mode: 0775
   with_items:
-    - '{{ templates }}'
+    - '{{ scripts }}'
   become: yes
 
 - name: Clear Appserver Files

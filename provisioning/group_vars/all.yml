@@ -1,9 +1,12 @@
 ---
 # DB
-db_ip: '192.168.0.33'
-db_user: protheus
-db_pass: protheus
+db_ip: '192.168.0.132'
+db_user: protheus #(this value present in role postgresql/vars/main.yml)
+db_pass: protheus #(this value present in role postgresql/vars/main.yml)
+database: protheus #(this value present in role postgresql/vars/main.yml)
+alias: protheus
 
+# APP
 ip_app: '192.168.0.133'
 
 # Paths of App Stack
@@ -35,17 +38,18 @@ logs: '{{ app_path }}/logs'
 script_path: /etc/init.d
 
 # License
-license_ip: '192.168.0.133'
+license_ip: '{{ ip_app }}'
 license_server_port: 5555
 
 # Dbaccess
+dbaccess_ip: '{{ ip_app }}'
 dbaccess_master_port: 7900
 dbaccess_slave_port: 7901
 dbaccess_ws_port: 7902
 
 # Lockserver
+lockserver_ip: '{{ ip_app }}'
 lockserver_port: 7020
-lockserver_ip: localhost
 
 # Protheus Environments
 environment: SKYNET

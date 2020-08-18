@@ -5,9 +5,11 @@ slave01_path: '{{ appserver_path }}/slave01'
 slave02_path: '{{ appserver_path }}/slave02'
 soap_path: '{{ appserver_path }}/soap'
 rest_path: '{{ appserver_path }}/rest'
+update: '{{ app_path }}/update'
 
 paths:
     - '{{ logs }}'
+    - '{{ update }}'
     - '{{ appserver_path }}/lockserver'
     - '{{ appserver_path }}/broker'
     - '{{ appserver_path }}/slave01'
@@ -15,7 +17,7 @@ paths:
     - '{{ appserver_path }}/soap'
     - '{{ appserver_path }}/rest'
 
-templates:
+scripts:
     - totvslockserver.j2
     - totvslave01.j2
     - totvslave02.j2
@@ -28,40 +30,44 @@ broker_tcp: 7030
 broker_name: .Protheus_Broker
 broker_displayname: .Protheus_Broker
 broker_description: .Protheus_Broker
-ConsoleFile: '{{logs}}/{{ broker_name }}.log'
-LatencyLogFile: '{{logs}}/latency_{{ broker_name }}.log'
+broker_consoleFile: '{{logs}}/{{ broker_name }}.log'
+broker_latencyLogFile: '{{logs}}/latency_{{ broker_name }}.log'
 
 # Slave01
 slave01_port: 7031
+slave01_http_port: 7131
 slave01_name: .Protheus_Slave01
 slave01_displayname: .Protheus_Slave01
 slave01_description: .Protheus_Slave01
-ConsoleFile: '{{logs}}/{{ slave01_name }}.log'
-LatencyLogFile: '{{logs}}/latency_{{ slave01_name }}.log'
+slave01_consoleFile: '{{logs}}/{{ slave01_name }}.log'
+slave01_latencyLogFile: '{{logs}}/latency_{{ slave01_name }}.log'
 
 # Slave02
 slave02_port: 7032
+slave01_http_port: 7132
 slave02_name: .Protheus_Slave02
 slave02_displayname: .Protheus_Slave02
 slave02_description: .Protheus_Slave02
-ConsoleFile: '{{logs}}/{{ slave02_name }}.log'
-LatencyLogFile: '{{logs}}/latency_{{ slave02_name }}.log'
+slave02_consoleFile: '{{logs}}/{{ slave02_name }}.log'
+slave02_latencyLogFile: '{{logs}}/latency_{{ slave02_name }}.log'
 
 # Rest
 rest_tcp_port: 7033
+rest_http_port: 7133
 rest_name: .Protheus_Rest
 rest_displayname: .Protheus_Rest
 rest_description: .Protheus_Rest
-ConsoleFile: '{{logs}}/{{ rest_name }}.log'
-LatencyLogFile: '{{logs}}/latency_{{ rest_name }}.log'
+rest_consoleFile: '{{logs}}/{{ rest_name }}.log'
+rest_latencyLogFile: '{{logs}}/latency_{{ rest_name }}.log'
 
 # Soap
 soap_tcp_port: 7034
+rest_http_port: 7134
 soap_name: .Protheus_Soap
 soap_displayname: .Protheus_Soap
 soap_description: .Protheus_Soap
-ConsoleFile: '{{logs}}/{{ soap_name }}.log'
-LatencyLogFile: '{{logs}}/latency_{{ soap_name }}.log'
+soap_consoleFile: '{{logs}}/{{ soap_name }}.log'
+soap_latencyLogFile: '{{logs}}/latency_{{ soap_name }}.log'
 
 # Vars Appserver.ini Default
 
@@ -83,12 +89,12 @@ AdvSQLReplayLog: 0
 AdvSQLReplayPath: \SQLReplay\
 AdvSQLReplayIOP: 0
 AdvSQLReplayLogMaxSize: 536870912
-LogProfilerPath: log_profiler.log
+LogProfilerPath: '{{logs}}/logprofiler_{{ environment }}.log' # log_profiler.log
 
 ## [DBAccess]
-DBAccessServer: localhost
-Database:
-Alias:
+DBAccessServer: '{{ dbaccess_ip }}'
+Database: '{{ database }}'
+Alias: '{{ alias }}'
 Driver: dbapi.so
 MemoMega: 1
 
@@ -162,7 +168,6 @@ Debug   :  0
 # SecureConnection: 1
 
 ## [WEBAPP]
-# Port: 8080
 EnvServer: {{environment}}
 LastMainProg: SIGAADV,SIGAMDI,SIGACFG,SRVWIZARD
 MaxBodySize: 10485760
