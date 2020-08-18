@@ -4,6 +4,8 @@ db_ip: '192.168.0.33'
 db_user: protheus
 db_pass: protheus
 
+ip_app: '192.168.0.133'
+
 # Paths of App Stack
 # App Path
 app_path: /totvs

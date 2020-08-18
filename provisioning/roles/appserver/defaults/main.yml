@@ -7,6 +7,7 @@ soap_path: '{{ appserver_path }}/soap'
 rest_path: '{{ appserver_path }}/rest'
 
 paths:
+    - '{{ logs }}'
     - '{{ appserver_path }}/lockserver'
     - '{{ appserver_path }}/broker'
     - '{{ appserver_path }}/slave01'
@@ -21,3 +22,199 @@ templates:
     - tovsbroker.j2
     - totvssoap.j2
     - totvsrest.j2
+
+# Broker
+broker_tcp: 7030
+broker_name: .Protheus_Broker
+broker_displayname: .Protheus_Broker
+broker_description: .Protheus_Broker
+ConsoleFile: '{{logs}}/{{ broker_name }}.log'
+LatencyLogFile: '{{logs}}/latency_{{ broker_name }}.log'
+
+# Slave01
+slave01_port: 7031
+slave01_name: .Protheus_Slave01
+slave01_displayname: .Protheus_Slave01
+slave01_description: .Protheus_Slave01
+ConsoleFile: '{{logs}}/{{ slave01_name }}.log'
+LatencyLogFile: '{{logs}}/latency_{{ slave01_name }}.log'
+
+# Slave02
+slave02_port: 7032
+slave02_name: .Protheus_Slave02
+slave02_displayname: .Protheus_Slave02
+slave02_description: .Protheus_Slave02
+ConsoleFile: '{{logs}}/{{ slave02_name }}.log'
+LatencyLogFile: '{{logs}}/latency_{{ slave02_name }}.log'
+
+# Rest
+rest_tcp_port: 7033
+rest_name: .Protheus_Rest
+rest_displayname: .Protheus_Rest
+rest_description: .Protheus_Rest
+ConsoleFile: '{{logs}}/{{ rest_name }}.log'
+LatencyLogFile: '{{logs}}/latency_{{ rest_name }}.log'
+
+# Soap
+soap_tcp_port: 7034
+soap_name: .Protheus_Soap
+soap_displayname: .Protheus_Soap
+soap_description: .Protheus_Soap
+ConsoleFile: '{{logs}}/{{ soap_name }}.log'
+LatencyLogFile: '{{logs}}/latency_{{ soap_name }}.log'
+
+# Vars Appserver.ini Default
+
+## [Environment]
+local_files: Ctree
+localdbextension: .dtc
+rpodb: Top
+rpolanguage: portuguese
+rpoversion: 101
+DebugThreadUsedMemory: 1
+ThreadMemWarning: 1000
+ThreadMemStep: 100
+KillStack: 1
+Trace: 0
+TraceStack: 1
+MaxLocks: 10000
+AdvSQLReplay: 0
+AdvSQLReplayLog: 0
+AdvSQLReplayPath: \SQLReplay\
+AdvSQLReplayIOP: 0
+AdvSQLReplayLogMaxSize: 536870912
+LogProfilerPath: log_profiler.log
+
+## [DBAccess]
+DBAccessServer: localhost
+Database:
+Alias:
+Driver: dbapi.so
+MemoMega: 1
+
+## [Drivers]
+MultiProtocolPort: 1
+MultiProtocolPortSecure: 1
+Secure: SSL
+
+## [lockserver]
+lockserverEnable: 0
+lockserverSecureConnection: 0
+lockserverMessageLog: 0
+
+## [TCP]
+Type: TCPIP
+Ip: ip_app
+
+## [General]
+ChangeEncodingBehavior: 0
+InactiveTimeout: 300
+#app_environment: {{environment}}
+CanAcceptDebugger: 1
+CanAcceptLB: 1
+CanAcceptMonitor: 1
+CanRunJobs: 1
+CanAcceptRPC: 1
+DebugThreadUsedMemory: 1
+FloatingPointPrecise: 0
+IdeMessages: 0
+LogTimeStamp : 1
+ShowFullLog: 0
+ShowIPClient: 0
+SocketMessages: 0
+SSLRedirect: 1
+LatencyLog: 0
+LogHttpFuncs:  0
+MaxStringSize: 10
+WsdlStreamType: 0
+SocketsDefaultIPV6: 0
+ServerMemoryLimit: 1024
+
+## [TDS]
+ALLOWAPPLYPATCH: *
+ALLOWEDIT: *
+ENABLEDISCONNECTUSER: *
+ENABLESENDMESSAGE: *
+ENABLEBLOCKNEWCONNECTION: *
+ENABLESTOPSERVER: *
+
+## [APP_MONITOR]
+Enable: 1
+
+## [update]
+Enable: 1
+PathLinux: /opt/updated/version/path
+
+## [SSLConfigure]
+Verbose :  0
+SSL2    :  0
+SSL3    :  0
+TLS1_0  :  1
+TLS1_1  :  1
+TLS1_2  :  1
+Bugs    :  1
+State   :  0
+Debug   :  0
+
+## [SSL]
+# TYPE: TCPIP
+# PORT: 26011
+# SecureConnection: 1
+
+## [WEBAPP]
+# Port: 8080
+EnvServer: {{environment}}
+LastMainProg: SIGAADV,SIGAMDI,SIGACFG,SRVWIZARD
+MaxBodySize: 10485760
+MaxHeaderSize: 1024
+MaxRequestTime: 30
+
+##[WEBAPP-HEADERS]
+Access-Control-Allow-Origin: *
+
+## [ServerNetwork]
+# Servers: SERVER1,SERVER2
+
+# [SERVER1]
+# TYPE: TCPIP
+# Server: Servidor1
+# Port: 5024
+# SecurePort: 6024
+# Connections: 60
+
+# [SERVER2]
+# TYPE: TCPIP
+# Server: Servidor2
+# Port: 5024
+# SecurePort: 6024
+# Connections: 60
+
+## [HTTP]
+# Enable: 1
+# Port: 8090
+# Compression: 1
+# CorsEnable: 1
+# instances: 5,20,3,5
+# LogRequest: 0
+# LogResponse: 0
+# ENABLEHTTPPROT: 1
+# TIMEMSHTTPPROT: 100
+# Path: D:\ERP\Html
+# ip: 172.16.84.213
+
+## [HTTPS]
+# ENABLE: 1
+# PORT: 443
+# PATH: C:\AP_DATA\HTTPS
+# ip: 172.16.84.213
+# ClientCertVerify: 0
+# SecureCookie: 1
+
+## [ONSTART]
+# Jobs: JOBTEST
+# RefreshRate: 180
+# DebugMsg: 1
+
+# [JOBTEST]
+# Main: RecalcJur()
+# Environment: EnvSQL

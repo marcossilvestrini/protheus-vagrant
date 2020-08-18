@@ -6,7 +6,7 @@
     mode: '0755'
   become: yes
 
-- name: Create Appservers Paths (lockserver, broker, slaves, ws)
+- name: Create Appservers Paths (lockserver, broker, slaves, ws,logs)
   file:
     path: '{{ item }}'
     state: directory
