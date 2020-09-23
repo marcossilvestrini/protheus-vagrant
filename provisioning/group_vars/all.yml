@@ -10,6 +10,7 @@ alias: protheus
 ip_app: '192.168.0.133'
 
 # Paths of App Stack
+
 # App Path
 app_path: /totvs
 
@@ -43,9 +44,8 @@ license_server_port: 5555
 
 # Dbaccess
 dbaccess_ip: '{{ ip_app }}'
-dbaccess_master_port: 7900
-dbaccess_slave_port: 7901
-dbaccess_ws_port: 7902
+dbaccess_port: 7900
+dbaccess_monitor_port: 7901
 
 # Lockserver
 lockserver_ip: '{{ ip_app }}'

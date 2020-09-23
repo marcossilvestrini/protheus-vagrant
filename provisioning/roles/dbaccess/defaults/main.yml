@@ -1,3 +1,10 @@
 ---
 dbaccess_path: '{{ app_path }}/dbaccess'
-dbaccess_bin_path: '{{ dbaccess_path }}/mult'
+dbaccess_bin_path: '{{ dbaccess_path }}/multi'
+dbaccess_log: '{{ logs }}/dbaccess.log'
+service_name: dbaccess_7900
+
+odbc_packages:
+    - unixODBC.x86_64
+    - unixODBC-devel.x86_64
+    - postgresql-odbc.x86_64

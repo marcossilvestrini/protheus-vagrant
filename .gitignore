@@ -7,6 +7,7 @@
 **/authorized_keys
 **/*.pub
 **/*.ppk
+**/pk_protheus
 
 #erp
 **/provisioning/**/*.rpo
@@ -17,3 +18,9 @@
 **/*.retry
 **/*/__pycache__
 **/*.pyc
+
+# Install
+install/
+
+# test
+test/

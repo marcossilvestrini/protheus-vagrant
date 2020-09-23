@@ -30,7 +30,9 @@
 - Postgresql:
 - <https://www.postgresql.org/download/linux/redhat/>
 - <https://help.interfaceware.com/v6/connect-to-postgresql-from-linux-or-mac-with-odbc>
-- Protheus: <https://tdn.totvs.com/pages/releaseview.action?pageId=515672176>
+- Protheus:
+- <https://tdn.totvs.com/pages/releaseview.action?pageId=515672176>
+- <https://siga0984.wordpress.com/2016/07/12/protheus-no-linux-parte-02/>
 
 ## Install Vagrant
 

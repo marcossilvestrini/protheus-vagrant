@@ -1,5 +1,10 @@
 ---
 common_packages:
-    - java
+    - lsof
+    - bc
+    - dos2unix
     - zip
     - unzip
+    - net-tools
+    - java
+    - vim

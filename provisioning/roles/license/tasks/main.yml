@@ -1,16 +1,4 @@
 ---
-- name: Create Dictionary Paths
-  file:
-    path: "{{item}}"
-    state: directory
-    mode: '0755'
-  with_items:
-    - '{{ system_path }}'
-    - '{{ systemload_path }}'
-    - '{{ web_path }}'
-    - '{{ portaL_rh_path }}'
-  become: yes
-
 - name: Copy License Files
   copy:
     src: license.zip

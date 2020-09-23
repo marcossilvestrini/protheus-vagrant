@@ -1,3 +1,5 @@
-rsync -avzh --exclude .vagrant --progress /mnt/projects/vagrant-protheus/ /home/marcos.silvestrini/vagrant-protheus
+rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/vagrant-protheus/ /home/marcos.silvestrini/vagrant-protheus
 
-ansible-playbook -i provisioning/hosts/  provisioning/playbook.yml --private-key .vagrant/machines/protheus/virtualbox/private_key -u vagrant
+vagrant scp ~/vagrant-protheus/install/license.zip ol8-protheus:/totvs/install
+
+ansible-playbook -i provisioning/hosts/  provisioning/protheus.yml --private-key .vagrant/machines/protheus/virtualbox/private_key -u vagrant
