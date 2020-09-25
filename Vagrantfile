@@ -88,8 +88,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     protheus.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge"
 
     # Forward Port
-    protheus.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
-    protheus.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    # protheus.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    # protheus.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
 
     # MOUNTS
     protheus.vm.synced_folder ".", "/vagrant", disabled: true
@@ -130,11 +130,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #   ansible.playbook = "provisioning/app.yml"
     # end
 
-    # protheus.vm.provision "ansible" do |ansible|
-    #   ansible.limit = "all"
-    #   ansible.inventory_path = "provisioning/hosts"
-    #   ansible.playbook = "provisioning/protheus.yml"
-    # end
+    protheus.vm.provision "ansible" do |ansible|
+      ansible.limit = "all"
+      ansible.inventory_path = "provisioning/hosts"
+      ansible.playbook = "provisioning/protheus.yml"
+    end
 
   end
 

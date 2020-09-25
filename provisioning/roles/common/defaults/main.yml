@@ -8,3 +8,7 @@ common_packages:
     - net-tools
     - java
     - vim
+
+paths:
+    - '{{ logs }}'
+    - '{{ update }}'

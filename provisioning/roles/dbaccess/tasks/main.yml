@@ -1,17 +1,11 @@
 ---
-- name: Install ODBC Packages
-  dnf:
-    name: '{{ item }}'
-    state: latest
-  loop:
-    - '{{ odbc_packages }}'
-  become: yes
-
 - name: Create DBAccess Path
   file:
     path: "{{ dbaccess_path }}"
     state: directory
     mode: '0755'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
   become: yes
 
 - name: Copy DBAccess Files
@@ -19,6 +13,8 @@
     src: dbaccess.tar.gz
     dest: '{{ dbaccess_path }}'
     mode: '0775'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
   become: yes
 
 - name: Extract DBAccess Files
@@ -38,8 +34,8 @@
   template:
     src: totvsdbaccess.ini.j2
     dest: '{{ dbaccess_bin_path }}/dbaccess.ini'
-    owner: vagrant
-    group: vagrant
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     mode: 0777
   become: yes
 
@@ -47,21 +43,7 @@
   template:
     src: totvsdbaccess.j2
     dest: '{{ script_path}}/totvsdbaccess'
-    owner: vagrant
-    group: vagrant
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     mode: 0777
   become: yes
-
-- name: Copy Template ODBC Driver Connection
-  template:
-    src: template_odbc.ini.j2
-    dest: '/etc/template_odbc.ini'
-    owner: vagrant
-    group: vagrant
-    mode: 0777
-  become: yes
-
-- name: Create System DSN and  User DSN
-  shell: |
-    odbcinst -i -d -l -f /etc/template_odbc.ini
-    odbcinst -i -d -h -f /etc/template_odbc.ini

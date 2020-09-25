@@ -1,15 +1,5 @@
 ---
-lockserver_path: '{{ appserver_path }}/lockserver'
-broker_path: '{{ appserver_path }}/broker'
-slave01_path: '{{ appserver_path }}/slave01'
-slave02_path: '{{ appserver_path }}/slave02'
-soap_path: '{{ appserver_path }}/soap'
-rest_path: '{{ appserver_path }}/rest'
-update: '{{ app_path }}/update'
-
 paths:
-    - '{{ logs }}'
-    - '{{ update }}'
     - '{{ appserver_path }}/lockserver'
     - '{{ appserver_path }}/broker'
     - '{{ appserver_path }}/slave01'
@@ -44,7 +34,7 @@ slave01_latencyLogFile: '{{logs}}/latency_{{ slave01_name }}.log'
 
 # Slave02
 slave02_port: 7032
-slave01_http_port: 7132
+slave02_http_port: 7132
 slave02_name: .Protheus_Slave02
 slave02_displayname: .Protheus_Slave02
 slave02_description: .Protheus_Slave02
@@ -62,7 +52,7 @@ rest_latencyLogFile: '{{logs}}/latency_{{ rest_name }}.log'
 
 # Soap
 soap_tcp_port: 7034
-rest_http_port: 7134
+soap_http_port: 7134
 soap_name: .Protheus_Soap
 soap_displayname: .Protheus_Soap
 soap_description: .Protheus_Soap
@@ -77,7 +67,6 @@ localdbextension: .dtc
 rpodb: Top
 rpolanguage: portuguese
 rpoversion: 101
-DebugThreadUsedMemory: 1
 ThreadMemWarning: 1000
 ThreadMemStep: 100
 KillStack: 1
@@ -137,19 +126,18 @@ SocketsDefaultIPV6: 0
 ServerMemoryLimit: 1024
 
 ## [TDS]
-ALLOWAPPLYPATCH: *
-ALLOWEDIT: *
-ENABLEDISCONNECTUSER: *
-ENABLESENDMESSAGE: *
-ENABLEBLOCKNEWCONNECTION: *
-ENABLESTOPSERVER: *
+ALLOWAPPLYPATCH: '{{ ip_app }}'
+ALLOWEDIT: '{{ ip_app }}'
+ENABLEDISCONNECTUSER: '{{ ip_app }}'
+ENABLESENDMESSAGE: '{{ ip_app }}'
+ENABLEBLOCKNEWCONNECTION: '{{ ip_app }}'
+ENABLESTOPSERVER: '{{ ip_app }}'
 
 ## [APP_MONITOR]
-Enable: 1
+enable_monitor: 1
 
 ## [update]
-Enable: 1
-PathLinux: /opt/updated/version/path
+enable_update: 1
 
 ## [SSLConfigure]
 Verbose :  0
@@ -168,14 +156,14 @@ Debug   :  0
 # SecureConnection: 1
 
 ## [WEBAPP]
-EnvServer: {{environment}}
+EnvServer: '{{environment}}'
 LastMainProg: SIGAADV,SIGAMDI,SIGACFG,SRVWIZARD
 MaxBodySize: 10485760
 MaxHeaderSize: 1024
 MaxRequestTime: 30
 
 ##[WEBAPP-HEADERS]
-Access-Control-Allow-Origin: *
+Access-Control-Allow-Origin: '*'
 
 ## [ServerNetwork]
 # Servers: SERVER1,SERVER2

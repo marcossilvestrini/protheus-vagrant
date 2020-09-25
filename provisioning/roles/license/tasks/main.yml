@@ -4,6 +4,8 @@
     src: license.zip
     dest: '{{ app_path }}'
     mode: '0775'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
   become: yes
 
 - name: Extract License Files
@@ -12,6 +14,15 @@
     dest: '{{ app_path }}'
     remote_src: yes
   become: yes
+
+- name: Set License Bin Name
+  copy:
+    src: '{{ license_appserver_path }}/appsrvlinux'
+    dest: '{{ license_appserver_path }}/app_license'
+    owner: vagrant
+    group: vagrant
+    mode: '0775'
+    remote_src: yes
 
 - name: Copy Script for Maintenance(Stop,Start,Restart, Status)
   template:

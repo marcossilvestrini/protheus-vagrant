@@ -7,10 +7,25 @@
     - '{{ common_packages }}'
   become: yes
 
-- name: Create Logs directory
+- name: Create Commons Paths (logs, update)
   file:
-    path: '{{ logs }}'
+    path: '{{ item }}'
     state: directory
-    owner: vagrant
-    group: vagrant
-    mode: 0775
+    mode: '0755'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+  loop: '{{ paths }}'
+  become: yes
+
+- name: Set LD_LIBRARY_PATH Variable
+  shell: |
+      echo export LD_LIBRARY_PATH=\
+      '{{ lockserver_path }}':\
+      '{{ license_appserver_path }}':\
+      '{{ dbaccess_bin_path }}':\
+      '{{ broker_path }}':\
+      '{{ slave01_path }}':\
+      '{{ slave02_path }}':\
+      '{{ soap_path }}':\
+      '{{ rest_path }}' >> ~/.bash_profile
+      source ~/.bash_profile

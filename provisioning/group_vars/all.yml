@@ -14,42 +14,61 @@ ip_app: '192.168.0.133'
 # App Path
 app_path: /totvs
 
-# Bin
+# Bin Path
 start_path: '{{ app_path }}/bin'
 
-# appserver
+# Base Appserver Path
 appserver_path: '{{ start_path }}/appserver'
 
-# Smartclient
+# Smartclient Path
 smartclient_path: '{{ start_path}}/smartclient'
 
-# Monitor
+# Monitor Path
 monitor_path: '{{ start_path}}/monitor'
 
-# Dictionary
+# Dictionary Path
 dictionary_path: '{{ app_path }}/protheus-data'
 
-# RPO
+# RPO Path
 rpo_path: '{{ app_path }}/rpo'
 
 # Logs path
 logs: '{{ app_path }}/logs'
 
-# Scripts path
+# Updates Path
+update: '{{ app_path }}/update'
+
+# Scripts path (handlers)
 script_path: /etc/init.d
+
+# Lockserver
+lockserver_ip: '{{ ip_app }}'
+lockserver_port: 7020
+lockserver_path: '{{ appserver_path }}/lockserver'
 
 # License
 license_ip: '{{ ip_app }}'
 license_server_port: 5555
+license_path: '{{ app_path }}/license'
+license_bin_path: '{{ license_path }}/bin'
+license_appserver_path: '{{ license_bin_path }}/appserver'
 
 # Dbaccess
 dbaccess_ip: '{{ ip_app }}'
 dbaccess_port: 7900
 dbaccess_monitor_port: 7901
+dbaccess_path: '{{ app_path }}/dbaccess'
+dbaccess_bin_path: '{{ dbaccess_path }}/multi'
 
-# Lockserver
-lockserver_ip: '{{ ip_app }}'
-lockserver_port: 7020
+# Appservers Paths
+broker_path: '{{ appserver_path }}/broker'
+slave01_path: '{{ appserver_path }}/slave01'
+slave02_path: '{{ appserver_path }}/slave02'
+soap_path: '{{ appserver_path }}/soap'
+rest_path: '{{ appserver_path }}/rest'
 
 # Protheus Environments
 environment: SKYNET
+
+# User service protheus
+user_service: vagrant

@@ -4,10 +4,9 @@
     - roles/jenkins/vars/main.yml
   roles:
     - common
-    # - lockserver
-    # - license
+    - license
+    - appserver
     # - dbaccess
-    # - appserver
     # - dictionary
     # - rpo
     # Optional

@@ -4,13 +4,17 @@
     path: "{{ appserver_path }}"
     state: directory
     mode: '0755'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
   become: yes
 
-- name: Create Appservers Paths (lockserver, broker, slaves, ws,logs)
+- name: Create Appservers Paths (lockserver, broker, slaves, ws)
   file:
     path: '{{ item }}'
     state: directory
     mode: '0755'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
   loop: '{{ paths }}'
   become: yes
 
@@ -19,6 +23,8 @@
     src: appserver.tar.gz
     dest: '{{ appserver_path }}'
     mode: '0775'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
   become: yes
 
 - name: Extract Appserver Files
@@ -30,12 +36,66 @@
     '{{ paths }}'
   become: yes
 
+- name: Set Lockserver Bin Name
+  copy:
+    src: '{{ lockserver_path }}/appsrvlinux'
+    dest: '{{ lockserver_path }}/app_lockserver'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    mode: '0775'
+    remote_src: yes
+
+- name: Set Broker Bin Name
+  copy:
+    src: '{{ broker_path }}/appsrvlinux'
+    dest: '{{ broker_path }}/app_broker'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    mode: '0775'
+    remote_src: yes
+
+- name: Set Slave01 Bin Name
+  copy:
+    src: '{{ slave01_path }}/appsrvlinux'
+    dest: '{{ slave01_path }}/app_slave01'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    mode: '0775'
+    remote_src: yes
+
+- name: Set Slave02 Bin Name
+  copy:
+    src: '{{ slave02_path }}/appsrvlinux'
+    dest: '{{ slave02_path }}/app_slave02'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    mode: '0775'
+    remote_src: yes
+
+- name: Set Soap Bin Name
+  copy:
+    src: '{{ soap_path }}/appsrvlinux'
+    dest: '{{ soap_path }}/app_soap'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    mode: '0775'
+    remote_src: yes
+
+- name: Set Soap Bin Name
+  copy:
+    src: '{{ rest_path }}/appsrvlinux'
+    dest: '{{ rest_path }}/app_rest'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    mode: '0775'
+    remote_src: yes
+
 - name: Copy Script for Maintenance(Stop,Start,Restart, Status)
   template:
     src: '{{ item }}'
     dest: "{{ script_path}}/{{ item.replace('.j2','') }}"
-    owner: vagrant
-    group: vagrant
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     mode: 0775
   with_items:
     - '{{ scripts }}'
