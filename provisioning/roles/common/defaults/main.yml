@@ -12,3 +12,4 @@ common_packages:
 paths:
     - '{{ logs }}'
     - '{{ update }}'
+    - '{{ web_path }}'

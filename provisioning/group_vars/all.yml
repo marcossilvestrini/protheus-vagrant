@@ -20,14 +20,11 @@ start_path: '{{ app_path }}/bin'
 # Base Appserver Path
 appserver_path: '{{ start_path }}/appserver'
 
-# Smartclient Path
-smartclient_path: '{{ start_path}}/smartclient'
-
-# Monitor Path
-monitor_path: '{{ start_path}}/monitor'
-
 # Dictionary Path
 dictionary_path: '{{ app_path }}/protheus-data'
+
+# Web Path
+web_path: '{{ dictionary_path }}/web'
 
 # RPO Path
 rpo_path: '{{ app_path }}/rpo'

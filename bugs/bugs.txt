@@ -1,0 +1,2 @@
+TASK [common : Set LD_LIBRARY_PATH Variable]
+Bug: Variable not set value

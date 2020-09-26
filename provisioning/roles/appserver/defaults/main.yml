@@ -43,21 +43,28 @@ slave02_latencyLogFile: '{{logs}}/latency_{{ slave02_name }}.log'
 
 # Rest
 rest_tcp_port: 7033
-rest_http_port: 7133
+rest_port: 7133
+rest_http_port: 7233
 rest_name: .Protheus_Rest
 rest_displayname: .Protheus_Rest
 rest_description: .Protheus_Rest
 rest_consoleFile: '{{logs}}/{{ rest_name }}.log'
 rest_latencyLogFile: '{{logs}}/latency_{{ rest_name }}.log'
+rest_url: /rest
+rest_prepare_in: ALL
+rest_instances: '2,5,1,1'
 
 # Soap
 soap_tcp_port: 7034
-soap_http_port: 7134
+soap_port: 7134
+soap_http_port: 7234
 soap_name: .Protheus_Soap
 soap_displayname: .Protheus_Soap
 soap_description: .Protheus_Soap
 soap_consoleFile: '{{logs}}/{{ soap_name }}.log'
 soap_latencyLogFile: '{{logs}}/latency_{{ soap_name }}.log'
+soap_instances: '2,5,1,1'
+soap_path:
 
 # Vars Appserver.ini Default
 
@@ -71,6 +78,7 @@ ThreadMemWarning: 1000
 ThreadMemStep: 100
 KillStack: 1
 Trace: 0
+DBMemoMega: 1
 TraceStack: 1
 MaxLocks: 10000
 AdvSQLReplay: 0
@@ -161,53 +169,3 @@ LastMainProg: SIGAADV,SIGAMDI,SIGACFG,SRVWIZARD
 MaxBodySize: 10485760
 MaxHeaderSize: 1024
 MaxRequestTime: 30
-
-##[WEBAPP-HEADERS]
-Access-Control-Allow-Origin: '*'
-
-## [ServerNetwork]
-# Servers: SERVER1,SERVER2
-
-# [SERVER1]
-# TYPE: TCPIP
-# Server: Servidor1
-# Port: 5024
-# SecurePort: 6024
-# Connections: 60
-
-# [SERVER2]
-# TYPE: TCPIP
-# Server: Servidor2
-# Port: 5024
-# SecurePort: 6024
-# Connections: 60
-
-## [HTTP]
-# Enable: 1
-# Port: 8090
-# Compression: 1
-# CorsEnable: 1
-# instances: 5,20,3,5
-# LogRequest: 0
-# LogResponse: 0
-# ENABLEHTTPPROT: 1
-# TIMEMSHTTPPROT: 100
-# Path: D:\ERP\Html
-# ip: 172.16.84.213
-
-## [HTTPS]
-# ENABLE: 1
-# PORT: 443
-# PATH: C:\AP_DATA\HTTPS
-# ip: 172.16.84.213
-# ClientCertVerify: 0
-# SecureCookie: 1
-
-## [ONSTART]
-# Jobs: JOBTEST
-# RefreshRate: 180
-# DebugMsg: 1
-
-# [JOBTEST]
-# Main: RecalcJur()
-# Environment: EnvSQL

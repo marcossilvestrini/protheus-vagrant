@@ -30,9 +30,9 @@ LogProfilerPath={{LogProfilerPath}}
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064885
 ;[DBAccess]
 ;Server= {{DBAccessServer}}
-;Port={{dbaccess_port}}
+;Port={{dbaccess_slave_port}}
 ;Database={{database}}
-;Alias={{alias}}
+;Alias={{Alias}}
 ;Driver={{Driver}}
 ;MemoMega={{MemoMega}}
 
@@ -71,7 +71,7 @@ MessageLog={{lockserverMessageLog}}
 [General]
 ChangeEncodingBehavior={{ChangeEncodingBehavior}}
 InactiveTimeout={{InactiveTimeout}}
-app_environment={{environment}}
+;app_environment=environment
 CanAcceptDebugger={{CanAcceptDebugger}}
 CanAcceptLB={{CanAcceptLB}}
 CanAcceptMonitor={{CanAcceptMonitor}}
@@ -120,21 +120,21 @@ Enable={{enable_monitor}}
 ;update
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064898
 [update]
-Enable={{enable_update}}
+Enable='{{ enable_update }}'
 PathLinux={{update}}
 
 ;SSLConfigure
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
 [SSLConfigure]
-Verbose = {{Verbose}}
-SSL2    = {{SSL2}}
-SSL3    = {{SSL3}}
-TLS1_0  = {{TLS1_0}}
-TLS1_1  = {{TLS1_1}}
-TLS1_2  = {{TLS1_2}}
-Bugs    = {{Bugs}}
-State   = {{State}}
-Debug   = {{Debug}}
+Verbose = 0
+SSL2    = 0
+SSL3    = 0
+TLS1_0  = 1
+TLS1_1  = 1
+TLS1_2  = 1
+Bugs    = 1
+State   = 0
+Debug   = 0
 
 ;SSL
 ;[SSL]
@@ -145,7 +145,7 @@ Debug   = {{Debug}}
 ;WEBAPP
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=307834830
 [WEBAPP]
-Port={{slave01_http_port}}
+Port={{rest_http_port}}
 EnvServer={{EnvServer}}
 LastMainProg={{LastMainProg}}
 MaxBodySize={{MaxBodySize}}
@@ -153,4 +153,59 @@ MaxHeaderSize={{MaxHeaderSize}}
 MaxRequestTime={{MaxRequestTime}}
 
 [WEBAPP-HEADERS]
-Access-Control-Allow-Origin={{Access-Control-Allow-Origin}}
+Access-Control-Allow-Origin=*
+
+;HTTP
+;https://tdn.totvs.com/pages/viewpage.action?pageId=6064817
+[HTTP]
+Enable=0
+Port={{soap_port}}
+Compression=1
+CorsEnable=1
+instances={{soap_instances}}
+LogRequest=0
+LogResponse=0
+ENABLEHTTPPROT=1
+TIMEMSHTTPPROT=100
+Path={{web_path}}
+ip={{ip_app}}
+
+;HTTPS
+;https://tdn.totvs.com/pages/viewpage.action?pageId=135496188
+;[HTTPS]
+;ENABLE=1
+;PORT=443
+;PATH={{web_path}}
+;ip={{ip_app}}
+;ClientCertVerify=0
+;SecureCookie=1
+
+[ONSTART]
+JOBS=JOB_PORTAL,JOB_WS
+REFRESHRATE=300
+
+[JOB_WS]
+TYPE=WEBEX
+ENVIRONMENT={{environment}}
+INSTANCES={{soap_instances}}
+SIGAWEB=WS
+INSTANCENAME=webservices
+ONSTART=__WSSTART
+ONCONNECT=__WSCONNECT
+ONEXIT=FINISHWEBEX
+
+[localhost:{{soap_port}}]
+ENABLE=1
+PATH={{web_path}}
+ENVIRONMENT=TCLOUD
+INSTANCENAME=webservices
+RESPONSEJOB=JOB_WS
+DEFAULTPAGE=wsindex.apw
+
+[{{ip_app}}:{{soap_port}}]
+ENABLE=1
+PATH={{web_path}}
+ENVIRONMENT=TCLOUD
+INSTANCENAME=webservices
+RESPONSEJOB=JOB_WS
+DEFAULTPAGE=wsindex.apw

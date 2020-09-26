@@ -1,5 +1,6 @@
-SourcePath='{{ license_source_path }}'
-RootPath='{{ license_root_path }}'
+[{{environment}}]
+SourcePath={{ license_source_path }}
+RootPath={{ license_root_path }}
 StartPath=/system/
 RpoDb=SQLite
 RpoLanguage=PORTUGUESE
@@ -20,7 +21,7 @@ MultiProtocolPort=0
 
 [TCP]
 TYPE=TCPIP
-Port='{{ license_tcp_port }}'
+Port={{ license_tcp_port }}
 
 [LICENSESERVER]
 Enable=1
@@ -35,7 +36,7 @@ STATELESSREUSECONN=60
 
 [LICENSECLIENT]
 Server=LOCALHOST
-Port= '{{ license_server_port }}'
+Port= {{ license_server_port }}
 Enable=1
 
 [GENERAL]
@@ -64,11 +65,11 @@ TLS1_0 = 1
 TLS1_1 = 1
 TLS1_2 = 1
 BUGS=0
-SecondCertificateClient= '{{ license_certs }}'
+SecondCertificateClient= {{ license_certs }}
 Verbose=1
 
 [WEBAPP]
-Port= '{{ license_web_port }}'
+Port= {{ license_web_port }}
 HideParamsForm=1
 LastMainProg=TOTVSLSMONITOR
 EnvServer=Environment

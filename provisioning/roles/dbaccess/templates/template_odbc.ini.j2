@@ -1,8 +1,0 @@
-[{{ database }}]
-Driver     = /usr/lib64/psqlodbcw.so
-Setup      = /usr/lib64/libodbcpsqlS.so
-Servername = {{ db_ip }}
-Port       = 5432 <5432 = default - a different port can be used>
-Database   = {{ database }} <if omitted the default database will be used>
-Username   = {{ db_user }} <if omitted then integrated security is used - needs kerberos>
-Password   = {{ db_pass }}

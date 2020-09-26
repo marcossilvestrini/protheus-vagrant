@@ -16,6 +16,7 @@ ThreadMemWarning={{ThreadMemWarning}}
 ThreadMemStep={{ThreadMemStep}}
 KillStack={{KillStack}}
 Trace={{Trace}}
+DBMemoMega={{DBMemoMega}}
 TraceStack={{TraceStack}}
 MaxLocks={{MaxLocks}}
 AdvSQLReplay={{AdvSQLReplay}}
@@ -27,13 +28,13 @@ LogProfilerPath={{LogProfilerPath}}
 
 ;DBAccess
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064885
-[DBAccess]
-Server= {{DBAccessServer}}
-Port={{dbaccess_slave_port}}
-Database={{database}}
-Alias={{Alias}}
-Driver={{Driver}}
-MemoMega={{MemoMega}}
+;[DBAccess]
+;Server= {{DBAccessServer}}
+;Port={{dbaccess_slave_port}}
+;Database={{database}}
+;Alias={{Alias}}
+;Driver={{Driver}}
+;MemoMega={{MemoMega}}
 
 ;Drivers
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064839
@@ -47,7 +48,7 @@ Secure={{Secure}}
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=135495723
 [TCP]
 Type={{Type}}
-Port={{slave01_port}}
+Port={{rest_tcp_port}}
 Ip={{Ip}}
 
 ;LicenseClient
@@ -79,14 +80,16 @@ CanAcceptRPC={{CanAcceptRPC}}
 DebugThreadUsedMemory={{DebugThreadUsedMemory}}
 FloatingPointPrecise={{FloatingPointPrecise}}
 IdeMessages={{IdeMessages}}
-ConsoleFile={{slave01_consoleFile}}
+ConsoleFile={{rest_consoleFile}}
+AsyncConsoleLog=0
+AsyncConsoleLog=0
 LogTimeStamp = {{LogTimeStamp}}
 ShowFullLog={{ShowFullLog}}
 ShowIPClient={{ShowIPClient}}
 SocketMessages={{SocketMessages}}
 SSLRedirect={{SSLRedirect}}
 LatencyLog={{LatencyLog}}
-LatencyLogFile={{slave01_latencyLogFile}}
+LatencyLogFile={{rest_latencyLogFile}}
 LogHttpFuncs= {{LogHttpFuncs}}
 MaxStringSize={{MaxStringSize}}
 WsdlStreamType={{WsdlStreamType}}
@@ -96,9 +99,9 @@ ServerMemoryLimit={{ServerMemoryLimit}}
 ;Service
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064864
 [Service]
-Name={{slave01_name}}
-Displayname={{slave01_displayname}}
-Description={{slave01_description}}
+Name={{rest_name}}
+Displayname={{rest_displayname}}
+Description={{rest_description}}
 
 ;TDS
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
@@ -120,31 +123,6 @@ Enable={{enable_monitor}}
 [update]
 Enable='{{ enable_update }}'
 PathLinux={{update}}
-
-;HTTP
-;https://tdn.totvs.com/pages/viewpage.action?pageId=6064817
-[HTTP]
-Enable=0
-Port=8090
-Compression=1
-CorsEnable=1
-instances=5,20,3,5
-LogRequest=0
-LogResponse=0
-ENABLEHTTPPROT=1
-TIMEMSHTTPPROT=100
-Path=D:\ERP\Html
-ip=172.16.84.213
-
-;HTTPS
-;https://tdn.totvs.com/pages/viewpage.action?pageId=135496188
-;[HTTPS]
-;ENABLE=1
-;PORT=443
-;PATH=C:\AP_DATA\HTTPS
-;ip=172.16.84.213
-;ClientCertVerify=0
-;SecureCookie=1
 
 ;SSLConfigure
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
@@ -168,22 +146,38 @@ Debug   = 0
 ;WEBAPP
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=307834830
 [WEBAPP]
-Port=8080
-EnvServer=ENVIRONMENT,MSSQLP11,MSSQLP12,MSSQLTST
-LastMainProg=SIGAADV,SIGAMDI,SIGACFG,SRVWIZARD
-MaxBodySize=10485760
-MaxHeaderSize=1024
-MaxRequestTime=30
+Port={{soap_http_port}}
+EnvServer={{EnvServer}}
+LastMainProg={{LastMainProg}}
+MaxBodySize={{MaxBodySize}}
+MaxHeaderSize={{MaxHeaderSize}}
+MaxRequestTime={{MaxRequestTime}}
+
 
 [WEBAPP-HEADERS]
 Access-Control-Allow-Origin=*
 
-;ONSTART
-;[ONSTART]
-;Jobs=JOBTEST
-;RefreshRate=180
-;DebugMsg=1
+[HTTPV11]
+Enable=1
+Sockets=HTTPREST
 
-;[JOBTEST]
-;Main=RecalcJur()
-;Environment=EnvSQL
+[HTTPREST]
+Port={{rest_port}}
+IPsBind=
+URIs=HTTPURI
+Security=1
+
+[HTTPURI]
+URL={{rest_url}}
+PrepareIn={{rest_prepare_in}}
+Instances={{rest_instances}}
+CORSEnable=1
+AllowOrigin=*
+
+[HTTPJOB]
+MAIN=HTTP_START
+ENVIRONMENT={{environment}}
+
+[ONSTART]
+jobs=HTTPJOB
+RefreshRate=30

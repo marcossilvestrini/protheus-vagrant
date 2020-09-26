@@ -15,6 +15,15 @@
     remote_src: yes
   become: yes
 
+- name: Copy Appserver.ini
+  template:
+    src: appserver.ini.j2
+    dest: '{{ license_appserver_path }}/appserver.ini'
+    owner: vagrant
+    group: vagrant
+    mode: 0775
+  become: yes
+
 - name: Set License Bin Name
   copy:
     src: '{{ license_appserver_path }}/appsrvlinux'
@@ -31,8 +40,6 @@
     owner: vagrant
     group: vagrant
     mode: 0775
-  with_items:
-    - '{{ templates }}'
   become: yes
 
 - name: Clear License Files
