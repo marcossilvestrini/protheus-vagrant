@@ -24,11 +24,11 @@ Vagrant.configure("2") do |config|
   # config.ssh.password = "vagrant"
   # config.ssh.forward_agent = true
 
-  #VM wordpress
-  config.vm.define "wordpress" do |wordpress|
+  #VM protheus
+  config.vm.define "protheus" do |protheus|
 
     # HOSTNAME
-    wordpress.vm.hostname = "centos8-wordpress"
+    protheus.vm.hostname = "centos8-protheus"
 
      # Monkey patch for https://github.com/dotless-de/vagrant-vbguest/issues/367
     class Foo < VagrantVbguest::Installers::CentOS
@@ -55,7 +55,7 @@ Vagrant.configure("2") do |config|
         end until @vm.communicate.ready?
       end
     end
-    wordpress.vbguest.installer = Foo
+    protheus.vbguest.installer = Foo
 
     # NETWORK
 
@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
     # within the machine from a port on the host machine. In the example below,
     # accessing "localhost:8080" will access port 80 on the guest machine.
     # NOTE: This will enable public access to the opened port
-    wordpress.vm.network "forwarded_port", guest: 80, host: 8080
+    protheus.vm.network "forwarded_port", guest: 80, host: 8080
 
 
     # Create a forwarded port mapping which allows access to a specific port
@@ -84,9 +84,9 @@ Vagrant.configure("2") do |config|
     # Create a public network, which generally matched to bridged network.
     # Bridged networks make the machine appear as another physical device on
     # your network.
-    # wordpress.vm.network "public_network"
-    wordpress.vm.network "public_network" ,ip: "192.168.0.134"
-    # wordpress.vm.network "public_network" ,use_dhcp_assigned_default_route: true
+    # protheus.vm.network "public_network"
+    protheus.vm.network "public_network" ,ip: "192.168.0.134"
+    # protheus.vm.network "public_network" ,use_dhcp_assigned_default_route: true
 
     # MOUNTS
 
@@ -95,8 +95,8 @@ Vagrant.configure("2") do |config|
     # the path on the guest to mount the folder. And the optional third
     # argument is a set of non-required options.
     # config.vm.synced_folder "../data", "/vagrant_data"
-    wordpress.vm.synced_folder ".", "/vagrant", disabled: true
-    wordpress.vm.synced_folder "./security", "/home/vagrant/security"
+    protheus.vm.synced_folder ".", "/vagrant", disabled: true
+    protheus.vm.synced_folder "./security", "/home/vagrant/security"
 
     # PROVIDER
 
@@ -114,8 +114,8 @@ Vagrant.configure("2") do |config|
     #
     # View the documentation for the provider you are using for more
     # information on available options.
-    wordpress.vm.provider "virtualbox" do |vb|
-      vb.name = "centos8-wordpress"
+    protheus.vm.provider "virtualbox" do |vb|
+      vb.name = "centos8-protheus"
       vb.memory = 2048
       vb.cpus = 1
     end
@@ -131,7 +131,7 @@ Vagrant.configure("2") do |config|
     # SHELL
 
     # SSH,FIREWALLD (OPEN PORTS: 80) AND SELINUX
-    wordpress.vm.provision "shell", inline: <<-SHELL
+    protheus.vm.provision "shell", inline: <<-SHELL
       cat /home/vagrant/security/id_rsa.pub >> .ssh/authorized_keys
       sudo systemctl stop firewalld
       sudo systemctl disable firewalld
@@ -139,7 +139,7 @@ Vagrant.configure("2") do |config|
       SHELL
 
     # REDHAT SUBSCRIPTION
-    # wordpress.vm.provision "shell", inline: <<-SHELL
+    # protheus.vm.provision "shell", inline: <<-SHELL
     #   subscription-manager register --username <username> --password <password> --auto-attach
     #   user=$( awk 'NR==1' security/rhel-subscription)
     #   pass=$( awk 'NR==2' security/rhel-subscription)
@@ -147,7 +147,7 @@ Vagrant.configure("2") do |config|
     # SHELL
 
     # INSTALL UPDATES
-    wordpress.vm.provision "shell",
+    protheus.vm.provision "shell",
       inline: "sudo yum update -y"
     # INSTALL PACKAGES /php7 - https://www.cloudbooklet.com/install-php-7-4-on-centos-8-or-rhel-8/
 

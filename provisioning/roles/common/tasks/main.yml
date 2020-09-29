@@ -18,14 +18,15 @@
   become: yes
 
 - name: Set LD_LIBRARY_PATH Variable
+  template:
+    src: .bash_profile.j2
+    dest: ~/.bash_profile
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    force: yes
+  become: yes
+
+- name: Set Bash Profile
   shell: |
-      echo export LD_LIBRARY_PATH=\
-      '{{ lockserver_path }}':\
-      '{{ license_appserver_path }}':\
-      '{{ dbaccess_bin_path }}':\
-      '{{ broker_path }}':\
-      '{{ slave01_path }}':\
-      '{{ slave02_path }}':\
-      '{{ soap_path }}':\
-      '{{ rest_path }}' >> ~/.bash_profile
-      source ~/.bash_profile
+     source ~/.bash_profile
+  become: yes

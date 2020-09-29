@@ -1,9 +1,9 @@
 ; Environment
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064764
-[{{environment}}]
+[SKYNET]
 SourcePath={{rpo_path}}
 RootPath={{dictionary_path}}
-StartPath=\system\
+StartPath={{system_path}}
 LocalFiles={{local_files}}
 Localdbextension={{localdbextension}}
 PictFormat=Default
@@ -21,7 +21,7 @@ TraceStack={{TraceStack}}
 MaxLocks={{MaxLocks}}
 AdvSQLReplay={{AdvSQLReplay}}
 AdvSQLReplayLog={{AdvSQLReplayLog}}
-AdvSQLReplayPath={{\SQLReplay\}}
+AdvSQLReplayPath={{AdvSQLReplayPath}}
 AdvSQLReplayIOP={{AdvSQLReplayIOP}}
 AdvSQLReplayLogMaxSize={{AdvSQLReplayLogMaxSize}}
 LogProfilerPath={{LogProfilerPath}}
@@ -49,7 +49,7 @@ Secure={{Secure}}
 [TCP]
 Type={{Type}}
 Port={{slave01_port}}
-Ip={{Ip}}
+Ip={{ip_app}}
 
 ;LicenseClient
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=244734923
@@ -94,63 +94,3 @@ MaxStringSize={{MaxStringSize}}
 WsdlStreamType={{WsdlStreamType}}
 SocketsDefaultIPV6={{SocketsDefaultIPV6}}
 ServerMemoryLimit={{ServerMemoryLimit}}
-
-;Service
-;https://tdn.totvs.com/pages/viewpage.action?pageId=6064864
-[Service]
-Name={{slave01_name}}
-Displayname={{slave01_displayname}}
-Description={{slave01_description}}
-
-;TDS
-;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
-[TDS]
-ALLOWAPPLYPATCH={{ALLOWAPPLYPATCH}}
-ALLOWEDIT={{ALLOWEDIT}}
-ENABLEDISCONNECTUSER={{ENABLEDISCONNECTUSER}}
-ENABLESENDMESSAGE={{ENABLESENDMESSAGE}}
-ENABLEBLOCKNEWCONNECTION={{ENABLEBLOCKNEWCONNECTION}}
-ENABLESTOPSERVER={{ENABLESTOPSERVER}}
-
-;APP_MONITOR
-;https://tdn.totvs.com/pages/viewpage.action?pageId=552580433
-[APP_MONITOR]
-Enable={{enable_monitor}}
-
-;update
-;https://tdn.totvs.com/pages/viewpage.action?pageId=6064898
-[update]
-Enable={{enable_update}}
-PathLinux={{update}}
-
-;SSLConfigure
-;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
-[SSLConfigure]
-Verbose = {{Verbose}}
-SSL2    = {{SSL2}}
-SSL3    = {{SSL3}}
-TLS1_0  = {{TLS1_0}}
-TLS1_1  = {{TLS1_1}}
-TLS1_2  = {{TLS1_2}}
-Bugs    = {{Bugs}}
-State   = {{State}}
-Debug   = {{Debug}}
-
-;SSL
-;[SSL]
-;TYPE=TCPIP
-;PORT=26011
-;SecureConnection=1
-
-;WEBAPP
-;https://tdn.totvs.com/pages/viewpage.action?pageId=307834830
-[WEBAPP]
-Port={{slave01_http_port}}
-EnvServer={{EnvServer}}
-LastMainProg={{LastMainProg}}
-MaxBodySize={{MaxBodySize}}
-MaxHeaderSize={{MaxHeaderSize}}
-MaxRequestTime={{MaxRequestTime}}
-
-[WEBAPP-HEADERS]
-Access-Control-Allow-Origin={{Access-Control-Allow-Origin}}

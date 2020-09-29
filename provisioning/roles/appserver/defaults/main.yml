@@ -50,7 +50,7 @@ rest_displayname: .Protheus_Rest
 rest_description: .Protheus_Rest
 rest_consoleFile: '{{logs}}/{{ rest_name }}.log'
 rest_latencyLogFile: '{{logs}}/latency_{{ rest_name }}.log'
-rest_url: /rest
+rest_url: '/rest'
 rest_prepare_in: ALL
 rest_instances: '2,5,1,1'
 
@@ -83,10 +83,10 @@ TraceStack: 1
 MaxLocks: 10000
 AdvSQLReplay: 0
 AdvSQLReplayLog: 0
-AdvSQLReplayPath: \SQLReplay\
+AdvSQLReplayPath: '/SQLReplay/'
 AdvSQLReplayIOP: 0
 AdvSQLReplayLogMaxSize: 536870912
-LogProfilerPath: '{{logs}}/logprofiler_{{ environment }}.log' # log_profiler.log
+LogProfilerPath: '{{logs}}/logprofiler_{{environment}}.log' # log_profiler.log
 
 ## [DBAccess]
 DBAccessServer: '{{ dbaccess_ip }}'
@@ -165,7 +165,7 @@ Debug   :  0
 
 ## [WEBAPP]
 EnvServer: '{{environment}}'
-LastMainProg: SIGAADV,SIGAMDI,SIGACFG,SRVWIZARD
+LastMainProg: 'SIGAADV,SIGAMDI,SIGACFG,SRVWIZARD'
 MaxBodySize: 10485760
 MaxHeaderSize: 1024
 MaxRequestTime: 30

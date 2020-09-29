@@ -3,7 +3,7 @@
 [SKYNET]
 SourcePath={{rpo_path}}
 RootPath={{dictionary_path}}
-StartPath={{system_path}}
+StartPath=\system\
 LocalFiles={{local_files}}
 Localdbextension={{localdbextension}}
 PictFormat=Default
@@ -30,9 +30,9 @@ LogProfilerPath={{LogProfilerPath}}
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064885
 ;[DBAccess]
 ;Server= {{DBAccessServer}}
-;Port={{dbaccess_slave_port}}
+;Port={{dbaccess_port}}
 ;Database={{database}}
-;Alias={{Alias}}
+;Alias={{alias}}
 ;Driver={{Driver}}
 ;MemoMega={{MemoMega}}
 
@@ -48,7 +48,7 @@ Secure={{Secure}}
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=135495723
 [TCP]
 Type={{Type}}
-Port={{rest_tcp_port}}
+Port={{slave01_port}}
 Ip={{Ip}}
 
 ;LicenseClient
@@ -71,7 +71,7 @@ MessageLog={{lockserverMessageLog}}
 [General]
 ChangeEncodingBehavior={{ChangeEncodingBehavior}}
 InactiveTimeout={{InactiveTimeout}}
-;app_environment={{environment}}
+app_environment={{environment}}
 CanAcceptDebugger={{CanAcceptDebugger}}
 CanAcceptLB={{CanAcceptLB}}
 CanAcceptMonitor={{CanAcceptMonitor}}
@@ -80,8 +80,7 @@ CanAcceptRPC={{CanAcceptRPC}}
 DebugThreadUsedMemory={{DebugThreadUsedMemory}}
 FloatingPointPrecise={{FloatingPointPrecise}}
 IdeMessages={{IdeMessages}}
-ConsoleFile={{rest_consoleFile}}
-AsyncConsoleLog=0
+ConsoleFile={{slave01_consoleFile}}
 AsyncConsoleLog=0
 LogTimeStamp = {{LogTimeStamp}}
 ShowFullLog={{ShowFullLog}}
@@ -89,7 +88,7 @@ ShowIPClient={{ShowIPClient}}
 SocketMessages={{SocketMessages}}
 SSLRedirect={{SSLRedirect}}
 LatencyLog={{LatencyLog}}
-LatencyLogFile={{rest_latencyLogFile}}
+LatencyLogFile={{slave01_latencyLogFile}}
 LogHttpFuncs= {{LogHttpFuncs}}
 MaxStringSize={{MaxStringSize}}
 WsdlStreamType={{WsdlStreamType}}
@@ -99,9 +98,9 @@ ServerMemoryLimit={{ServerMemoryLimit}}
 ;Service
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064864
 [Service]
-Name={{rest_name}}
-Displayname={{rest_displayname}}
-Description={{rest_description}}
+Name={{slave01_name}}
+Displayname={{slave01_displayname}}
+Description={{slave01_description}}
 
 ;TDS
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
@@ -121,21 +120,21 @@ Enable={{enable_monitor}}
 ;update
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064898
 [update]
-Enable='{{ enable_update }}'
+Enable={{enable_update}}
 PathLinux={{update}}
 
 ;SSLConfigure
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
 [SSLConfigure]
-Verbose = 0
-SSL2    = 0
-SSL3    = 0
-TLS1_0  = 1
-TLS1_1  = 1
-TLS1_2  = 1
-Bugs    = 1
-State   = 0
-Debug   = 0
+Verbose = {{Verbose}}
+SSL2    = {{SSL2}}
+SSL3    = {{SSL3}}
+TLS1_0  = {{TLS1_0}}
+TLS1_1  = {{TLS1_1}}
+TLS1_2  = {{TLS1_2}}
+Bugs    = {{Bugs}}
+State   = {{State}}
+Debug   = {{Debug}}
 
 ;SSL
 ;[SSL]
@@ -146,38 +145,12 @@ Debug   = 0
 ;WEBAPP
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=307834830
 [WEBAPP]
-Port={{soap_http_port}}
+Port={{slave01_http_port}}
 EnvServer={{EnvServer}}
 LastMainProg={{LastMainProg}}
 MaxBodySize={{MaxBodySize}}
 MaxHeaderSize={{MaxHeaderSize}}
 MaxRequestTime={{MaxRequestTime}}
 
-
 [WEBAPP-HEADERS]
-Access-Control-Allow-Origin=*
-
-[HTTPV11]
-Enable=1
-Sockets=HTTPREST
-
-[HTTPREST]
-Port={{rest_port}}
-IPsBind=
-URIs=HTTPURI
-Security=1
-
-[HTTPURI]
-URL={{rest_url}}
-PrepareIn={{rest_prepare_in}}
-Instances={{rest_instances}}
-CORSEnable=1
-AllowOrigin=*
-
-[HTTPJOB]
-MAIN=HTTP_START
-ENVIRONMENT={{environment}}
-
-[ONSTART]
-jobs=HTTPJOB
-RefreshRate=30
+Access-Control-Allow-Origin={{Access-Control-Allow-Origin}}

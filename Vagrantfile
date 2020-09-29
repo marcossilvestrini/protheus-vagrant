@@ -30,51 +30,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = BOX_NAME
   config.vm.box_url = "#{BOX_URL}/#{BOX_NAME}.json"
 
-  # # VM PostgreSQL
-  # config.vm.define "postgresql" do |postgresql|
-
-  #   # VARIABLE HOSTNAME
-  #   DB_NAME= "ol8-postgresql"
-
-  #   # HOSTNAME
-  #   postgresql.vm.hostname = DB_NAME
-
-  #   # NETWORK
-  #   postgresql.vm.network "public_network" ,ip: "192.168.0.132"
-  #   #postgresql.vm.network "forwarded_port", guest: 5432, host: 5432, adapter: 1 , guest_ip: "192.168.0.132" ,host_ip: "192.168.0.33"
-
-  #   # MOUNTS
-  #   postgresql.vm.synced_folder ".", "/vagrant", disabled: true
-  #   postgresql.vm.synced_folder "./security", "/security"
-
-  #   # PROVIDER
-  #   postgresql.vm.provider "virtualbox" do |vb|
-  #     vb.linked_clone = true
-  #     vb.name = DB_NAME
-  #     vb.memory = 2048
-  #     vb.cpus = 3
-  #   end
-
-  #   # PROVISION
-  #   # SSH,FIREWALLD AND SELINUX
-  #   postgresql.vm.provision "shell", inline: <<-SHELL
-  #     cat /security/id_rsa.pub >> .ssh/authorized_keys
-  #     sudo systemctl stop firewalld
-  #     sudo systemctl disable firewalld
-  #     sudo setenforce Permissive
-  #   SHELL
-
-  #   # INSTALL UPDATES
-  #   # postgresql.vm.provision "shell", path: "scripts/install.sh"
-  #   # postgresql.vm.provision :reload
-  #   # postgresql.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
-
-  #   postgresql.vm.provision "shell",inline: <<-SHELL
-  #     dnf install python3 -y
-  #     SHELL
-
-  # end
-
   # VM Protheus
   config.vm.define "protheus"  do |protheus|
 
@@ -100,8 +55,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     protheus.vm.provider "virtualbox" do |vb|
       vb.linked_clone = true
       vb.name = APP_NAME
-      vb.memory = 2048
-      vb.cpus = 3
+      vb.memory = 4096
+      vb.cpus = 6
     end
 
     # PROVISION
@@ -124,16 +79,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     SHELL
 
     # PROVISIONING ANSIBLE
-    # protheus.vm.provision "ansible" do |ansible|
-    #   ansible.limit = "all"
-    #   ansible.inventory_path = "provisioning/hosts"
-    #   ansible.playbook = "provisioning/app.yml"
-    # end
-
     protheus.vm.provision "ansible" do |ansible|
       ansible.limit = "all"
       ansible.inventory_path = "provisioning/hosts"
-      ansible.playbook = "provisioning/protheus.yml"
+      ansible.playbook = "provisioning/app.yml"
     end
 
   end
