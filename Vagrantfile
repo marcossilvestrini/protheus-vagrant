@@ -49,7 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # MOUNTS
     protheus.vm.synced_folder ".", "/vagrant", disabled: true
     protheus.vm.synced_folder "./security", "/security"
-    protheus.vm.synced_folder "./install", "/totvs/install", type: "rsync",rsync__args: ["-r", "--include=*"]
+    #protheus.vm.synced_folder "./install", "/totvs/install", type: "rsync",rsync__args: ["-r", "--include=*"]
 
     # PROVIDER
     protheus.vm.provider "virtualbox" do |vb|

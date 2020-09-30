@@ -16,17 +16,3 @@
     group: '{{ user_service }}'
   loop: '{{ paths }}'
   become: yes
-
-- name: Set LD_LIBRARY_PATH Variable
-  template:
-    src: .bash_profile.j2
-    dest: ~/.bash_profile
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    force: yes
-  become: yes
-
-- name: Set Bash Profile
-  shell: |
-     source ~/.bash_profile
-  become: yes

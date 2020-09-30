@@ -52,3 +52,39 @@
     group: '{{ user_service }}'
     mode: '0775'
     remote_src: yes
+
+- name: Set LD_LIBRARY_PATH Variable in .bashrc
+  template:
+    src: .bashrc.j2
+    dest: /home/vagrant/.bashrc
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    force: yes
+
+- name: Set LD_LIBRARY_PATH Variable .bash_profile
+  template:
+    src: .bash_profile.j2
+    dest: /home/vagrant/.bash_profile
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    force: yes
+
+- name: Apply LD_LIBRARY_PATH
+  shell: |
+     source /home/vagrant/.bashrc
+     source /home/vagrant/.bash_profile
+  #become: yes
+
+- name: Set Permission in /var/lock/subsys/ for bin
+  file:
+    path: /var/lock/subsys/
+    state: directory
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+
+- name: Set Permission in /var/run/ for bin
+  file:
+    path: /var/run/
+    state: directory
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'

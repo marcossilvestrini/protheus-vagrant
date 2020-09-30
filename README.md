@@ -73,13 +73,13 @@
 - Run this command in powershell:
 - $Env:VAGRANT_PREFER_SYSTEM_BIN += 0
 
-## Provisioning VM Database
+## Provisioning Database
 
 - Install and configure database
 - Create database for app
 - Create user and pass
 
-## Provisioning VM App
+## Provisioning App
 
 - Instal and configure lockserver
 - Instal and configure licenserver

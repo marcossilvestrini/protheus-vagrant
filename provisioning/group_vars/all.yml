@@ -14,12 +14,6 @@ ip_app: '192.168.0.133'
 # App Path
 app_path: /totvs
 
-# Bin Path
-start_path: '{{ app_path }}/bin'
-
-# Base Appserver Path
-appserver_path: '{{ start_path }}/appserver'
-
 # Dictionary Path
 dictionary_path: '{{ app_path }}/protheus-data'
 
@@ -41,10 +35,18 @@ update: '{{ app_path }}/update'
 # Scripts path (handlers)
 script_path: /etc/init.d
 
+# Bin Path
+start_path: '{{ app_path }}/bin'
+
+# Base Appserver Path
+appserver_path: '{{ start_path }}/appserver'
+#/totvs/bin/appserver
+
 # Lockserver
 lockserver_ip: '{{ ip_app }}'
 lockserver_port: 7020
 lockserver_path: '{{ appserver_path }}/lockserver'
+#/totvs/bin/appserver/lockserver/
 
 # License
 license_ip: '{{ ip_app }}'
@@ -68,7 +70,7 @@ soap_path: '{{ appserver_path }}/soap'
 rest_path: '{{ appserver_path }}/rest'
 
 # Protheus Environments
-environment: SKYNET
+environment_name: SKYNET
 
 # User service protheus
 user_service: vagrant

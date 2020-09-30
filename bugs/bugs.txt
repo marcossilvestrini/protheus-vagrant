@@ -1,5 +1,0 @@
-TASK [common : Set LD_LIBRARY_PATH Variable]
-Bug: Variable not set value
-
-Bug inis.yml
-Key [environment] with value  [[]]

@@ -1,6 +1,6 @@
 ; Environment
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064764
-[SKYNET]
+[{{environment_name}}]
 SourcePath={{rpo_path}}
 RootPath={{dictionary_path}}
 StartPath={{system_path}}
@@ -21,18 +21,18 @@ TraceStack={{TraceStack}}
 MaxLocks={{MaxLocks}}
 AdvSQLReplay={{AdvSQLReplay}}
 AdvSQLReplayLog={{AdvSQLReplayLog}}
-AdvSQLReplayPath={{\SQLReplay\}}
+AdvSQLReplayPath={{AdvSQLReplayPath}}
 AdvSQLReplayIOP={{AdvSQLReplayIOP}}
 AdvSQLReplayLogMaxSize={{AdvSQLReplayLogMaxSize}}
-LogProfilerPath={{LogProfilerPath}}
+LogProfilerPath={{rest_LogProfilerPath}}
 
 ;DBAccess
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064885
 ;[DBAccess]
 ;Server= {{DBAccessServer}}
-;Port={{dbaccess_slave_port}}
+;Port={{dbaccess_port}}
 ;Database={{database}}
-;Alias={{Alias}}
+;Alias={{alias}}
 ;Driver={{Driver}}
 ;MemoMega={{MemoMega}}
 
@@ -71,7 +71,7 @@ MessageLog={{lockserverMessageLog}}
 [General]
 ChangeEncodingBehavior={{ChangeEncodingBehavior}}
 InactiveTimeout={{InactiveTimeout}}
-;app_environment={{environment}}
+app_environment={{environment_name}}
 CanAcceptDebugger={{CanAcceptDebugger}}
 CanAcceptLB={{CanAcceptLB}}
 CanAcceptMonitor={{CanAcceptMonitor}}
@@ -127,15 +127,15 @@ PathLinux={{update}}
 ;SSLConfigure
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
 [SSLConfigure]
-Verbose = 0
-SSL2    = 0
-SSL3    = 0
-TLS1_0  = 1
-TLS1_1  = 1
-TLS1_2  = 1
-Bugs    = 1
-State   = 0
-Debug   = 0
+Verbose = {{Verbose}}
+SSL2    = {{SSL2}}
+SSL3    = {{SSL3}}
+TLS1_0  = {{TLS1_0}}
+TLS1_1  = {{TLS1_1}}
+TLS1_2  = {{TLS1_2}}
+Bugs    = {{Bugs}}
+State   = {{State}}
+Debug   = {{Debug}}
 
 ;SSL
 ;[SSL]
@@ -152,7 +152,6 @@ LastMainProg={{LastMainProg}}
 MaxBodySize={{MaxBodySize}}
 MaxHeaderSize={{MaxHeaderSize}}
 MaxRequestTime={{MaxRequestTime}}
-
 
 [WEBAPP-HEADERS]
 Access-Control-Allow-Origin=*
@@ -176,7 +175,7 @@ AllowOrigin=*
 
 [HTTPJOB]
 MAIN=HTTP_START
-ENVIRONMENT={{environment}}
+ENVIRONMENT={{environment_name}}
 
 [ONSTART]
 jobs=HTTPJOB

@@ -31,6 +31,7 @@ slave01_displayname: .Protheus_Slave01
 slave01_description: .Protheus_Slave01
 slave01_consoleFile: '{{logs}}/{{ slave01_name }}.log'
 slave01_latencyLogFile: '{{logs}}/latency_{{ slave01_name }}.log'
+slave01_LogProfilerPath: '{{logs}}/logprofiler_{{ slave01_name }}.log'
 
 # Slave02
 slave02_port: 7032
@@ -40,6 +41,7 @@ slave02_displayname: .Protheus_Slave02
 slave02_description: .Protheus_Slave02
 slave02_consoleFile: '{{logs}}/{{ slave02_name }}.log'
 slave02_latencyLogFile: '{{logs}}/latency_{{ slave02_name }}.log'
+slave02_LogProfilerPath: '{{logs}}/logprofiler_{{ slave02_name }}.log'
 
 # Rest
 rest_tcp_port: 7033
@@ -50,6 +52,7 @@ rest_displayname: .Protheus_Rest
 rest_description: .Protheus_Rest
 rest_consoleFile: '{{logs}}/{{ rest_name }}.log'
 rest_latencyLogFile: '{{logs}}/latency_{{ rest_name }}.log'
+rest_LogProfilerPath: '{{logs}}/logprofiler_{{ rest_name }}.log'
 rest_url: '/rest'
 rest_prepare_in: ALL
 rest_instances: '2,5,1,1'
@@ -63,8 +66,9 @@ soap_displayname: .Protheus_Soap
 soap_description: .Protheus_Soap
 soap_consoleFile: '{{logs}}/{{ soap_name }}.log'
 soap_latencyLogFile: '{{logs}}/latency_{{ soap_name }}.log'
+soap_LogProfilerPath: '{{logs}}/logprofiler_{{ soap_name }}.log'
 soap_instances: '2,5,1,1'
-soap_path:
+
 
 # Vars Appserver.ini Default
 
@@ -86,7 +90,6 @@ AdvSQLReplayLog: 0
 AdvSQLReplayPath: '/SQLReplay/'
 AdvSQLReplayIOP: 0
 AdvSQLReplayLogMaxSize: 536870912
-LogProfilerPath: '{{logs}}/logprofiler_{{environment}}.log' # log_profiler.log
 
 ## [DBAccess]
 DBAccessServer: '{{ dbaccess_ip }}'
@@ -164,7 +167,7 @@ Debug   :  0
 # SecureConnection: 1
 
 ## [WEBAPP]
-EnvServer: '{{environment}}'
+EnvServer: '{{environment_name}}'
 LastMainProg: 'SIGAADV,SIGAMDI,SIGACFG,SRVWIZARD'
 MaxBodySize: 10485760
 MaxHeaderSize: 1024
