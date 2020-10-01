@@ -39,8 +39,8 @@ Project for provisioning box Protheus development environment for code, build an
 - [Oracle Boxes](https://yum.oracle.com/boxes/)
 - [Ansible](https://docs.ansible.com/ansible/2.5/modules/list_of_all_modules.html)
 - [Postgresql](https://www.postgresql.org/download/linux/redhat/)
-- [Protheus Linux](https://tdn.totvs.com/pages/releaseview.action?pageId=515672176>/)
-- [Bog Siga0984](https://siga0984.wordpress.com/2016/07/12/protheus-no-linux-parte-02/)
+- [Protheus Linux](https://tdn.totvs.com/pages/releaseview.action?pageId=515672176)
+- [Bog Siga0984](https://siga0984.wordpress.com/2016/07/12/protheus-no-linux-parte-02)
 
 # Install Vagrant
 
