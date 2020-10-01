@@ -1,6 +1,6 @@
 # Provision ERP Protheus With Vagrant and Ansible
 [![N|Solid](http://i.imgur.com/RnlvjUO.png)](https://www.vagrantup.com)
-
+[![N|Solid](https://tdn.totvs.com/download/attachments/271679196/prhotheus_logo.png?version=1&modificationDate=1487705883000&api=v2)](https://www.totvs.com/blog/erp/protheus-da-totvs/)
 Project for provisioning box Protheus development environment for code, build and test.
 >This projetc use provider Virtual Box for create VM's. 
 This project use box Oracle Linux 8 for provisioning environment.
