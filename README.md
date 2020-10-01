@@ -1,63 +1,70 @@
 # Provision ERP Protheus With Vagrant and Ansible
+[![N|Solid](http://i.imgur.com/RnlvjUO.png)](https://www.vagrantup.com)
 
-## Getting Started
+Project for provisioning box Protheus development environment for code, build and test.
+>This projetc use provider Virtual Box for create VM's. 
+This project use box Oracle Linux 8 for provisioning environment.
+This project user Jinja Templates for configure environment.
+Pay attention to **download the artifacts** to not have problems in provisioning.
+
+# Getting Started
 
 - Fork the project and enjoy.
 - Atention for pre requisites and License!!!
 
-## Prerequisites
+# Prerequisites
 
-- Git
-- Virtual Box
-- Vagrant
-- Ansible
-- Python
+- [Git](https://git-scm.com/doc)
+- [Virtual Box](https://www.virtualbox.org/wiki/Documentation)
+- [Vagrant](https://www.vagrantup.com/docs/index.html)
+- [Ansible](https://docs.ansible.com/ansible/latest/index.html)
+- [Python]()
 
-## Authors
+# Authors
 
 - Marcos Silvestrini
+- marcos.silvestrini@gmail.com
 
-## License
+# License
 
 - This project is licensed under the MIT License - see the LICENSE.md file for details
 
-## References
+# References
 
-- Git: <https://git-scm.com/doc>
-- VirtualBox: <https://www.virtualbox.org/wiki/Documentation>
-- Vagrant: <https://www.vagrantup.com/docs/index.html>
-- Ansible: <https://docs.ansible.com/ansible/latest/index.html>
-- Postgresql:
-- <https://www.postgresql.org/download/linux/redhat/>
-- <https://help.interfaceware.com/v6/connect-to-postgresql-from-linux-or-mac-with-odbc>
-- Protheus:
-- <https://tdn.totvs.com/pages/releaseview.action?pageId=515672176>
-- <https://siga0984.wordpress.com/2016/07/12/protheus-no-linux-parte-02/>
+- [Git](https://git-scm.com/doc)
+- [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
+- [Vagrant](https://www.vagrantup.com/docs/index.html)
+- [Oracle Boxes](https://yum.oracle.com/boxes/)
+- [Ansible](https://docs.ansible.com/ansible/2.5/modules/list_of_all_modules.html)
+- [Postgresql](https://www.postgresql.org/download/linux/redhat/)
+- [Protheus Linux](https://tdn.totvs.com/pages/releaseview.action?pageId=515672176>/)
+- [Bog Siga0984](https://siga0984.wordpress.com/2016/07/12/protheus-no-linux-parte-02/)
 
-## Install Vagrant
+# Install Vagrant
 
-### Download
+## Download
 
-- <https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm>
-- sudo wget <https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm>
+```linux
+sudo wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
+```
+## Install
+```linux
+sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
+vagrant ––version
+```
+# Create Box
 
-### Install
+1. clone this reposotory
+2. Generate your ssh pub key and **copy to security/ folder**
+3. Download artefacts of ERP(license,rpo,appserver,etc)
+4. Copy artefacts for relative folders(license,rpo,appserver,etc)
+5. cd vagrant-protheus
+6. vagrant validate
+7. vagrant up
+8. vagrant status
+9. vagrant ssh
 
-- sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
-- vagrant ––version
-
-## Create Box
-
-- clone this reposotory
-- Generate your ssh pub key and copy to security folder
-- Download artefacts of ERP(license,rpo,appserver,etc)
-- Copy artefacts for relative folders(license,rpo,appserver,etc)
-- cd vagrant-protheus
-- vagrant up
-- vagrant status
-- vagrant ssh
-
-## Base Vagrantfile
+# Vagrantfile Tasks
 
 - Set Hostname
 - Set ressources memory and cpu
@@ -68,18 +75,20 @@
 - Configure Selinux
 - Install Updates
 
-## Fix Error SSH in Vagrant Windows
+# Fix Error SSH in Vagrant Windows
 
 - Run this command in powershell:
-- $Env:VAGRANT_PREFER_SYSTEM_BIN += 0
+```powershell
+$Env:VAGRANT_PREFER_SYSTEM_BIN += 0
+```
 
-## Provisioning Database
+# Provisioning Database Tasks
 
 - Install and configure database
 - Create database for app
 - Create user and pass
 
-## Provisioning App
+# Provisioning App Tasks
 
 - Instal and configure lockserver
 - Instal and configure licenserver
