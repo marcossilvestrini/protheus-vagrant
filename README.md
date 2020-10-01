@@ -1,11 +1,13 @@
 # Provision ERP Protheus With Vagrant and Ansible
+
+
 [![N|Solid](http://i.imgur.com/RnlvjUO.png)](https://www.vagrantup.com)
 
 Project for provisioning box Protheus development environment for code, build and test.
->This projetc use provider Virtual Box for create VM's. 
-This project use box Oracle Linux 8 for provisioning environment.
-This project user Jinja Templates for configure environment.
-Pay attention to **download the artifacts** to not have problems in provisioning.
+>This projetc use provider Virtual Box for create VM's  
+>This project use box Oracle Linux 8 for provisioning environment   
+>This project user Jinja Templates for configure environment   
+>Pay attention to **download the artifacts** to not have problems in provisioning
 
 # Getting Started
 
