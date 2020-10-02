@@ -1,20 +1,19 @@
 # Provision ERP Protheus With Vagrant and Ansible
 
-
 [![N|Solid](http://i.imgur.com/RnlvjUO.png)](https://www.vagrantup.com)
 
 Project for provisioning box Protheus development environment for code, build and test.
->This projetc use provider Virtual Box for create VM's  
->This project use box Oracle Linux 8 for provisioning environment   
->This project user Jinja Templates for configure environment   
+>This projetc use provider Virtual Box for create VM's
+>This project use box Oracle Linux 8 for provisioning environment
+>This project user Jinja Templates for configure environment
 >Pay attention to **download the artifacts** to not have problems in provisioning
 
-# Getting Started
+## Getting Started
 
 - Fork the project and enjoy.
 - Atention for pre requisites and License!!!
 
-# Prerequisites
+## Prerequisites
 
 - [Git](https://git-scm.com/doc)
 - [Virtual Box](https://www.virtualbox.org/wiki/Documentation)
@@ -22,16 +21,16 @@ Project for provisioning box Protheus development environment for code, build an
 - [Ansible](https://docs.ansible.com/ansible/latest/index.html)
 - [Python]()
 
-# Authors
+## Authors
 
 - Marcos Silvestrini
 - marcos.silvestrini@gmail.com
 
-# License
+## License
 
 - This project is licensed under the MIT License - see the LICENSE.md file for details
 
-# References
+## References
 
 - [Git](https://git-scm.com/doc)
 - [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
@@ -42,19 +41,22 @@ Project for provisioning box Protheus development environment for code, build an
 - [Protheus Linux](https://tdn.totvs.com/pages/releaseview.action?pageId=515672176)
 - [Bog Siga0984](https://siga0984.wordpress.com/2016/07/12/protheus-no-linux-parte-02)
 
-# Install Vagrant
+## Install Vagrant
 
-## Download
+### Download
 
 ```linux
 sudo wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
 ```
-## Install
+
+### Install
+
 ```linux
 sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
 vagrant ––version
 ```
-# Create Box
+
+## Create Box
 
 1. clone this reposotory
 2. Generate your ssh pub key and **copy to security/ folder**
@@ -66,7 +68,7 @@ vagrant ––version
 8. vagrant status
 9. vagrant ssh
 
-# Vagrantfile Tasks
+## Vagrantfile Tasks
 
 - Set Hostname
 - Set ressources memory and cpu
@@ -77,20 +79,21 @@ vagrant ––version
 - Configure Selinux
 - Install Updates
 
-# Fix Error SSH in Vagrant Windows
+## Fix Error SSH in Vagrant Windows
 
 - Run this command in powershell:
+
 ```powershell
 $Env:VAGRANT_PREFER_SYSTEM_BIN += 0
 ```
 
-# Provisioning Database Tasks
+## Provisioning Database Tasks
 
 - Install and configure database
 - Create database for app
 - Create user and pass
 
-# Provisioning App Tasks
+## Provisioning App Tasks
 
 - Instal and configure lockserver
 - Instal and configure licenserver

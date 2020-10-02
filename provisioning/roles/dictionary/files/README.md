@@ -10,4 +10,4 @@
 - BRA-HELPS_COMPL.ZIP
 - BRA-MENUS.ZIP
 - web-files.zip
-- arquivos_portal_meurh.zip
+- PortalMeuRHzip

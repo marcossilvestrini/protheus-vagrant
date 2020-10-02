@@ -13,6 +13,7 @@
 **/provisioning/**/*.rpo
 **/provisioning/**/*.zip*
 **/provisioning/**/*.tar.gz*
+**/provisioning/**/*.so*
 
 # rules postgresql
 **/*.retry

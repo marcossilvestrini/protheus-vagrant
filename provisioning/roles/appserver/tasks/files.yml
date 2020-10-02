@@ -17,6 +17,17 @@
     '{{ paths }}'
   become: yes
 
+- name: Copy Webapp file
+  copy:
+    src: webapp.so
+    dest: '{{ item }}'
+    mode: '0775'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+  loop:
+    '{{ paths }}'
+  become: yes
+
 - name: Copy Script for Maintenance(Stop,Start,Restart, Status)
   template:
     src: '{{ item }}'
@@ -24,7 +35,7 @@
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
     mode: 0775
-  with_items:
+  loop:
     - '{{ scripts }}'
   become: yes
 
