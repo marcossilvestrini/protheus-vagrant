@@ -6,30 +6,32 @@
     mode: '0775'
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
-  become: yes
+  #become: yes
 
 - name: Extract License Files
   unarchive:
     src: '{{ app_path }}/license.zip'
     dest: '{{ app_path }}'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     remote_src: yes
-  become: yes
+  #become: yes
 
 - name: Copy Appserver.ini
   template:
     src: appserver.ini.j2
     dest: '{{ license_appserver_path }}/appserver.ini'
-    owner: vagrant
-    group: vagrant
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     mode: 0775
-  become: yes
+  #become: yes
 
 - name: Set License Bin Name
   copy:
     src: '{{ license_appserver_path }}/appsrvlinux'
     dest: '{{ license_appserver_path }}/app_license'
-    owner: vagrant
-    group: vagrant
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     mode: '0775'
     remote_src: yes
 
@@ -37,10 +39,10 @@
   template:
     src: totvslicense.j2
     dest: '{{ script_path}}/totvslicense'
-    owner: vagrant
-    group: vagrant
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     mode: 0775
-  become: yes
+  #become: yes
 
 - name: Clear License Files
   file:

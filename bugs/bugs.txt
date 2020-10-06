@@ -1,0 +1,11 @@
+start broker
+Script for started service broker not work
+
+start services
+After start appserver with script, this message is displayed:
+/dev/mem: Permission denied
+/sys/firmware/dmi/tables/smbios_entry_point: Permission denied
+
+Role: jenkins
+Bug: loockup in private key with error.
+Value of private key not formatted in request of api jenkins credentials

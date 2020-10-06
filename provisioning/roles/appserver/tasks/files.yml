@@ -6,16 +6,18 @@
     mode: '0775'
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
-  become: yes
+  # become: yes
 
 - name: Extract Appserver Files
   unarchive:
     src: '{{ appserver_path }}/appserver.tar.gz'
     dest: '{{ item }}'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     remote_src: yes
   loop:
     '{{ paths }}'
-  become: yes
+  # become: yes
 
 - name: Copy Webapp file
   copy:
@@ -26,7 +28,7 @@
     group: '{{ user_service }}'
   loop:
     '{{ paths }}'
-  become: yes
+  # become: yes
 
 - name: Copy Script for Maintenance(Stop,Start,Restart, Status)
   template:
@@ -35,12 +37,12 @@
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
     mode: 0775
-  loop:
+  with_items:
     - '{{ scripts }}'
-  become: yes
+  # become: yes
 
 - name: Clear Appserver Files
   file:
     path: '{{ appserver_path }}/appserver.tar.gz'
     state: absent
-  become: yes
+  # become: yes

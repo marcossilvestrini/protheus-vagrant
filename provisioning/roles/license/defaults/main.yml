@@ -6,3 +6,4 @@ license_certs_path: '{{ license_root_path }}/certs'
 license_certs: '{{ license_certs_path }}/licenseservercloud.cer'
 license_tcp_port: 2234
 license_web_port: 8020
+license_consoleFile: '{{logs}}/app_license.log'

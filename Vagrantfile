@@ -55,7 +55,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     protheus.vm.provider "virtualbox" do |vb|
       vb.linked_clone = true
       vb.name = APP_NAME
-      vb.memory = 4096
+      vb.memory = 8192
       vb.cpus = 6
     end
 

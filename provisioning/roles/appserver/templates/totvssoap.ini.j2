@@ -48,8 +48,8 @@ Secure={{Secure}}
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=135495723
 [TCP]
 Type={{Type}}
-Port={{slave01_port}}
-Ip={{Ip}}
+Port={{soap_tcp_port}}
+Ip={{ip_app}}
 
 ;LicenseClient
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=244734923
@@ -71,7 +71,6 @@ MessageLog={{lockserverMessageLog}}
 [General]
 ChangeEncodingBehavior={{ChangeEncodingBehavior}}
 InactiveTimeout={{InactiveTimeout}}
-app_environment={{environment_name}}
 CanAcceptDebugger={{CanAcceptDebugger}}
 CanAcceptLB={{CanAcceptLB}}
 CanAcceptMonitor={{CanAcceptMonitor}}
@@ -80,7 +79,7 @@ CanAcceptRPC={{CanAcceptRPC}}
 DebugThreadUsedMemory={{DebugThreadUsedMemory}}
 FloatingPointPrecise={{FloatingPointPrecise}}
 IdeMessages={{IdeMessages}}
-ConsoleFile={{slave01_consoleFile}}
+ConsoleFile={{soap_consoleFile}}
 AsyncConsoleLog=0
 LogTimeStamp = {{LogTimeStamp}}
 ShowFullLog={{ShowFullLog}}
@@ -88,7 +87,7 @@ ShowIPClient={{ShowIPClient}}
 SocketMessages={{SocketMessages}}
 SSLRedirect={{SSLRedirect}}
 LatencyLog={{LatencyLog}}
-LatencyLogFile={{slave01_latencyLogFile}}
+LatencyLogFile={{soap_latencyLogFile}}
 LogHttpFuncs= {{LogHttpFuncs}}
 MaxStringSize={{MaxStringSize}}
 WsdlStreamType={{WsdlStreamType}}
@@ -98,9 +97,9 @@ ServerMemoryLimit={{ServerMemoryLimit}}
 ;Service
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064864
 [Service]
-Name={{slave01_name}}
-Displayname={{slave01_displayname}}
-Description={{slave01_description}}
+Name={{soap_name}}
+Displayname={{soap_displayname}}
+Description={{soap_description}}
 
 ;TDS
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
@@ -112,15 +111,10 @@ ENABLESENDMESSAGE={{ENABLESENDMESSAGE}}
 ENABLEBLOCKNEWCONNECTION={{ENABLEBLOCKNEWCONNECTION}}
 ENABLESTOPSERVER={{ENABLESTOPSERVER}}
 
-;APP_MONITOR
-;https://tdn.totvs.com/pages/viewpage.action?pageId=552580433
-[APP_MONITOR]
-Enable={{enable_monitor}}
-
 ;update
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064898
 [update]
-Enable='{{ enable_update }}'
+Enable={{ enable_update }}
 PathLinux={{update}}
 
 ;SSLConfigure
@@ -146,7 +140,7 @@ Debug   = {{Debug}}
 ;WEBAPP
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=307834830
 [WEBAPP]
-Port={{rest_http_port}}
+Port={{soap_http_port}}
 EnvServer={{EnvServer}}
 LastMainProg={{LastMainProg}}
 MaxBodySize={{MaxBodySize}}
@@ -159,7 +153,7 @@ Access-Control-Allow-Origin=*
 ;HTTP
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064817
 [HTTP]
-Enable=0
+Enable=1
 Port={{soap_port}}
 Compression=1
 CorsEnable=1

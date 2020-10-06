@@ -6,7 +6,7 @@
     mode: '0755'
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
-  become: yes
+  # become: yes
 
 - name: Copy DBAccess Files
   copy:
@@ -15,20 +15,22 @@
     mode: '0775'
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
-  become: yes
+  # become: yes
 
 - name: Extract DBAccess Files
   unarchive:
     src: '{{ dbaccess_path }}/dbaccess.tar.gz'
     dest: '{{ dbaccess_path }}'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     remote_src: yes
-  become: yes
+  # # become: yes
 
 - name: Clear DBAccess Files
   file:
     path: '{{ dbaccess_path }}/dbaccess.tar.gz'
     state: absent
-  become: yes
+  # # become: yes
 
 - name: Copy Dbaccess Config File(dbaccess.ini)
   template:
@@ -37,7 +39,7 @@
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
     mode: 0777
-  become: yes
+  # # become: yes
 
 - name: Copy Script for Maintenance(Stop,Start,Restart, Status)
   template:
@@ -46,4 +48,4 @@
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
     mode: 0777
-  become: yes
+  # become: yes

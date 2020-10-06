@@ -3,11 +3,11 @@
   vars_files:
     - roles/jenkins/vars/main.yml
   roles:
-    - common
-    - license
+    #- common
+    #- license
     - appserver
-    # - dbaccess
-    # - dictionary
-    # - rpo
+    #- dbaccess
+    #- dictionary
+    #- rpo
     # Optional
     # - jenkins
