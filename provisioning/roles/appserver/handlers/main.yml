@@ -1,3 +1,0 @@
----
-#- name: Run a script with arguments (free form)
-#  script: /some/local/script.sh --some-argument 1234

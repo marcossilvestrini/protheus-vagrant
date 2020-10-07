@@ -17,18 +17,18 @@ scripts:
 
 # Broker
 broker_tcp: 7030
-broker_name: .protheus_broker
+broker_name: protheus_broker
 broker_displayname: protheus_broker
-broker_description: .protheus_broker
+broker_description: protheus_broker
 broker_consoleFile: '{{logs}}/{{ broker_name }}.log'
 broker_latencyLogFile: '{{logs}}/latency_{{ broker_name }}.log'
 
 # slave01
 slave01_port: 7031
 slave01_http_port: 7131
-slave01_name: .protheus_slave01
-slave01_displayname: .protheus_slave01
-slave01_description: .protheus_slave01
+slave01_name: protheus_slave01
+slave01_displayname: protheus_slave01
+slave01_description: protheus_slave01
 slave01_consoleFile: '{{logs}}/{{ slave01_name }}.log'
 slave01_latencyLogFile: '{{logs}}/latency_{{ slave01_name }}.log'
 slave01_LogProfilerPath: '{{logs}}/logprofiler_{{ slave01_name }}.log'
@@ -36,9 +36,9 @@ slave01_LogProfilerPath: '{{logs}}/logprofiler_{{ slave01_name }}.log'
 # slave02
 slave02_port: 7032
 slave02_http_port: 7132
-slave02_name: .protheus_slave02
-slave02_displayname: .protheus_slave02
-slave02_description: .protheus_slave02
+slave02_name: protheus_slave02
+slave02_displayname: protheus_slave02
+slave02_description: protheus_slave02
 slave02_consoleFile: '{{logs}}/{{ slave02_name }}.log'
 slave02_latencyLogFile: '{{logs}}/latency_{{ slave02_name }}.log'
 slave02_LogProfilerPath: '{{logs}}/logprofiler_{{ slave02_name }}.log'
@@ -47,9 +47,9 @@ slave02_LogProfilerPath: '{{logs}}/logprofiler_{{ slave02_name }}.log'
 rest_tcp_port: 7033
 rest_port: 7133
 rest_http_port: 7233
-rest_name: .protheus_Rest
-rest_displayname: .protheus_rest
-rest_description: .protheus_rest
+rest_name: protheus_rest
+rest_displayname: protheus_rest
+rest_description: protheus_rest
 rest_consoleFile: '{{logs}}/{{ rest_name }}.log'
 rest_latencyLogFile: '{{logs}}/latency_{{ rest_name }}.log'
 rest_LogProfilerPath: '{{logs}}/logprofiler_{{ rest_name }}.log'
@@ -61,14 +61,13 @@ rest_instances: '2,5,1,1'
 soap_tcp_port: 7034
 soap_port: 7134
 soap_http_port: 7234
-soap_name: .protheus_soap
-soap_displayname: .protheus_soap
-soap_description: .protheus_soap
+soap_name: protheus_soap
+soap_displayname: protheus_soap
+soap_description: protheus_soap
 soap_consoleFile: '{{logs}}/{{ soap_name }}.log'
 soap_latencyLogFile: '{{logs}}/latency_{{ soap_name }}.log'
 soap_LogProfilerPath: '{{logs}}/logprofiler_{{ soap_name }}.log'
 soap_instances: '2,5,1,1'
-
 
 # Vars Appserver.ini Default
 
@@ -77,7 +76,7 @@ local_files: Ctree
 localdbextension: .dtc
 rpodb: Top
 rpolanguage: portuguese
-rpoversion: 101
+rpoversion: 120
 ThreadMemWarning: 1000
 ThreadMemStep: 100
 KillStack: 1
@@ -110,12 +109,11 @@ lockserverMessageLog: 0
 
 ## [TCP]
 Type: TCPIP
-Ip: '{{ ip_app }}'
 
 ## [General]
+ConsoleLog: 1
 ChangeEncodingBehavior: 0
 InactiveTimeout: 300
-#app_environment: {{environment}}
 CanAcceptDebugger: 1
 CanAcceptLB: 1
 CanAcceptMonitor: 1

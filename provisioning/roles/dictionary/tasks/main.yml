@@ -4,17 +4,21 @@
     path: "{{item}}"
     state: directory
     mode: '0755'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
   with_items:
     - '{{ system_path }}'
     - '{{ systemload_path }}'
     - '{{ web_path }}'
     - '{{ portaL_rh_path }}'
-  become: yes
+  #become: yes
 
 - name: Copy Dictionary Files
   copy:
     src: '{{ item.src }}'
     dest: '{{ item.dest }}'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     mode: '0775'
   with_items:
     - { src: 'BRA-MENUS.ZIP' ,dest: '{{ system_path }}'}
@@ -22,12 +26,15 @@
     - { src: 'BRA-HELPS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
     - { src: 'web-files.zip' ,dest: '{{ systemload_path }}'}
     - { src: 'PortalMeuRH.zip' ,dest: '{{ portaL_rh_path }}'}
-  become: yes
+  #become: yes
 
 - name: Extract Dictionary Files
   unarchive:
     src: '{{ item.src }}'
     dest: '{{ item.dest }}'
+    mode: '0775'
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
     remote_src: yes
   with_items:
     - { src: '{{ system_path }}/BRA-MENUS.ZIP' ,dest: '{{ system_path }}'}
@@ -35,7 +42,7 @@
     - { src: '{{ systemload_path }}/BRA-HELPS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
     - { src: '{{ systemload_path }}/web-files.zip' ,dest: '{{ systemload_path }}'}
     - { src: '{{ portaL_rh_path }}/PortalMeuRH.zip' ,dest: '{{ portaL_rh_path }}'}
-  become: yes
+  #become: yes
 
 - name: Clear Dictionary Files
   file:
@@ -47,4 +54,4 @@
     - '{{ systemload_path }}/BRA-HELPS_COMPL.ZIP'
     - '{{ systemload_path }}/web-files.zip'
     - '{{ portaL_rh_path }}/PortalMeuRH.zip'
-  become: yes
+  #become: yes

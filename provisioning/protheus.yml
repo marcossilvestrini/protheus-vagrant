@@ -1,13 +1,15 @@
 - hosts: protheus
   become: yes
   vars_files:
+    - roles/postgresql/vars/main.yml
     - roles/jenkins/vars/main.yml
   roles:
-    #- common
-    #- license
+    - common
+    - postgresql
+    - license
     - appserver
-    #- dbaccess
-    #- dictionary
-    #- rpo
+    - dbaccess
+    - dictionary
+    - rpo
     # Optional
     # - jenkins

@@ -49,6 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # MOUNTS
     protheus.vm.synced_folder ".", "/vagrant", disabled: true
     protheus.vm.synced_folder "./security", "/security"
+    protheus.vm.synced_folder "./scripts", "/totvs/scripts"
     #protheus.vm.synced_folder "./install", "/totvs/install", type: "rsync",rsync__args: ["-r", "--include=*"]
 
     # PROVIDER
@@ -67,11 +68,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       sudo systemctl disable firewalld
       sudo setenforce Permissive
     SHELL
-
-    # INSTALL UPDATES
-    # protheus.vm.provision "shell", path: "scripts/install.sh"
-    # protheus.vm.provision :reload
-    # protheus.vm.provision "shell", inline: "echo 'INSTALLER: Installation complete, Oracle Linux 8 ready to use!'"
 
     # PACKAGES FOR PROVISION
     protheus.vm.provision "shell", inline: <<-SHELL

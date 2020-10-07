@@ -40,13 +40,11 @@ start_path: '{{ app_path }}/bin'
 
 # Base Appserver Path
 appserver_path: '{{ start_path }}/appserver'
-#/totvs/bin/appserver
 
 # Lockserver
 lockserver_ip: '{{ ip_app }}'
 lockserver_port: 7020
 lockserver_path: '{{ appserver_path }}/lockserver'
-#/totvs/bin/appserver/lockserver/
 
 # License
 license_ip: '{{ ip_app }}'
