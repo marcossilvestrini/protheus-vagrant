@@ -7,9 +7,9 @@
     - common
     - postgresql
     - license
-    - appserver
     - dbaccess
     - dictionary
     - rpo
+    - appserver
     # Optional
     # - jenkins
