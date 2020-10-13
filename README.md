@@ -19,7 +19,7 @@ Project for provisioning box Protheus development environment for code, build an
 - [Virtual Box](https://www.virtualbox.org/wiki/Documentation)
 - [Vagrant](https://www.vagrantup.com/docs/index.html)
 - [Ansible](https://docs.ansible.com/ansible/latest/index.html)
-- [Python]()
+- [Python](https://www.python.org/doc/)
 
 ## Authors
 
@@ -40,6 +40,7 @@ Project for provisioning box Protheus development environment for code, build an
 - [Postgresql](https://www.postgresql.org/download/linux/redhat/)
 - [Protheus Linux](https://tdn.totvs.com/pages/releaseview.action?pageId=515672176)
 - [Bog Siga0984](https://siga0984.wordpress.com/2016/07/12/protheus-no-linux-parte-02)
+- [Fix Error Invalid client library](https://tdn.totvs.com/display/tec/Melhoria+-+Suporte+ao+psqlODBC+09.01.0100)
 
 ## Install Vagrant
 

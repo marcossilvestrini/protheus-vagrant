@@ -8,6 +8,7 @@
 **/*.pub
 **/*.ppk
 **/pk_protheus
+**/private_key
 
 #erp
 **/provisioning/**/*.rpo

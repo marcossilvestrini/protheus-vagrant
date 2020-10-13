@@ -6,7 +6,6 @@
     mode: '0755'
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
-  # become: yes
 
 - name: Copy DBAccess Files
   copy:
@@ -15,7 +14,6 @@
     mode: '0775'
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
-  # become: yes
 
 - name: Extract DBAccess Files
   unarchive:
@@ -24,13 +22,11 @@
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
     remote_src: yes
-  # # become: yes
 
 - name: Clear DBAccess Files
   file:
     path: '{{ dbaccess_path }}/dbaccess.tar.gz'
     state: absent
-  # # become: yes
 
 - name: Copy Dbaccess Config File(dbaccess.ini)
   template:
@@ -38,8 +34,7 @@
     dest: '{{ dbaccess_bin_path }}/dbaccess.ini'
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
-    mode: 0777
-  # # become: yes
+    mode: 0775
 
 - name: Copy Script for Maintenance(Stop,Start,Restart, Status)
   template:
@@ -47,5 +42,7 @@
     dest: '{{ script_path}}/totvsdbaccess'
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
-    mode: 0777
-  # become: yes
+    mode: 0775
+
+# Set postgresql-odbc
+- include_tasks: odbc.yml

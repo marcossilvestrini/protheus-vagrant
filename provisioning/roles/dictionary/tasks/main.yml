@@ -11,7 +11,6 @@
     - '{{ systemload_path }}'
     - '{{ web_path }}'
     - '{{ portaL_rh_path }}'
-  #become: yes
 
 - name: Copy Dictionary Files
   copy:
@@ -26,7 +25,6 @@
     - { src: 'BRA-HELPS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
     - { src: 'web-files.zip' ,dest: '{{ systemload_path }}'}
     - { src: 'PortalMeuRH.zip' ,dest: '{{ portaL_rh_path }}'}
-  #become: yes
 
 - name: Extract Dictionary Files
   unarchive:
@@ -42,7 +40,6 @@
     - { src: '{{ systemload_path }}/BRA-HELPS_COMPL.ZIP' ,dest: '{{ systemload_path }}'}
     - { src: '{{ systemload_path }}/web-files.zip' ,dest: '{{ systemload_path }}'}
     - { src: '{{ portaL_rh_path }}/PortalMeuRH.zip' ,dest: '{{ portaL_rh_path }}'}
-  #become: yes
 
 - name: Clear Dictionary Files
   file:
@@ -54,4 +51,3 @@
     - '{{ systemload_path }}/BRA-HELPS_COMPL.ZIP'
     - '{{ systemload_path }}/web-files.zip'
     - '{{ portaL_rh_path }}/PortalMeuRH.zip'
-  #become: yes

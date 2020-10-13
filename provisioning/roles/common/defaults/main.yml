@@ -2,12 +2,20 @@
 common_packages:
     - lsof
     - bc
-    - dos2unix
+    - libXrandr
+    - libXcursor
+    - libXinerama
+    - libXft
+    - libtool-ltdl
+    - libtool-ltdl-devel
+    - xorg-x11-server-Xorg
+    - xorg-x11-xauth
+    - vim
     - zip
     - unzip
+    - dos2unix
     - net-tools
     - java
-    - vim
 
 paths:
     - '{{ logs }}'

@@ -17,12 +17,22 @@ DBWarnings=0
 AdjustColName=1
 AuditDisconnectOnError=1
 CheckDeadLock=0
+ODBC30=1
 
 ;Service
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064711
 [Service]
 Name={{ service_name }}
 DisplayName={{ service_name }}
+
+[POSTGRES/protheus]
+user=protheus
+password=Žïô¸½½
+TableSpace=
+IndexSpace=
+
+[POSTGRES]
+environments=protheus
 
 
 

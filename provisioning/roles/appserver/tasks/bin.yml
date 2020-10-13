@@ -73,7 +73,6 @@
   shell: |
      source /home/vagrant/.bashrc
      source /home/vagrant/.bash_profile
-  #become: yes
 
 - name: Set Permission in /var/lock/subsys/ for bin
   file:
