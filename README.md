@@ -3,15 +3,15 @@
 [![N|Solid](http://i.imgur.com/RnlvjUO.png)](https://www.vagrantup.com)
 
 Project for provisioning box Protheus development environment for code, build and test.
->This projetc use provider Virtual Box for create VM's\
->This project use box Oracle Linux 8 for provisioning environment\
->This project user Jinja Templates for configure environment\
+>This projetc use provider Virtual Box for create VM's
+>This project use box Oracle Linux 8 for provisioning environment
+>This project user Jinja Templates for configure environment
 >Pay attention to **download the artifacts** to not have problems in provisioning
 
 ## Getting Started
 
-- Fork the project and enjoy.
-- Atention for pre requisites and License!!!
+Fork the project and enjoy.\
+Atention for pre requisites and License!!!\
 
 ## Prerequisites
 
@@ -23,12 +23,12 @@ Project for provisioning box Protheus development environment for code, build an
 
 ## Authors
 
-- Marcos Silvestrini
-- marcos.silvestrini@gmail.com
+Marcos Silvestrini\
+marcos.silvestrini@gmail.com\
 
 ## License
 
-- This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## References
 
@@ -82,7 +82,7 @@ vagrant ––version
 
 ## Fix Error SSH in Vagrant Windows
 
-- Run this command in powershell:
+Run this command in powershell:\
 
 ```powershell
 $Env:VAGRANT_PREFER_SYSTEM_BIN += 0
