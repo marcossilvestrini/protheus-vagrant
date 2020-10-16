@@ -8,12 +8,16 @@ Project for provisioning box Protheus development environment for code, build an
 >This project user Jinja Templates for configure environment \
 >Pay attention to **download the artifacts** to not have problems in provisioning
 
+## Philosophy
+
+This project aims to automate the provisioning of the ERP Protheus stack for development purposes.
+
 ## Getting Started
 
 Fork the project and enjoy.\
 Atention for pre requisites and License!!!\
 
-## Prerequisites
+## Pre-Requisites
 
 - [Git](https://git-scm.com/doc)
 - [Virtual Box](https://www.virtualbox.org/wiki/Documentation)
@@ -79,6 +83,7 @@ vagrant ––version
 - Configure Firewall (firewalld or iptables)
 - Configure Selinux
 - Install Updates
+- Install python3
 
 ## Fix Error SSH in Vagrant Windows
 
@@ -103,3 +108,45 @@ $Env:VAGRANT_PREFER_SYSTEM_BIN += 0
 - Install and configure appserver_slaves
 - Install and configure appserver_rest
 - Install and configure appserver_soap
+
+## Roles Short Explanations
+
+### postgresql
+
+Read the README file in the role folder for more details
+
+### commom
+
+This roles install commons libs,packages and create defaults paths.\
+Libs and packages are described in defaults
+
+### rpo
+
+Role for configure rpo
+
+### dictionay
+
+Role for configure dictionary files, web files and portal files.
+
+### license
+
+Role for configure license server.
+
+### dbaccess
+
+Role for configure dbaccess,UnixODBC and postgresql-odbc
+
+### appserver
+
+Role for configure appservers.\
+This role configure binaries for:\
+
+- lockserver
+- broker
+- slaves
+- soap
+- rest
+
+### jenkins
+
+Optional role for create and configure jenkins node in host
