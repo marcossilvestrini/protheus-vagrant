@@ -17,3 +17,4 @@ sudo yum install postgresql-odbc.x86_64 -y
 
 # simbolik link for dbaccess
 sudo ln -sf /usr/lib64/psqlodbc.so /usr/lib64/libpsqlodbc.so
+# clientlibrary=/opt/unixODBC/lib/libodbc.so

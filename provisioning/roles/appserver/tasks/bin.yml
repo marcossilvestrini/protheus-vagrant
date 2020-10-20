@@ -87,3 +87,10 @@
     state: directory
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
+
+- name: Set Permission in /sys/firmware/ for bin
+  file:
+    path: /sys/firmware/
+    state: directory
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
