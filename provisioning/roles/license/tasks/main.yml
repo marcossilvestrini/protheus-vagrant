@@ -6,7 +6,6 @@
     mode: '0775'
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
-  #become: yes
 
 - name: Extract License Files
   unarchive:
@@ -15,7 +14,6 @@
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
     remote_src: yes
-  #become: yes
 
 - name: Copy Appserver.ini
   template:
@@ -24,7 +22,14 @@
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
     mode: 0775
-  #become: yes
+
+- name: Create licenseserverinstall.ini
+  file:
+    path: '{{ license_appserver_path }}/licenseserverinstall.ini'
+    state: touch
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
+    mode: 0775
 
 - name: Set License Bin Name
   copy:
@@ -42,7 +47,6 @@
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
     mode: 0775
-  #become: yes
 
 - name: Clear License Files
   file:
