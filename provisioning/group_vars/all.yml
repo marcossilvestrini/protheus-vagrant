@@ -42,6 +42,17 @@ start_path: '{{ app_path }}/bin'
 # Base Appserver Path
 appserver_path: '{{ start_path }}/appserver'
 
+# SSL
+Verbose :  0
+SSL2    :  0
+SSL3    :  0
+TLS1_0  :  1
+TLS1_1  :  1
+TLS1_2  :  1
+Bugs    :  1
+State   :  0
+Debug   :  0
+
 # Lockserver
 lockserver_ip: '{{ ip_app }}'
 lockserver_port: 7020

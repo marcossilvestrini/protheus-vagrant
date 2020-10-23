@@ -15,3 +15,7 @@
     owner: '{{ user_service }}'
     group: '{{ user_service }}'
   loop: '{{ paths }}'
+
+- name: Set timezone to America/Sao_Paulo
+  community.general.timezone:
+    name: America/Sao_Paulo
