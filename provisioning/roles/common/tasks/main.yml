@@ -17,5 +17,5 @@
   loop: '{{ paths }}'
 
 - name: Set timezone to America/Sao_Paulo
-  community.general.timezone:
+  timezone:
     name: America/Sao_Paulo
