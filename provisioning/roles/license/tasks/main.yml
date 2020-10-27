@@ -52,4 +52,3 @@
   file:
     path: '{{ app_path }}/license.zip'
     state: absent
-  become: yes

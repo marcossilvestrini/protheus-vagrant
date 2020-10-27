@@ -42,6 +42,9 @@ start_path: '{{ app_path }}/bin'
 # Base Appserver Path
 appserver_path: '{{ start_path }}/appserver'
 
+# Base Appserver Path
+smartclient_path: '{{ start_path }}/smartclient'
+
 # SSL
 Verbose :  0
 SSL2    :  0
