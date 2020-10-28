@@ -1,0 +1,34 @@
+---
+# jenkins master
+master_username: admin
+master_password: admin
+master_host: "{{ ansible_host }}"
+master_port: 8080
+master_url: "http://{{ master_host }}:{{ master_port }}"
+
+# general slave
+slave_agent_name: agent-protheus
+slave_executors_num: 1
+slave_environments: {}
+slave_mode_exclusive: false
+
+# jenkins linux slave
+slave_linux_host: "{{ ansible_host }}"
+slave_linux_ssh_port: 22
+slave_linux_home: /home/vagrant
+slave_linux_jenkins_cred_id: app_protheus
+slave_linux_jenkins_username: vagrant
+slave_linux_jenkins_private_key: "foo"
+slave_linux_labels:
+  - linux
+slave_linux_selinux_ports: "{{ master_port }},49187,\
+{{ slave_linux_ssh_port }}"
+
+# jenkins windows slave
+slave_windows_service: jenkins-slave
+slave_windows_workdir: C:/Jenkins_Slave
+slave_windows_java_opts: ""
+slave_windows_labels:
+  - windows
+slave_windows_service_user: LocalSystem
+slave_windows_service_password:

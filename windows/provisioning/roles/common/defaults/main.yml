@@ -1,0 +1,8 @@
+---
+common_packages:
+    - java
+
+paths:
+    - '{{ logs }}'
+    - '{{ update }}'
+    - '{{ web_path }}'

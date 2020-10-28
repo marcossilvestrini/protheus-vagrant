@@ -1,6 +1,19 @@
+----------Linux----------
+erro with connection string feature
+If user method connection string for set database\dbaccess, printed error:
+driver not valid for select sgbd
+
+first access
+smartclint close and not open erp after execute
+
+erro 002 with multiprotocol enable
+If multiprotocol enable, error 002 is printed
+
 start broker
 Script for started service broker not work
 
 Role: jenkins
 Bug: loockup in private key with error.
 Value of private key not formatted in request of api jenkins credentials
+
+-----------Windows---------

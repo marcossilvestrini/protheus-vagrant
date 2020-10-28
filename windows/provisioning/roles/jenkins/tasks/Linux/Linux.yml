@@ -1,0 +1,65 @@
+---
+- name: Start and enable openssh server
+  service:
+    name: "{{ sshd_service_name }}"
+    state: started
+    enabled: true
+  become: true
+
+# - name: Get Private Key Value
+#   debug: msg="Private Key Value is {{ lookup('file', '{{ vagrant_private_key }}')}}"
+
+- name: Get Jenkins Crumb
+  uri:
+    url: "{{ master_url }}/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)"
+    user: "{{ master_username }}"
+    password: "{{ master_password }}"
+    force_basic_auth: yes
+    return_content: yes
+  register: crumb
+
+- name: Create a Jenkins Credential
+  uri:
+    method: POST
+    user: "{{ master_username }}"
+    password: "{{ master_password }}"
+    force_basic_auth: yes
+    #body_format: json
+    #body_format: form-urlencoded
+    #"privateKey": "{{ lookup('file', '{{ vagrant_private_key }}')}}"
+    url: "{{ master_url }}/credentials/store/system/domain/_/createCredentials"
+    headers:
+      Jenkins-Crumb: "{{ crumb.content.split(':')[1] }}"
+      Cookie: "{{ crumb.set_cookie }}"
+    body: |
+      json={
+        "credentials": {
+          "scope": "GLOBAL",
+          "id": "{{ slave_linux_jenkins_cred_id }}",
+          "username": "{{ slave_linux_jenkins_username }}",
+          "privateKeySource": {
+            "stapler-class": "com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey$DirectEntryPrivateKeySource",
+            "privateKey": "{{ slave_linux_jenkins_private_key }}"
+            },
+          "description": "Node app-protheus",
+          "stapler-class": "com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey"
+        }
+      }
+    #status_code: 302
+    validate_certs: no
+    follow_redirects: yes
+  #ignore_errors: true
+
+- name: Install slave jenkins agent
+  jenkins_script:
+    user: '{{ master_username }}'
+    password: '{{ master_password }}'
+    validate_certs: false
+    timeout: 140
+    url: '{{ master_url }}'
+    script: >-
+      {{ lookup('template', 'add_linux_slave.groovy.j2') }}
+
+- name: Add selinux support
+  include_tasks: selinux-support.yml
+  when: ansible_os_family == 'RedHat'
