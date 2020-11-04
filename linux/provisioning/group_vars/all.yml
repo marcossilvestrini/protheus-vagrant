@@ -1,6 +1,6 @@
 ---
 # DB
-db_ip: '192.168.0.133'
+db_ip: '192.168.0.132'
 db_user: protheus #(this value present in role postgresql/vars/main.yml)
 db_pass: protheus #(this value present in role postgresql/vars/main.yml)
 database: protheus #(this value present in role postgresql/vars/main.yml)

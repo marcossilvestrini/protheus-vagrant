@@ -101,8 +101,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # PROVISION
 
     # SETUP ANSIBLE
-
-    # protheus_app.vm.provision "shell", path: "scripts/setup_ansible.ps1"
+    protheus_app.vm.provision "shell", path: "scripts/setup_ansible.ps1"
 
     # PROVISIONING ANSIBLE
     protheus_app.vm.provision "ansible" do |ansible|

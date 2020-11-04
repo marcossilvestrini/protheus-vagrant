@@ -30,14 +30,54 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = BOX_NAME
   config.vm.box_url = "#{BOX_URL}/#{BOX_NAME}.json"
 
+  # VM Postgresql
+  config.vm.define "postgresql"  do |postgresql|
+
+    # VARIABLE HOSTNAME
+    DB_NAME= "ol8-postgresql"
+
+    # HOSTNAME
+    postgresql.vm.hostname =DB_NAME
+
+    # NETWORK
+    postgresql.vm.network "public_network" ,ip: "192.168.0.132",mode: "bridge"
+
+    # MOUNTS
+    postgresql.vm.synced_folder ".", "/vagrant", disabled: true
+    postgresql.vm.synced_folder "./security", "/security"
+
+    # PROVIDER
+    postgresql.vm.provider "virtualbox" do |vb|
+      vb.linked_clone = true
+      vb.name =DB_NAME
+      vb.memory = 4096
+      vb.cpus = 3
+    end
+
+    # PROVISION
+    # SSH,FIREWALLD AND SELINUX
+    postgresql.vm.provision "shell", inline: <<-SHELL
+      cat /security/id_rsa.pub >> .ssh/authorized_keys
+      sudo systemctl stop firewalld
+      sudo systemctl disable firewalld
+      sudo setenforce Permissive
+    SHELL
+
+    # PACKAGES FOR PROVISION
+    postgresql.vm.provision "shell", inline: <<-SHELL
+      dnf install python3 -y
+    SHELL
+
+  end
+
   # VM Protheus
   config.vm.define "protheus"  do |protheus|
 
     # VARIABLE HOSTNAME
-    APP_NAME= "ol8-protheus"
+   APP_NAME= "ol8-protheus"
 
     # HOSTNAME
-    protheus.vm.hostname = APP_NAME
+    protheus.vm.hostname =APP_NAME
 
     # NETWORK
     protheus.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge"
@@ -55,9 +95,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # PROVIDER
     protheus.vm.provider "virtualbox" do |vb|
       vb.linked_clone = true
-      vb.name = APP_NAME
-      vb.memory = 8192
-      vb.cpus = 6
+      vb.name =APP_NAME
+      vb.memory = 4096
+      vb.cpus = 3
     end
 
     # PROVISION

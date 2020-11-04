@@ -99,8 +99,8 @@ Driver: dbapi.so
 MemoMega: 1
 
 ## [Drivers]
-MultiProtocolPort: 1
-MultiProtocolPortSecure: 1
+MultiProtocolPort: 0
+MultiProtocolPortSecure: 0
 Secure: SSL
 
 ## [lockserver]
@@ -127,7 +127,7 @@ LogTimeStamp : 1
 ShowFullLog: 0
 ShowIPClient: 0
 SocketMessages: 0
-SSLRedirect: 1
+SSLRedirect: 0
 LatencyLog: 0
 LogHttpFuncs:  0
 MaxStringSize: 10

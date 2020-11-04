@@ -1,54 +1,32 @@
 ---
 - name: Copy License Files
-  copy:
+  win_copy:
     src: license.zip
     dest: '{{ app_path }}'
-    mode: '0775'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-
-- name: Extract License Files
-  unarchive:
-    src: '{{ app_path }}/license.zip'
-    dest: '{{ app_path }}'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
     remote_src: yes
 
-- name: Copy Appserver.ini
-  template:
-    src: appserver.ini.j2
-    dest: '{{ license_appserver_path }}/appserver.ini'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: 0775
+# - name: Extract License Files
+#   unarchive:
+#     src: '{{ app_path }}\license.zip'
+#     dest: '{{ app_path }}'
+#     owner: '{{ user_service }}'
+#     group: '{{ user_service }}'
+#     remote_src: yes
 
-- name: Create licenseserverinstall.ini
-  file:
-    path: '{{ license_appserver_path }}/licenseserverinstall.ini'
-    state: touch
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: 0775
+# - name: Copy Appserver.ini
+#   template:
+#     src: appserver.ini.j2
+#     dest: '{{ license_appserver_path }}\appserver.ini'
+#     owner: '{{ user_service }}'
+#     group: '{{ user_service }}'
+#     mode: 0775
 
-- name: Set License Bin Name
-  copy:
-    src: '{{ license_appserver_path }}/appsrvlinux'
-    dest: '{{ license_appserver_path }}/app_license'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: '0775'
-    remote_src: yes
 
-- name: Copy Script for Maintenance(Stop,Start,Restart, Status)
-  template:
-    src: totvslicense.j2
-    dest: '{{ script_path}}/totvslicense'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: 0775
-
-- name: Clear License Files
-  file:
-    path: '{{ app_path }}/license.zip'
-    state: absent
+# - name: Set License Bin Name
+#   copy:
+#     src: '{{ license_appserver_path }}\appsrvlinux'
+#     dest: '{{ license_appserver_path }}\app_license'
+#     owner: '{{ user_service }}'
+#     group: '{{ user_service }}'
+#     mode: '0775'
+#     remote_src: yes

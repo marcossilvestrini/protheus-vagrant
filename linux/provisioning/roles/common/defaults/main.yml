@@ -16,6 +16,9 @@ common_packages:
     - dos2unix
     - net-tools
     - java
+    - unixODBC.x86_64
+    - unixODBC-devel.x86_64
+    - postgresql-odbc.x86_64
 
 paths:
     - '{{ logs }}'
