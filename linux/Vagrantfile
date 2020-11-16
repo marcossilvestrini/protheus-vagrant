@@ -30,6 +30,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = BOX_NAME
   config.vm.box_url = "#{BOX_URL}/#{BOX_NAME}.json"
 
+  # No update VBguest
+  config.vbguest.auto_update = false
+  config.vbguest.no_remote = true
+
   # VM Postgresql
   config.vm.define "postgresql"  do |postgresql|
 

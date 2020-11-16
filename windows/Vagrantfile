@@ -12,6 +12,10 @@ end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  # Configs VBGuest
+  config.vbguest.auto_update = false
+  config.vbguest.no_remote = true
+
   # VM Protheus
   config.vm.define "protheus_db"  do |protheus_db|
 
@@ -20,6 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     BOX_NAME = "oraclelinux/8"
     protheus_db.vm.box = BOX_NAME
     protheus_db.vm.box_url = "#{BOX_URL}/#{BOX_NAME}.json"
+
 
     # VARIABLE HOSTNAME
     APP_NAME= "ol8-protheus-db"

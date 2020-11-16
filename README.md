@@ -52,13 +52,13 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 ### Download
 
 ```linux
-sudo wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.rpm
+sudo wget https://releases.hashicorp.com/vagrant/2.2.13/vagrant_2.2.13_x86_64.rpm
 ```
 
 ### Install
 
 ```linux
-sudo yum localinstall vagrant_2.2.7_x86_64.rpm -y
+sudo yum localinstall vagrant_2.2.13_x86_64.rpm -y
 vagrant ––version
 ```
 
