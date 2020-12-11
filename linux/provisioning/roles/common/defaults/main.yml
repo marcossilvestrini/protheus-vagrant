@@ -1,5 +1,9 @@
 ---
 common_packages:
+    - glibc
+    - libgcc
+    - libstdc++
+    - libuuid
     - lsof
     - bc
     - libXrandr

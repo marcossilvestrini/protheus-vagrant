@@ -27,7 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
     # VARIABLE HOSTNAME
-    APP_NAME= "ol8-protheus-db"
+    APP_NAME= "ol8-postgresql"
 
     # HOSTNAME
     protheus_db.vm.hostname = APP_NAME
@@ -71,7 +71,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     protheus_app.vbguest.auto_update = true
 
     # VARIABLE HOSTNAME
-    VM_DC_NAME= "win2019-protheus-app"
+    VM_DC_NAME= "win2019-protheus"
 
     # Set Others parameters for windows vm
     protheus_app.vm.guest = :windows

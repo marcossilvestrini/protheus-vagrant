@@ -47,7 +47,6 @@
       - Remote Desktop Users
   ignore_errors: True
 
-
 - name: Create Commons Paths (logs, update)
   win_file:
     path: '{{ item }}'

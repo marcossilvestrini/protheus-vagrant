@@ -5,22 +5,19 @@
     dest: '{{ app_path }}'
     remote_src: yes
 
-# - name: Extract License Files
-#   unarchive:
-#     src: '{{ app_path }}\license.zip'
-#     dest: '{{ app_path }}'
-#     owner: '{{ user_service }}'
-#     group: '{{ user_service }}'
-#     remote_src: yes
+- name: Extract License Files
+  win_unzip:
+    src: '{{ app_path }}\license.zip'
+    dest: '{{ app_path }}'
+    creates: '{{ app_path }}'
+    recurse: yes
+    delete_archive: yes
 
-# - name: Copy Appserver.ini
-#   template:
-#     src: appserver.ini.j2
-#     dest: '{{ license_appserver_path }}\appserver.ini'
-#     owner: '{{ user_service }}'
-#     group: '{{ user_service }}'
-#     mode: 0775
-
+- name: Copy Appserver.ini
+  ansible.windows.win_template:
+    src: appserver.ini.j2
+    dest: '{{ license_appserver_path }}\appserver.ini'
+    force: yes
 
 # - name: Set License Bin Name
 #   copy:

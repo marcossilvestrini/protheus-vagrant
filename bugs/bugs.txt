@@ -1,11 +1,4 @@
 ----------Linux----------
-erro with connection string feature
-If user method connection string for set database\dbaccess, printed error:
-driver not valid for select sgbd
-
-first access
-smartclint close and not open erp after execute
-
 erro 002 with multiprotocol enable
 If multiprotocol enable, error 002 is printed
 

@@ -1,6 +1,6 @@
 ---
 # DB
-db_ip: '192.168.0.132'
+db_ip: '192.168.0.133'
 db_user: protheus #(this value present in role postgresql/vars/main.yml)
 db_pass: protheus #(this value present in role postgresql/vars/main.yml)
 database: protheus #(this value present in role postgresql/vars/main.yml)
@@ -18,9 +18,6 @@ app_path: /totvs
 # Dictionary Path
 dictionary_path: '{{ app_path }}/protheus-data'
 
-# Start Path
-system_path: /system/
-
 # Web Path
 web_path: '{{ dictionary_path }}/web'
 
@@ -37,22 +34,22 @@ update: '{{ app_path }}/update'
 script_path: /etc/init.d
 
 # Bin Path
-start_path: '{{ app_path }}/bin'
+bin_path: '{{ app_path }}/bin'
 
 # Base Appserver Path
-appserver_path: '{{ start_path }}/appserver'
+appserver_path: '{{ bin_path }}/appserver'
 
 # Base Appserver Path
-smartclient_path: '{{ start_path }}/smartclient'
+smartclient_path: '{{ bin_path }}/smartclient'
 
 # SSL
 Verbose :  0
 SSL2    :  0
-SSL3    :  0
+SSL3    :  1
 TLS1_0  :  1
 TLS1_1  :  1
 TLS1_2  :  1
-Bugs    :  1
+Bugs    :  0
 State   :  0
 Debug   :  0
 

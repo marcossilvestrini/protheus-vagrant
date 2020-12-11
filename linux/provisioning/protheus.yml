@@ -2,8 +2,10 @@
   become: yes
   vars_files:
     - roles/jenkins/vars/main.yml
+    - roles/postgresql/vars/main.yml
   roles:
     - common
+    - postgresql
     - license
     - dbaccess
     - dictionary

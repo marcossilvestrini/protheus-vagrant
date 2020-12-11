@@ -3,21 +3,22 @@
 [{{environment_name}}]
 SourcePath={{rpo_path}}
 RootPath={{dictionary_path}}
-StartPath={{system_path}}
-LocalFiles={{local_files}}
-Localdbextension={{localdbextension}}
-PictFormat=Default
-StringCodePage=2
+StartPath={{StartPath}}
+x2_path=
 RpoDb={{rpodb}}
 RpoLanguage={{rpolanguage}}
 RpoVersion={{rpoversion}}
+LocalFiles={{local_files}}
+Trace={{Trace}}
+Localdbextension={{localdbextension}}
+TOPMemoMega={{TOPMemoMega}}
+PictFormat=DEFAULT
+RegionalLanguage={{RegionalLanguage}}
+SpecialKey={{environment_name}}
 DebugThreadUsedMemory={{DebugThreadUsedMemory}}
 ThreadMemWarning={{ThreadMemWarning}}
 ThreadMemStep={{ThreadMemStep}}
 KillStack={{KillStack}}
-Trace={{Trace}}
-DBMemoMega={{DBMemoMega}}
-TOPMemoMega={{TOPMemoMega}}
 TraceStack={{TraceStack}}
 MaxLocks={{MaxLocks}}
 AdvSQLReplay={{AdvSQLReplay}}
@@ -26,7 +27,7 @@ AdvSQLReplayPath={{AdvSQLReplayPath}}
 AdvSQLReplayIOP={{AdvSQLReplayIOP}}
 AdvSQLReplayLogMaxSize={{AdvSQLReplayLogMaxSize}}
 LogProfilerPath={{slave01_LogProfilerPath}}
-StartSysInDB=1
+StartSysInDB={{StartSysInDB}}
 
 
 ;DBAccess
@@ -36,8 +37,7 @@ Server= {{DBAccessServer}}
 Port={{dbaccess_port}}
 Database={{sgbd}}
 Alias={{alias}}
-Driver={{Driver}}
-MemoMega={{MemoMega}}
+PROTHEUSONLY=0
 
 ;Drivers
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064839
@@ -45,7 +45,7 @@ MemoMega={{MemoMega}}
 Active=TCP
 MultiProtocolPort={{MultiProtocolPort}}
 MultiProtocolPortSecure={{MultiProtocolPortSecure}}
-Secure={{Secure}}
+;Secure={{Secure}}
 
 ;TCP
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=135495723
@@ -66,12 +66,15 @@ Port={{license_server_port}}
 Enable={{lockserverEnable}}
 Server={{lockserver_ip}}
 Port={{lockserver_port}}
-SecureConnection={{lockserverSecureConnection}}
 MessageLog={{lockserverMessageLog}}
+SecureConnection={{lockserverSecureConnection}}
 
 ;General
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064796
 [General]
+CHECKSPECIALKEY=0
+CanAcceptFSRemote=1
+InstallPath= {{app_path}}
 ConsoleLog={{ConsoleLog}}
 ChangeEncodingBehavior={{ChangeEncodingBehavior}}
 InactiveTimeout={{InactiveTimeout}}
@@ -100,10 +103,10 @@ ServerMemoryLimit={{ServerMemoryLimit}}
 
 ;Service
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064864
-[Service]
-Name={{slave01_name}}
-Displayname={{slave01_displayname}}
-Description={{slave01_description}}
+;[Service]
+;Name={{slave01_name}}
+;Displayname={{slave01_displayname}}
+;Description={{slave01_description}}
 
 ;TDS
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865
@@ -114,12 +117,6 @@ ENABLEDISCONNECTUSER={{ENABLEDISCONNECTUSER}}
 ENABLESENDMESSAGE={{ENABLESENDMESSAGE}}
 ENABLEBLOCKNEWCONNECTION={{ENABLEBLOCKNEWCONNECTION}}
 ENABLESTOPSERVER={{ENABLESTOPSERVER}}
-
-;update
-;https://tdn.totvs.com/pages/viewpage.action?pageId=6064898
-[update]
-Enable={{enable_update}}
-PathLinux={{update}}
 
 ;SSLConfigure
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064865

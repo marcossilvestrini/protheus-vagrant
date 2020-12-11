@@ -24,6 +24,7 @@ Atention for pre requisites and License!!!
 - [Vagrant](https://www.vagrantup.com/docs/index.html)
 - [Ansible](https://docs.ansible.com/ansible/latest/index.html)
 - [Python](https://www.python.org/doc/)
+- [Libs Protheus Linux](https://tdn.totvs.com/display/tec/Application+Server+-+Linux+packages)
 
 ## Authors
 

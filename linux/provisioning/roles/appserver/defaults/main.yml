@@ -72,16 +72,17 @@ soap_instances: '2,5,1,1'
 # Vars Appserver.ini Default
 
 ## [Environment]
-local_files: Ctree
+StartPath: /system/
+local_files: CTREE
 localdbextension: .dtc
 rpodb: Top
-rpolanguage: portuguese
+rpolanguage: Portuguese
+RegionalLanguage: BRA
 rpoversion: 120
 ThreadMemWarning: 1000
 ThreadMemStep: 100
 KillStack: 1
 Trace: 0
-DBMemoMega: 1
 TOPMemoMega: 1
 TraceStack: 1
 MaxLocks: 10000
@@ -90,6 +91,8 @@ AdvSQLReplayLog: 0
 AdvSQLReplayPath: '/SQLReplay/'
 AdvSQLReplayIOP: 0
 AdvSQLReplayLogMaxSize: 536870912
+StartSysInDB: 1
+
 
 ## [DBAccess]
 DBAccessServer: '{{ dbaccess_ip }}'
@@ -105,8 +108,8 @@ Secure: SSL
 
 ## [lockserver]
 lockserverEnable: 0
-lockserverSecureConnection: 1
-lockserverMessageLog: 0
+lockserverSecureConnection: 0
+lockserverMessageLog: 1
 
 ## [TCP]
 Type: TCPIP
@@ -134,6 +137,7 @@ MaxStringSize: 10
 WsdlStreamType: 0
 SocketsDefaultIPV6: 0
 ServerMemoryLimit: 1024
+InstallPath: app_path
 
 ## [TDS]
 ALLOWAPPLYPATCH: '{{ ip_app }}'
