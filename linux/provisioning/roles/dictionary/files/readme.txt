@@ -1,11 +1,11 @@
-# DICTIONARY FILES
+DICTIONARY FILES
 
-## Download Files
-
+Download Files
 <https://suporte.totvs.com/>
 
-## List of Files
+Version: latest
 
+List of Files
 - BRA-DICIONARIOS_COMPL.ZIP
 - BRA-HELPS_COMPL.ZIP
 - BRA-MENUS.ZIP

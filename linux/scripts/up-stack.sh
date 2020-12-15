@@ -14,16 +14,16 @@ echo '[Start DBAccess Server]'
 sleep 5
 
 echo '[Start Broker Server]'
-#./etc/init.d/totvslicense start
+./etc/init.d/totvslicense start
 
 echo '[Start Slave01]'
 ./totvslave01 start
 
-echo '[Start Slave02]'
-./totvslave02 start
+# echo '[Start Slave02]'
+# ./totvslave02 start
 
-echo '[Start Soap]'
-./totvssoap start
+# echo '[Start Soap]'
+# ./totvssoap start
 
-echo '[Start Rest]'
-./totvsrest start
+# echo '[Start Rest]'
+# ./totvsrest start
