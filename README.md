@@ -69,11 +69,10 @@ vagrant ––version
 2. Generate your ssh pub key and **copy to security/ folder**
 3. Download artefacts of ERP(license,rpo,appserver,etc)
 4. Copy artefacts for relative folders(license,rpo,appserver,etc)
-5. cd vagrant-protheus
+5. cd vagrant-protheus\linux_or_windows
 6. vagrant validate
 7. vagrant up
 8. vagrant status
-9. vagrant ssh
 
 ## Vagrantfile Tasks
 

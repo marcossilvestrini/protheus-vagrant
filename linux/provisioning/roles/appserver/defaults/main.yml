@@ -102,8 +102,8 @@ Driver: dbapi.so
 MemoMega: 1
 
 ## [Drivers]
-MultiProtocolPort: 0
-MultiProtocolPortSecure: 0
+MultiProtocolPort: 1
+MultiProtocolPortSecure: 1
 Secure: SSL
 
 ## [lockserver]

@@ -7,14 +7,13 @@ sleep 5
 
 echo '[Start License Server]'
 ./totvslicense start
-sleep 5
+sleep 2
 
 echo '[Start DBAccess Server]'
 ./totvsdbaccess start
-sleep 5
+sleep 2
 
-echo '[Start Broker Server]'
-./etc/init.d/totvslicense start
+#echo '[Start Broker Server]'
 
 echo '[Start Slave01]'
 ./totvslave01 start

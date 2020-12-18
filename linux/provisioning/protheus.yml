@@ -6,10 +6,10 @@
   roles:
     - common
     - postgresql
-    - license
-    - dbaccess
     - dictionary
     - rpo
+    - license
+    - dbaccess
     - appserver
     - smartclient
     # Optional
