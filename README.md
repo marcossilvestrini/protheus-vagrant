@@ -17,15 +17,6 @@ This project aims to automate the provisioning of the ERP Protheus stack for dev
 Fork the project and enjoy.\
 Atention for pre requisites and License!!!
 
-## Pre-Requisites
-
-- [Git](https://git-scm.com/doc)
-- [Virtual Box](https://www.virtualbox.org/wiki/Documentation)
-- [Vagrant](https://www.vagrantup.com/docs/index.html)
-- [Ansible](https://docs.ansible.com/ansible/latest/index.html)
-- [Python](https://www.python.org/doc/)
-- [Libs Protheus Linux](https://tdn.totvs.com/display/tec/Application+Server+-+Linux+packages)
-
 ## Authors
 
 Marcos Silvestrini\
@@ -34,6 +25,14 @@ marcos.silvestrini@gmail.com
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
+
+## Pre-Requisites
+
+- [Git](https://git-scm.com/doc)
+- [Virtual Box](https://www.virtualbox.org/wiki/Documentation)
+- [Vagrant](https://www.vagrantup.com/docs/index.html)
+- [Ansible](https://docs.ansible.com/ansible/latest/index.html)
+- [Python](https://www.python.org/doc/)
 
 ## References
 
@@ -47,6 +46,18 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - [Bog Siga0984](https://siga0984.wordpress.com/2016/07/12/protheus-no-linux-parte-02)
 - [Fix Error Invalid client library](https://tdn.totvs.com/display/tec/Melhoria+-+Suporte+ao+psqlODBC+09.01.0100)
 - [Advplc Compiler](https://code.engpro.totvs.com.br/marcos.silvestrini/advplc-apply-patch)
+- [Libs Protheus Linux](https://tdn.totvs.com/display/tec/Application+Server+-+Linux+packages)
+
+## Vagrant Box Settings
+
+SO: Oracle Linux 8\
+CPU: 6 vcpus\
+RAM: 8GB
+
+## Stack Version
+
+Database: PostgreSQL 9.2
+Protheus: 12.1.27
 
 ## Install Vagrant
 
