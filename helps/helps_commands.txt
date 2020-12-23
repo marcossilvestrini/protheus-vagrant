@@ -4,7 +4,6 @@ vagrant scp ~/vagrant-protheus/install/license.zip ol8-protheus:/totvs/install
 
 ansible-playbook -i provisioning/hosts/  provisioning/protheus.yml --private-key .vagrant/machines/protheus/virtualbox/private_key -u vagrant
 
-cp .vagrant/machines/protheus/virtualbox/private_key /mnt/projects/vagrant-protheus/linux/security/
 
 timedatectl set-timezone America/Sao_Paulo
 
