@@ -17,7 +17,7 @@ password: server@123
 # Paths of App Stack
 
 # App Path
-app_path: C:\totvs
+app_path: c:\totvs
 
 # Dictionary Path
 dictionary_path: '{{ app_path }}\protheus-data'
@@ -49,7 +49,7 @@ smartclient_path: '{{ start_path }}\smartclient'
 # SSL
 Verbose :  0
 SSL2    :  0
-SSL3    :  0
+SSL3    :  1
 TLS1_0  :  1
 TLS1_1  :  1
 TLS1_2  :  1

@@ -74,23 +74,23 @@
      source /home/vagrant/.bashrc
      source /home/vagrant/.bash_profile
 
-# - name: Set Permission in /var/lock/subsys/ for bin
-#   file:
-#     path: /var/lock/subsys/
-#     state: directory
-#     owner: '{{ user_service }}'
-#     group: '{{ user_service }}'
+- name: Set Permission in /var/lock/subsys/ for bin
+  file:
+    path: /var/lock/subsys/
+    state: directory
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
 
-# - name: Set Permission in /var/run/ for bin
-#   file:
-#     path: /var/run/
-#     state: directory
-#     owner: '{{ user_service }}'
-#     group: '{{ user_service }}'
+- name: Set Permission in /var/run/ for bin
+  file:
+    path: /var/run/
+    state: directory
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
 
-# - name: Set Permission in /sys/firmware/ for bin
-#   file:
-#     path: /sys/firmware/
-#     state: directory
-#     owner: '{{ user_service }}'
-#     group: '{{ user_service }}'
+- name: Set Permission in /sys/firmware/ for bin
+  file:
+    path: /sys/firmware/
+    state: directory
+    owner: '{{ user_service }}'
+    group: '{{ user_service }}'
