@@ -30,5 +30,6 @@ slave_windows_workdir: C:/Jenkins_Slave
 slave_windows_java_opts: ""
 slave_windows_labels:
   - windows
-slave_windows_service_user: LocalSystem
-slave_windows_service_password:
+#slave_windows_service_user: LocalSystem
+slave_windows_service_user: vagrant
+slave_windows_service_password: vagrant
