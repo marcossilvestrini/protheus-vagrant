@@ -52,3 +52,27 @@
     path: '{{ item }}'
     state: directory
   loop: '{{ paths }}'
+
+- name: Install Packages
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+  loop: '{{ common_packages }}'
+
+- name: Install Java
+  win_chocolatey:
+    name: "{{ jdk_package }}"
+    state: present
+    version: "{{ java_major_version }}.{{ java_minor_version }}"
+
+- name: Set Java_home
+  win_environment:
+    state: present
+    name: JAVA_HOME
+    value: 'c:\program files\java\jdk1.{{ java_major_version }}_{{ java_minor_version }}'
+    level: machine
+
+- name: Add Java to path
+  win_path:
+    elements:
+      - 'c:\program files\java\jdk1{{ java_major_version }}_{{ java_minor_version }}\bin'
