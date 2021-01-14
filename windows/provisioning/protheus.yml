@@ -3,11 +3,11 @@
     - roles/jenkins/vars/main.yml
   roles:
     - common
-    # - license
+    - license
     # - dbaccess
     # - dictionary
     # - rpo
     # - appserver
     # - smartclient
     # Optional
-    # - jenkins
+    - jenkins
