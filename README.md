@@ -54,6 +54,10 @@ SO: Oracle Linux 8\
 CPU: 6 vcpus\
 RAM: 8GB
 
+SO: Windows 2019\
+CPU: 3 vcpus\
+RAM: 4GB
+
 ## Stack Version
 
 Database: PostgreSQL 9.2\
