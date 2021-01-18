@@ -51,6 +51,13 @@ IPC_ActiveTimeOut=300
 MaxBucketCommitTime=5000
 ASyncConsoleLog=0
 
+;Service
+;https://tdn.totvs.com/pages/viewpage.action?pageId=6064864
+[Service]
+Name={{service_name}}
+Displayname={{service_name}}
+Description={{TOTVS License Server}}
+
 [ONSTART]
 jobs=LSInit
 refreshRate=60

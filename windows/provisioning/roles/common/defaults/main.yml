@@ -2,7 +2,6 @@
 common_packages:
     - notepadplusplus
     - psqlodbc
-    #- jdk8
 
 paths:
     - '{{ logs }}'

@@ -9,6 +9,7 @@ alias: protheus
 
 # APP
 ip_app: '192.168.0.133'
+ip_developer: '192.168.0.100'
 netID: 192.168.0
 default_gateway: '{{ netID}}.1'
 user: svc.protheus

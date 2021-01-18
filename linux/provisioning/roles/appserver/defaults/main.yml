@@ -140,12 +140,12 @@ ServerMemoryLimit: 1024
 InstallPath: app_path
 
 ## [TDS]
-ALLOWAPPLYPATCH: '{{ ip_app }}'
-ALLOWEDIT: '{{ ip_app }}'
-ENABLEDISCONNECTUSER: '{{ ip_app }}'
-ENABLESENDMESSAGE: '{{ ip_app }}'
-ENABLEBLOCKNEWCONNECTION: '{{ ip_app }}'
-ENABLESTOPSERVER: '{{ ip_app }}'
+ALLOWAPPLYPATCH: '{{ ip_developer }}'
+ALLOWEDIT: '{{ ip_developer }}'
+ENABLEDISCONNECTUSER: '{{ ip_developer }}'
+ENABLESENDMESSAGE: '{{ ip_developer }}'
+ENABLEBLOCKNEWCONNECTION: '{{ ip_developer }}'
+ENABLESTOPSERVER: '{{ ip_developer }}'
 
 ## [APP_MONITOR]
 enable_monitor: 1
