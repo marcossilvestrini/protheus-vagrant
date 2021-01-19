@@ -47,6 +47,13 @@
       - Remote Desktop Users
   ignore_errors: True
 
+- name: Add account to Log on as a service
+  win_user_right:
+    name: SeServiceLogonRight
+    users:
+    - '{{ user }}'
+    action: add
+
 - name: Create Commons Paths (logs, update)
   win_file:
     path: '{{ item }}'
