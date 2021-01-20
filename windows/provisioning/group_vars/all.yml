@@ -75,7 +75,6 @@ dbaccess_ip: '{{ ip_app }}'
 dbaccess_port: 7900
 dbaccess_monitor_port: 7901
 dbaccess_path: '{{ app_path }}\dbaccess'
-dbaccess_bin_path: '{{ dbaccess_path }}\multi'
 
 # Appservers Paths
 broker_path: '{{ appserver_path }}\broker'
