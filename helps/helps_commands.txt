@@ -14,4 +14,7 @@ ansible-playbook -i provisioning/hosts/  provisioning/protheus.yml --private-key
 # Set Time-Zone
 timedatectl set-timezone America/Sao_Paulo
 
+# Get ODBC DSN
+(Get-OdbcDsn -name protheus).attribute
+
 

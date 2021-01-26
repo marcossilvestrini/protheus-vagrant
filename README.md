@@ -42,6 +42,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - [Oracle Boxes](https://yum.oracle.com/boxes/)
 - [Ansible](https://docs.ansible.com/ansible/2.5/modules/list_of_all_modules.html)
 - [Postgresql](https://www.postgresql.org/download/linux/redhat/)
+- [ODBC DSN](https://tdn.totvs.com/display/tec/DBAccess+-+Como+criar+uma+fonte+de+dados+para+uso+com+PostgreSQL)
 - [Protheus Linux](https://tdn.totvs.com/pages/releaseview.action?pageId=515672176)
 - [Blog Siga0984](https://siga0984.wordpress.com/2016/07/12/protheus-no-linux-parte-02)
 - [Fix Error Invalid client library](https://tdn.totvs.com/display/tec/Melhoria+-+Suporte+ao+psqlODBC+09.01.0100)
