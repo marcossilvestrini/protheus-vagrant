@@ -13,7 +13,7 @@ Stop-Process -ErrorAction SilentlyContinue >$null
 
 # Power Off Virtual Machine
 Write-Host "Power Off Virtual Machine: [$($vm)]" -BackgroundColor White -ForegroundColor Black
-& $vmrun stop $vm
+& $vmrun stop $vm >$null
 
 # Down vmware if Running
 Write-Host "Down Vmware Workstation in path: [$($vmware)]" -BackgroundColor White -ForegroundColor Black
@@ -46,8 +46,8 @@ While (!$tcp_test) {
     }
 }
 
-# Open session SSH
+# Open session SSH and Execute script(Up vagrant machine)
 Write-Host "Open SSH Connection" -BackgroundColor White -ForegroundColor Black
-& $putty -load "vagrant-ansible"
+& $putty -load "vagrant-protheus"
 
 
