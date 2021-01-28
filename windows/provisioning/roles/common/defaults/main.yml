@@ -6,7 +6,6 @@ common_packages:
 paths:
     - '{{ logs }}'
     - '{{ update }}'
-    - '{{ web_path }}'
 
 jdk_package: jdk8
 java_major_version: 8.0

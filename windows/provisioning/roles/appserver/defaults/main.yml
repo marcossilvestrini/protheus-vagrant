@@ -64,6 +64,7 @@ soap_instances: '2,5,1,1'
 # Vars Appserver.ini Default
 
 ## [Environment]
+StartPath: \system\
 local_files: Ctree
 localdbextension: .dtc
 rpodb: Top

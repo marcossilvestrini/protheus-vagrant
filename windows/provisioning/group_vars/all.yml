@@ -23,9 +23,6 @@ app_path: c:\totvs
 # Dictionary Path
 dictionary_path: '{{ app_path }}\protheus-data'
 
-# Start Path
-system_path: \system\
-
 # Web Path
 web_path: '{{ dictionary_path }}\web'
 

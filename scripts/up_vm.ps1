@@ -1,3 +1,4 @@
+Clear-Host
 # Variables
 $vmrun = "E:\VMWare\vmrun.exe"
 $vmware = "E:\VMware\vmware.exe"
@@ -30,7 +31,7 @@ Write-Host "Up Vmware Workstation in path: [$($vmware)]" -BackgroundColor White 
 Write-Host "Power On Virtual Machine: [$($vm)]" -BackgroundColor White -ForegroundColor Black
 & $vmrun start $vm
 
-# Check Status for SHH Connection
+# Check Status Machine for SHH Connection
 $tcp_test=$false
 Write-Host "Check VM Status ..." -BackgroundColor White -ForegroundColor Black
 While (!$tcp_test) {
@@ -49,5 +50,3 @@ While (!$tcp_test) {
 # Open session SSH and Execute script(Up vagrant machine)
 Write-Host "Open SSH Connection" -BackgroundColor White -ForegroundColor Black
 & $putty -load "vagrant-protheus"
-
-
