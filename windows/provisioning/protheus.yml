@@ -6,8 +6,8 @@
     # - license
     # - dbaccess
     # - dictionary
-    - rpo
-    # - appserver
+    # - rpo
+    - appserver
     # - smartclient
     # Optional
     # - jenkins
