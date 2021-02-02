@@ -1,16 +1,10 @@
 ---
 - name: Ensure {{ rpo_path }} dir Exist
-  file:
-    path: "{{rpo_path}}"
+  win_file:
+    path: '{{rpo_path}}'
     state: directory
-    mode: '0755'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
 
 - name: Copy RPO File
-  copy:
+  win_copy:
     src: tttp120.rpo
-    dest: "{{ rpo_path }}"
-    mode: '0775'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
+    dest: '{{ rpo_path }}\tttp120.rpo'

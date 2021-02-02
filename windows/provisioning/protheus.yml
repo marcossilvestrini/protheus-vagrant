@@ -5,8 +5,8 @@
     # - common
     # - license
     # - dbaccess
-    - dictionary
-    # - rpo
+    # - dictionary
+    - rpo
     # - appserver
     # - smartclient
     # Optional
