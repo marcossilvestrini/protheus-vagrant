@@ -1,12 +1,15 @@
 ---
 # Create Appserver Paths
-- include_tasks: paths.yml
+# - include_tasks: paths.yml
 
-# Managment Appserver Files
-- include_tasks: files.yml
+# # Managment Appserver Files
+# - include_tasks: files.yml
 
-# Set .ini Appservers Files
-- include_tasks: inis.yml
+# # Set .ini Appservers Files
+# - include_tasks: inis.yml
 
 # Set Bin Appserver Files
-- include_tasks: bin.yml
+# - include_tasks: bin.yml
+
+# Create Services
+- include_tasks: services.yml

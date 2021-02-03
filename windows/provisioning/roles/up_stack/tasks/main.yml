@@ -1,0 +1,16 @@
+---
+# - name: Remove a Service
+#   win_service:
+#     name: '{{ service_name }}'
+#     state: absent
+
+# - name: Create a Service
+#   win_service:
+#     name: '{{ service_name }}'
+#     path: '{{ license_appserver_path }}\appserver_license.exe'
+#     display_name: '{{ service_name }}'
+#     description: 'TOTVS LICENSE SERVER'
+#     state: stopped
+#     start_mode: manual
+#     username: '{{ user }}'
+#     password: '{{ password }}'

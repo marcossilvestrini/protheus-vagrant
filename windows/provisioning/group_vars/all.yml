@@ -55,11 +55,6 @@ Bugs    :  1
 State   :  0
 Debug   :  0
 
-# Lockserver
-lockserver_ip: '{{ ip_app }}'
-lockserver_port: 7020
-lockserver_path: '{{ appserver_path }}\lockserver'
-
 # License
 license_ip: '{{ ip_app }}'
 license_server_port: 5555

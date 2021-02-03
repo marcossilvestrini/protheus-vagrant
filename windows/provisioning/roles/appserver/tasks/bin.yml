@@ -1,54 +1,36 @@
 ---
-- name: Set Lockserver Bin Name
-  copy:
-    src: '{{ lockserver_path }}\appserver.exe'
-    dest: '{{ lockserver_path }}\appappserver_lockserver.exe'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: '0775'
-    remote_src: yes
-
 - name: Set Broker Bin Name
-  copy:
-    src: '{{ broker_path }}\appsrvlinux'
-    dest: '{{ broker_path }}\app_broker'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: '0775'
+  win_copy:
+    src: '{{ broker_path }}\appserver.exe'
+    dest: '{{ broker_path }}\appserver_broker.exe'
     remote_src: yes
 
 - name: Set Slave01 Bin Name
-  copy:
-    src: '{{ slave01_path }}\appsrvlinux'
-    dest: '{{ slave01_path }}\app_slave01'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: '0775'
+  win_copy:
+    src: '{{ slave01_path }}\appserver.exe'
+    dest: '{{ slave01_path }}\appserver_slave01.exe'
     remote_src: yes
 
 - name: Set Slave02 Bin Name
-  copy:
-    src: '{{ slave02_path }}\appsrvlinux'
-    dest: '{{ slave02_path }}\app_slave02'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: '0775'
+  win_copy:
+    src: '{{ slave02_path }}\appserver.exe'
+    dest: '{{ slave02_path }}\appserver_slave02.exe'
     remote_src: yes
 
 - name: Set Soap Bin Name
-  copy:
-    src: '{{ soap_path }}\appsrvlinux'
-    dest: '{{ soap_path }}\app_soap'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: '0775'
+  win_copy:
+    src: '{{ soap_path }}\appserver.exe'
+    dest: '{{ soap_path }}\appserver_soap.exe'
     remote_src: yes
 
 - name: Set Soap Bin Name
-  copy:
-    src: '{{ rest_path }}\appsrvlinux'
-    dest: '{{ rest_path }}\app_rest'
-    owner: '{{ user_service }}'
-    group: '{{ user_service }}'
-    mode: '0775'
+  win_copy:
+    src: '{{ rest_path }}\appserver.exe'
+    dest: '{{ rest_path }}\appserver_rest.exe'
     remote_src: yes
+
+- name: Delete Appserver Bin Files
+  win_file:
+    path: '{{ item }}\appserver.exe'
+    state: absent
+  loop: '{{ paths }}'

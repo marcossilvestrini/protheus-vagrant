@@ -1,0 +1,17 @@
+---
+
+- name: Remove Slave01 Service
+  win_service:
+    name: '{{ slave01_name }}'
+    state: absent
+
+- name: Create Slave01 Service
+  win_service:
+    name: '{{ slave01_name }}'
+    path: '{{ slave01_path }}\appserver_slave01.exe'
+    display_name: '{{ slave01_displayname }}'
+    description: '{{ slave01_description}}'
+    state: stopped
+    start_mode: manual
+    username: '{{ user }}'
+    password: '{{ password }}'
