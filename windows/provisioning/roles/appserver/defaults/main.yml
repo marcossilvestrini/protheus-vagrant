@@ -9,41 +9,41 @@ paths:
 # Broker
 broker_tcp: 7030
 broker_name: .protheus_broker
-broker_displayname: protheus_broker
-broker_description: '{{ broker_displayname }}'
-broker_consoleFile: '{{logs}}\{{broker_displayname }}.log'
-broker_latencyLogFile: '{{logs}}\latency_{{ broker_displayname }}.log'
+broker_displayname: '{{ broker_name }}'
+broker_description: '{{ broker_name }}'
+broker_consoleFile: '{{logs}}\{{ broker_name }}.log'
+broker_latencyLogFile: '{{logs}}\latency_{{ broker_name }}.log'
 
 # slave01
 slave01_port: 7031
 slave01_http_port: 7131
 slave01_name: .protheus_slave01
-slave01_displayname: protheus_slave01
-slave01_description: '{{ slave01_displayname }}'
-slave01_consoleFile: '{{logs}}\{{ slave01_displayname }}.log'
-slave01_latencyLogFile: '{{logs}}\latency_{{ slave01_displayname }}.log'
-slave01_LogProfilerPath: '{{logs}}\logprofiler_{{ slave01_displayname }}.log'
+slave01_displayname: '{{ slave01_name }}'
+slave01_description: '{{ slave01_name }}'
+slave01_consoleFile: '{{logs}}\{{ slave01_name }}.log'
+slave01_latencyLogFile: '{{logs}}\latency_{{ slave01_name }}.log'
+slave01_LogProfilerPath: '{{logs}}\logprofiler_{{ slave01_name }}.log'
 
 # slave02
 slave02_port: 7032
 slave02_http_port: 7132
-slave02_name: .protheus_slave02
-slave02_displayname: protheus_slave02
-slave02_description: '{{ slave02_displayname }}'
-slave02_consoleFile: '{{logs}}\{{ slave02_displayname }}.log'
-slave02_latencyLogFile: '{{logs}}\latency_{{ slave02_displayname }}.log'
-slave02_LogProfilerPath: '{{logs}}\logprofiler_{{ slave02_displayname }}.log'
+slave02_name: '.protheus_slave02'
+slave02_displayname: '{{ slave02_name }}'
+slave02_description: '{{ slave02_name }}'
+slave02_consoleFile: '{{logs}}\{{ slave02_name }}.log'
+slave02_latencyLogFile: '{{logs}}\latency_{{ slave02_name }}.log'
+slave02_LogProfilerPath: '{{logs}}\logprofiler_{{ slave02_name }}.log'
 
 # Rest
 rest_tcp_port: 7033
 rest_port: 7133
 rest_http_port: 7233
 rest_name: .protheus_rest
-rest_displayname: protheus_rest
-rest_description: '{{ rest_displayname }}'
-rest_consoleFile: '{{logs}}\{{ rest_displayname }}.log'
-rest_latencyLogFile: '{{logs}}\latency_{{ rest_displayname }}.log'
-rest_LogProfilerPath: '{{logs}}\logprofiler_{{ rest_displayname }}.log'
+rest_displayname: '{{ rest_name }}'
+rest_description: '{{ rest_name }}'
+rest_consoleFile: '{{logs}}\{{ rest_name }}.log'
+rest_latencyLogFile: '{{logs}}\latency_{{ rest_name }}.log'
+rest_LogProfilerPath: '{{logs}}\logprofiler_{{ rest_name }}.log'
 rest_url: '\rest'
 rest_prepare_in: ALL
 rest_instances: '2,5,1,1'
@@ -53,11 +53,11 @@ soap_tcp_port: 7034
 soap_port: 7134
 soap_http_port: 7234
 soap_name: .protheus_soap
-soap_displayname: protheus_soap
-soap_description: '{{ soap_displayname }}'
-soap_consoleFile: '{{logs}}\{{ soap_displayname }}.log'
-soap_latencyLogFile: '{{logs}}\latency_{{ soap_displayname }}.log'
-soap_LogProfilerPath: '{{logs}}\logprofiler_{{ soap_displayname }}.log'
+soap_displayname: '{{ soap_name }}'
+soap_description: '{{ soap_name }}'
+soap_consoleFile: '{{logs}}\{{ soap_name }}.log'
+soap_latencyLogFile: '{{logs}}\latency_{{ soap_name }}.log'
+soap_LogProfilerPath: '{{logs}}\logprofiler_{{ soap_name }}.log'
 soap_instances: '2,5,1,1'
 
 # Vars Appserver.ini Default
@@ -91,8 +91,8 @@ Driver: dbapi.dll
 MemoMega: 1
 
 ## [Drivers]
-MultiProtocolPort: 1
-MultiProtocolPortSecure: 1
+MultiProtocolPort: 0
+MultiProtocolPortSecure: 0
 Secure: SSL
 
 ## [TCP]
