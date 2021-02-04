@@ -1,9 +1,23 @@
 ---
+# - name: Remove Slave01 Service
+#   win_service:
+#     name: '{{ slave01_name }}'
+#     state: absent
 
-- name: Remove Slave01 Service
-  win_service:
-    name: '{{ slave01_name }}'
-    state: absent
+# - name: Remove Slave02 Service
+#   win_service:
+#     name: '{{ slave02_name }}'
+#     state: absent
+
+# - name: Remove Soap Service
+#   win_service:
+#     name: '{{ soap_name }}'
+#     state: absent
+
+# - name: Remove Rest Service
+#   win_service:
+#     name: '{{ rest_name }}'
+#     state: absent
 
 - name: Create Slave01 Service
   win_service:
@@ -15,3 +29,42 @@
     start_mode: manual
     username: '{{ user }}'
     password: '{{ password }}'
+
+- name: Create Slave02 Service
+  win_service:
+    name: '{{ slave02_name }}'
+    path: '{{ slave02_path }}\appserver_slave02.exe'
+    display_name: '{{ slave02_displayname }}'
+    description: '{{ slave02_description}}'
+    state: stopped
+    start_mode: manual
+    username: '{{ user }}'
+    password: '{{ password }}'
+
+- name: Create Soap Service
+  win_service:
+    name: '{{ soap_name }}'
+    path: '{{ soap_path }}\appserver_soap.exe'
+    display_name: '{{ soap_displayname }}'
+    description: '{{ soap_description}}'
+    state: stopped
+    start_mode: manual
+    username: '{{ user }}'
+    password: '{{ password }}'
+
+- name: Create Rest Service
+  win_service:
+    name: '{{ rest_name }}'
+    path: '{{ rest_path }}\appserver_rest.exe'
+    display_name: '{{ rest_displayname }}'
+    description: '{{ rest_description}}'
+    state: stopped
+    start_mode: manual
+    username: '{{ user }}'
+    password: '{{ password }}'
+
+- name: Create Broker service
+  win_shell: |
+    
+    # Enable-PSRemoting -force
+    
