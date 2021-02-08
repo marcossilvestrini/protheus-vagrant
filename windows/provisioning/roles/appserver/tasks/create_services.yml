@@ -10,6 +10,7 @@
   win_service:
     name: '{{ broker_name}}'
     state: stopped
+    start_mode: manual
     username: '{{ user }}'
     password: '{{ password }}'
 

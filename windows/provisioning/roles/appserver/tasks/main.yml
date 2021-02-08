@@ -1,4 +1,7 @@
 ---
+# Remove Services
+- include_tasks: del_services.yml
+
 # Create Appserver Paths
 - include_tasks: paths.yml
 
@@ -12,4 +15,7 @@
 - include_tasks: bin.yml
 
 # Create Services
-- include_tasks: services.yml
+- include_tasks: create_services.yml
+
+# Up Stack
+- include_tasks: up_stack.yml
