@@ -1,4 +1,9 @@
 ---
+- name: Remove a Service
+  win_service:
+    name: '{{ service_name }}'
+    state: absent
+
 - name: Create DBAccess Path
   win_file:
     path: '{{ dbaccess_path }}'
@@ -28,11 +33,6 @@
     force: yes
     remote_src: yes
 
-- name: Remove a Service
-  win_service:
-    name: '{{ service_name }}'
-    state: absent
-
 - name: Create a Service
   win_service:
     name: '{{ service_name }}'
@@ -46,3 +46,8 @@
 
 # Set postgresql-odbc
 - include_tasks: odbc.yml
+
+- name: Start DBAccess Service
+  win_service:
+    name: '{{ service_name }}'
+    state: started

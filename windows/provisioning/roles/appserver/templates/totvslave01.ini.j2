@@ -8,6 +8,7 @@ LocalFiles={{local_files}}
 Localdbextension={{localdbextension}}
 PictFormat=Default
 StringCodePage=2
+x2_path=
 RpoDb={{rpodb}}
 RpoLanguage={{rpolanguage}}
 RpoVersion={{rpoversion}}
@@ -16,7 +17,6 @@ ThreadMemWarning={{ThreadMemWarning}}
 ThreadMemStep={{ThreadMemStep}}
 KillStack={{KillStack}}
 Trace={{Trace}}
-DBMemoMega={{DBMemoMega}}
 TOPMemoMega={{TOPMemoMega}}
 TraceStack={{TraceStack}}
 MaxLocks={{MaxLocks}}
@@ -28,7 +28,6 @@ AdvSQLReplayLogMaxSize={{AdvSQLReplayLogMaxSize}}
 LogProfilerPath={{slave01_LogProfilerPath}}
 StartSysInDB=1
 
-
 ;DBAccess
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064885
 [DBAccess]
@@ -36,8 +35,7 @@ Server= {{DBAccessServer}}
 Port={{dbaccess_port}}
 Database={{sgbd}}
 Alias={{alias}}
-Driver={{Driver}}
-MemoMega={{MemoMega}}
+PROTHEUSONLY=0
 
 ;Drivers
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064839
@@ -63,6 +61,8 @@ Port={{license_server_port}}
 ;General
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064796
 [General]
+CHECKSPECIALKEY=0
+InstallPath= {{app_path}}
 ConsoleLog={{ConsoleLog}}
 ChangeEncodingBehavior={{ChangeEncodingBehavior}}
 InactiveTimeout={{InactiveTimeout}}

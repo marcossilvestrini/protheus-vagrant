@@ -73,7 +73,6 @@ ThreadMemWarning: 1000
 ThreadMemStep: 100
 KillStack: 1
 Trace: 0
-DBMemoMega: 1
 TOPMemoMega: 1
 TraceStack: 1
 MaxLocks: 10000
@@ -87,8 +86,7 @@ AdvSQLReplayLogMaxSize: 536870912
 DBAccessServer: '{{ dbaccess_ip }}'
 Database: '{{ database }}'
 Alias: '{{ alias }}'
-Driver: dbapi.dll
-MemoMega: 1
+
 
 ## [Drivers]
 MultiProtocolPort: 0

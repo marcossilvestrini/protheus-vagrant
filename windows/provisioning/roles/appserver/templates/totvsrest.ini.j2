@@ -9,6 +9,7 @@ Localdbextension={{localdbextension}}
 PictFormat=Default
 StringCodePage=2
 RpoDb={{rpodb}}
+x2_path=
 RpoLanguage={{rpolanguage}}
 RpoVersion={{rpoversion}}
 DebugThreadUsedMemory={{DebugThreadUsedMemory}}
@@ -16,7 +17,6 @@ ThreadMemWarning={{ThreadMemWarning}}
 ThreadMemStep={{ThreadMemStep}}
 KillStack={{KillStack}}
 Trace={{Trace}}
-DBMemoMega={{DBMemoMega}}
 TOPMemoMega={{TOPMemoMega}}
 TraceStack={{TraceStack}}
 MaxLocks={{MaxLocks}}
@@ -35,8 +35,7 @@ Server= {{DBAccessServer}}
 Port={{dbaccess_port}}
 Database={{sgbd}}
 Alias={{alias}}
-Driver={{Driver}}
-MemoMega={{MemoMega}}
+PROTHEUSONLY=0
 
 ;Drivers
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064839
@@ -62,6 +61,8 @@ Port={{license_server_port}}
 ;General
 ;https://tdn.totvs.com/pages/viewpage.action?pageId=6064796
 [General]
+CHECKSPECIALKEY=0
+InstallPath= {{app_path}}
 ConsoleLog={{ConsoleLog}}
 ChangeEncodingBehavior={{ChangeEncodingBehavior}}
 InactiveTimeout={{InactiveTimeout}}

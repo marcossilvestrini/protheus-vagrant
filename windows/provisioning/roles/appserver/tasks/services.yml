@@ -1,29 +1,4 @@
 ---
-- name: Remove Broker Service
-  win_service:
-    name: '{{ broker_name }}'
-    state: absent
-
-- name: Remove Slave01 Service
-  win_service:
-    name: '{{ slave01_name }}'
-    state: absent
-
-- name: Remove Slave02 Service
-  win_service:
-    name: '{{ slave02_name }}'
-    state: absent
-
-- name: Remove Soap Service
-  win_service:
-    name: '{{ soap_name }}'
-    state: absent
-
-- name: Remove Rest Service
-  win_service:
-    name: '{{ rest_name }}'
-    state: absent
-
 - name: Create Broker service
   win_shell: |
     cd '{{ broker_path }}'
@@ -31,7 +6,7 @@
     $filter = 'Name=' + "'" + '{{ broker_name }}' + "'" + ''
     $service = Get-WMIObject -class Win32_Service -Filter $filter
 
-- name: Set the log on user to a '{{ user }}' account
+- name: Set the log on user to a '{{ user }}' in account Broker service
   win_service:
     name: '{{ broker_name}}'
     state: stopped

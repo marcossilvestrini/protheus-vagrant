@@ -1,4 +1,9 @@
 ---
+- name: Remove a Service
+  win_service:
+    name: '{{ service_name }}'
+    state: absent
+
 - name: Copy License Files
   win_copy:
     src: license.zip
@@ -23,11 +28,6 @@
     force: yes
     remote_src: yes
 
-- name: Remove a Service
-  win_service:
-    name: '{{ service_name }}'
-    state: absent
-
 - name: Create a Service
   win_service:
     name: '{{ service_name }}'
@@ -38,3 +38,8 @@
     start_mode: manual
     username: '{{ user }}'
     password: '{{ password }}'
+
+- name: Start License Service
+  win_service:
+    name: '{{ service_name }}'
+    state: started

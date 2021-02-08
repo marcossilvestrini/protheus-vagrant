@@ -1,16 +1,25 @@
 ---
-# - name: Remove a Service
-#   win_service:
-#     name: '{{ service_name }}'
-#     state: absent
+- name: Start Broker Service
+  win_service:
+    name: '{{ broker_name }}'
+    state: started
 
-# - name: Create a Service
-#   win_service:
-#     name: '{{ service_name }}'
-#     path: '{{ license_appserver_path }}\appserver_license.exe'
-#     display_name: '{{ service_name }}'
-#     description: 'TOTVS LICENSE SERVER'
-#     state: stopped
-#     start_mode: manual
-#     username: '{{ user }}'
-#     password: '{{ password }}'
+- name: Start Slave01 Service
+  win_service:
+    name: '{{ slave01_name }}'
+    state: started
+
+- name: Start Slave02 Service
+  win_service:
+    name: '{{ slave02_name }}'
+    state: started
+
+- name: Start Soap Service
+  win_service:
+    name: '{{ soap_name }}'
+    state: started
+
+- name: Start Rest Service
+  win_service:
+    name: '{{ rest_name }}'
+    state: started
