@@ -25,6 +25,7 @@
       'ShowSystemTables=0',
       'LFConversion=-1',
       'ShowOidColumn=0',
+      'UnknownSizes=2',
       'FakeOidIndex=0',
       'UseServerSidePrepare=-1',
       'Parse=0',
