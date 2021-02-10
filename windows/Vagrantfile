@@ -47,19 +47,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.cpus = 3
     end
 
-    # # PROVISION
-    # # SSH,FIREWALLD AND SELINUX
-    # protheus_db.vm.provision "shell", inline: <<-SHELL
-    #   cat /security/id_rsa.pub >> .ssh/authorized_keys
-    #   sudo systemctl stop firewalld
-    #   sudo systemctl disable firewalld
-    #   sudo setenforce Permissive
-    # SHELL
+    # PROVISION
+    # SSH,FIREWALLD AND SELINUX
+    protheus_db.vm.provision "shell", inline: <<-SHELL
+      cat /security/id_rsa.pub >> .ssh/authorized_keys
+      sudo systemctl stop firewalld
+      sudo systemctl disable firewalld
+      sudo setenforce Permissive
+    SHELL
 
-    # # PACKAGES FOR PROVISION
-    # protheus_db.vm.provision "shell", inline: <<-SHELL
-    #   dnf install python3 -y
-    # SHELL
+    # PACKAGES FOR PROVISION
+    protheus_db.vm.provision "shell", inline: <<-SHELL
+      dnf install python3 -y
+    SHELL
 
   end
 
@@ -105,8 +105,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # PROVISION
 
-    # # SETUP ANSIBLE
-    # protheus_app.vm.provision "shell", path: "scripts/setup_ansible.ps1"
+    # SETUP ANSIBLE
+    protheus_app.vm.provision "shell", path: "scripts/setup_ansible.ps1"
 
     # PROVISIONING ANSIBLE
     protheus_app.vm.provision "ansible" do |ansible|
