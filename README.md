@@ -61,7 +61,7 @@ RAM: 4GB
 
 ## Stack Version
 
-Database: PostgreSQL 9.2\
+Database: PostgreSQL 10.15\
 Protheus: 12.1.27
 
 ## Install Vagrant
