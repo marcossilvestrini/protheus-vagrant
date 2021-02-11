@@ -167,3 +167,14 @@ This role configure binaries for:\
 ### jenkins
 
 Optional role for create and configure jenkins node in host
+
+## Bugs
+
+### Error in the  initialization enviroment in windows
+
+Error:\
+THREAD ERROR ([3728], marcos.silvestrini, SILVESTRINI)   11/02/2021   21:31:57\
+TC_Open - NO CONNECTION on FWTABLEDDL:OPENTABLE(FWTABLEDDL.PRX) 13/10/2020 16:57:59\
+
+Solution:\
+Alter the odbc param UnknownSizes for longest or maximum in System DSN, restart all services and try it again
