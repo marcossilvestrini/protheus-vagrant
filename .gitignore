@@ -2,6 +2,7 @@
 **/.vscode
 **/.log
 **/.vagrant
+workspace.code-vagrant-protheus.code-workspace
 
 #security
 **/authorized_keys
